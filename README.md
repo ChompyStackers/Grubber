@@ -108,12 +108,6 @@ rails db:setup
 rails s
 ```
 
-See what is available already in the application.
-- What can a USER do? 
-  - Sign in/out 
-
-- What views (pages, components) are available?
-  - See a home, Edit, Index, New, and Show page 
 
 ## 🏡 Restaurant Resource    
 The Devise User model is going to have an association with the Restaurant model. In this situation, the User will have many Restaurants and the Restaurants will belong to a User.

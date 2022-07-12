@@ -1,5 +1,7 @@
 import React from "react"
-import PropTypes from "prop-types"
+import AboutUs from "./pages/AboutUs"
+import NotFound from "./pages/NotFound"
+import Home from "./pages/Home"
 import {
   BrowserRouter as  Router,
   Route,
@@ -9,8 +11,13 @@ import {
 class App extends React.Component {
   render () {
     return (
-      <React.Fragment>
-      </React.Fragment>
+      <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/AboutUs" component={AboutUs} />
+        <Route component={NotFound}/>
+      </Switch>
+      </Router>
     );
   }
 }
