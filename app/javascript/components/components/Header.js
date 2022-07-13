@@ -28,6 +28,15 @@ export default class Header extends Component {
         });
       }  
   render() {
+    const {
+      logged_in,
+      current_user,
+      new_user_route,
+      sign_in_route,
+      sign_out_route
+    } = this.props
+
+    console.log("current_user", sign_in_route)
     return (
         <div>
         <Navbar color="dark" light expand="md">
@@ -40,16 +49,34 @@ export default class Header extends Component {
                 <img src={Hamburgericon} />
                 </DropdownToggle>
                 <DropdownMenu end>
-                  <DropdownItem id="All restaurants">
+                <DropdownItem id="All restaurants" href='/restaurants'>
                    All Restaurants
                   </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem id="About Us">
+                  
+                  <DropdownItem id="About Us" href='/AboutUs'>
                     About Us
                   </DropdownItem>
-                  <DropdownItem>
+                  <DropdownItem divider />
+                  {logged_in &&  
+                  <>
+                  <DropdownItem href='/restaurants/:id'>
+                    My Restaurants
+                  </DropdownItem>
+                  <DropdownItem href='/users/sign_out'>
                     Sign Out
                   </DropdownItem>
+                  </>
+                  }
+                  {!logged_in && 
+                  <>
+                 <DropdownItem href='/users/sign_in'>
+                    Sign In
+                    </DropdownItem>
+                   <DropdownItem href='/users/sign_up'>
+                    Sign Up
+                  </DropdownItem>
+                  </>
+                  }
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
