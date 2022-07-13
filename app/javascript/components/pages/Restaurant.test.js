@@ -8,15 +8,18 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 // Imports in the component we are going to be testing.
-import NotFound from './NotFound'
+import RestaurantNew from './RestaurantNew'
 
 //Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
 Enzyme.configure({adapter: new Adapter()})
 
-describe("When NotFound renders", () => {
-    it("displays a heading", () => {
-      const notfound = shallow(<NotFound />)
-      const notfoundHeading = notfound.find("div")
-      expect(notfoundHeading.length).toEqual(2)
+describe("When New renders", ()=>{
+    let newRender
+    beforeEach(() => {
+      newRender = shallow(<RestaurantNew />)
     })
-})
+    it("displays the new restaurant form", () => {
+      const newFormRender = newRender.find("Form")
+      expect(newFormRender.length).toEqual(1)
+    }) 
+  })
