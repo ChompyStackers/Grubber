@@ -28,6 +28,6 @@ describe("When Header renders", () => {
     })
     it("displays Dropdownlinks", () => {
       const dropdowns = headerRender.find("DropdownItem")
-      expect(dropdowns.length).toEqual(4)
+      expect(dropdowns.length).toEqual(5)
     })
 })

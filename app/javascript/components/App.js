@@ -4,6 +4,8 @@ import NotFound from "./pages/NotFound"
 import Home from "./pages/Home"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import RestaurantIndex from "./pages/RestaurantIndex"
+import RestaurantNew from "./pages/RestaurantNew"
 import PropTypes from "prop-types"
 import {
   BrowserRouter as  Router,
@@ -23,13 +25,15 @@ class App extends React.Component {
       .catch(errors => console.log("App.js createRestaurant errors:", errors))
   }
   render () {
+    const {current_user} = this.props
     return (
       <Router>
-        <Header/>
+        <Header {...this.props}/>
         <Switch>
-        <Route path="/restaurantnew"render={(props) => <RestaurantNew createRestaurant={this.createRestaurant} />} />
+          <Route path="/restaurantnew"render={(props) => <RestaurantNew createRestaurant={this.createRestaurant} />} />
           <Route exact path="/" component={Home} />
           <Route path="/AboutUs" component={AboutUs} />
+          <Route path="/allrestaurants" component={RestaurantIndex} />
           <Route component={NotFound}/>
         </Switch>
         <Footer/>
