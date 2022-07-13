@@ -22,8 +22,8 @@ describe("When Home renders", () => {
     })    
     it("renders a button", () => {
       const home = shallow(<Home />)
-      const homeHeading = home.find("button").text()
-      expect(homeHeading).toEqual("Randomize all Grub")
+      const homeHeading = home.find("button")
+      expect(homeHeading.length).toEqual(2)
      })
   })
 
