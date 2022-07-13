@@ -4,6 +4,7 @@ import NotFound from "./pages/NotFound"
 import Home from "./pages/Home"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import RestaurantIndex from "./pages/RestaurantIndex"
 import PropTypes from "prop-types"
 import {
   BrowserRouter as  Router,
@@ -20,6 +21,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/AboutUs" component={AboutUs} />
+          <Route path="/allrestaurants" component={RestaurantIndex} />
           <Route component={NotFound}/>
         </Switch>
         <Footer/>
