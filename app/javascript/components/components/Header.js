@@ -49,7 +49,7 @@ export default class Header extends Component {
                 <img src={Hamburgericon} />
                 </DropdownToggle>
                 <DropdownMenu end>
-                <DropdownItem id="All restaurants" href='/allrestaurants'>
+                <DropdownItem id="All restaurants" href='/restaurantindex'>
                    All Restaurants
                   </DropdownItem>
                   

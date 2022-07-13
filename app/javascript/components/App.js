@@ -24,6 +24,21 @@ class App extends React.Component {
       .then(restaurantArray => this.readRestaurant())
       .catch(errors => console.log("App.js createRestaurant errors:", errors))
   }
+  constructor(props){
+    super(props)
+    this.state = {
+      restaurants: []
+    }
+  }
+  componentDidMount(){
+    this.readRestaurant()
+  }
+  readRestaurant = () => {
+    fetch("/restaurants")
+    .then(response => response.json())
+    .then(payload => this.setState({restaurants: payload}))
+    .catch(errors => console.log("Restaurant Read Errors:", errors))
+  }
   render () {
     const {current_user} = this.props
     return (
@@ -33,7 +48,7 @@ class App extends React.Component {
           <Route path="/restaurantnew"render={(props) => <RestaurantNew createRestaurant={this.createRestaurant} />} />
           <Route exact path="/" component={Home} />
           <Route path="/AboutUs" component={AboutUs} />
-          <Route path="/allrestaurants" component={RestaurantIndex} />
+          <Route path="/restaurantindex" render={props => <RestaurantIndex restaurants={this.state.restaurants}/>} />
           <Route component={NotFound}/>
         </Switch>
         <Footer/>
