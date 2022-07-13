@@ -14,9 +14,9 @@ import AboutUs from './AboutUs'
 Enzyme.configure({adapter: new Adapter()})
 
 describe("When AboutUs renders", () => {
-    it("displays a heading", () => {
+    it("displays an image", () => {
       const aboutus = shallow(<AboutUs />)
-      const aboutusHeading = aboutus.find("div").text()
-      expect(aboutusHeading).toEqual("AboutUs")
+      const aboutusHeading = aboutus.find("div")
+      expect(aboutusHeading.text()).toEqual("AboutUs<CardGroup />")
     })
   })

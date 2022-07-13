@@ -21,8 +21,8 @@ export default class AboutUs extends Component {
                     <CardTitle>Jorge Linares</CardTitle>
                     <CardSubtitle>Add your position/title in this section</CardSubtitle>
                     <CardText>Add your about me in this section.</CardText>
-                    <NavLink href="https://github.com/ChompyStackers/Grubber" >LinkedIn</NavLink>
-                    <NavLink href="https://github.com/ChompyStackers/Grubber">GitHub</NavLink>
+                    <NavLink href="https://github.com/ChompyStackers/Grubber" target ="_blank">LinkedIn</NavLink>
+                    <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">GitHub</NavLink>
                     </CardBody>
                 </Card>
 {/* Frank about me */}
@@ -32,8 +32,8 @@ export default class AboutUs extends Component {
                     <CardTitle>Francisco Rivera</CardTitle>
                     <CardSubtitle>Add your position/title in this section</CardSubtitle>
                     <CardText>Add your about me in this section.</CardText>
-                    <NavLink href="https://github.com/ChompyStackers/Grubber">LinkedIn</NavLink>
-                    <NavLink href="https://github.com/ChompyStackers/Grubber">GitHub</NavLink>
+                    <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">LinkedIn</NavLink>
+                    <NavLink href="https://github.com/ChompyStackers/Grubber" target='_blank'>GitHub</NavLink>
                     </CardBody>
                 </Card>
 {/* JB about me */}
@@ -43,8 +43,8 @@ export default class AboutUs extends Component {
                     <CardTitle>JB</CardTitle>
                     <CardSubtitle>Add your position/title in this section</CardSubtitle>
                     <CardText>Add your about me in this section.</CardText>
-                    <NavLink href="https://github.com/ChompyStackers/Grubber">LinkedIn</NavLink>
-                    <NavLink href="https://github.com/ChompyStackers/Grubber">GitHub</NavLink>
+                    <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">LinkedIn</NavLink>
+                    <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">GitHub</NavLink>
                     </CardBody>
                 </Card>
 {/* Stephen about me */}
@@ -54,8 +54,8 @@ export default class AboutUs extends Component {
                     <CardTitle>Stephen O'Marrah</CardTitle>
                     <CardSubtitle>Add your position/title in this section</CardSubtitle>
                     <CardText>Add your about me in this section.</CardText>
-                    <NavLink href="https://github.com/ChompyStackers/Grubber">LinkedIn</NavLink>
-                    <NavLink href="https://github.com/ChompyStackers/Grubber">GitHub</NavLink>
+                    <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">LinkedIn</NavLink>
+                    <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">GitHub</NavLink>
                     </CardBody>
                 </Card>
 
