@@ -12,7 +12,15 @@ import {
 } from 'react-router-dom'
 
 class App extends React.Component {
-  createRestaurant = (restaurant) => {
+  createRestaurant = (newRestaurant) => {
+      fetch("/restaurants", {
+        body: JSON.stringify(newRestaurant),
+        headers: {"Content-Type": "application/json"},
+        method: "POST"
+      })
+      .then(response => response.json())
+      .then(restaurantArray => this.readRestaurant())
+      .catch(errors => console.log("App.js createRestaurant errors:", errors))
   }
   render () {
     return (
