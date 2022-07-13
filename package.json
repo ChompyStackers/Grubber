@@ -18,7 +18,13 @@
   "devDependencies": {
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
+    "identity-obj-proxy": "^3.0.0",
     "react-test-renderer": "^18.2.0",
     "webpack-dev-server": "^3"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
+    }
   }
 }
