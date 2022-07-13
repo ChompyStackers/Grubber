@@ -7,17 +7,15 @@ class RestaurantsController < ApplicationController
 
     def create
         restaurant = Restaurant.create(restaurant_params)
-        render json: restaurant
-    end
-
-    def update
-    end
-
-    def destroy
+        if restaurant.valid?
+            render json: restaurant
+        else
+            render json: restaurant.errors, status: 422
+        end
     end
 
     private
-    def cat_params
-      params.require(:cat).permit(:name, :age, :enjoys, :image)
+    def restaurant_params
+      params.require(:restaurant).permit(:city, :state, :comment, :image)
     end
 end

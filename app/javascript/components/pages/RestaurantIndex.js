@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
-import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, 
+  CardImg, 
+  CardText, 
+  CardBody,
+  CardTitle, 
+  CardSubtitle, 
+  Button } from 'reactstrap';
   
 export default class RestaurantIndex extends Component {
-    
   render() {
     const mockData = [ 
         {name: "ABC", 
@@ -36,24 +40,22 @@ export default class RestaurantIndex extends Component {
         },
     ]
     return (
-        <div>
-           { mockData.map(( object , index) => { 
+      <div>
+      { mockData.map(( object , index) => { 
             return(
-                <Card>
+              <Card key={index}>
                 <CardImg top id="cardimage"src={object.image} alt="Card image cap" />
                 <CardBody>
                   <CardTitle>{object.name}</CardTitle>
                   <CardSubtitle>{object.street}, {object.city}, {object.state}</CardSubtitle>
                   <CardText>{object.foodType}</CardText>
                   <CardText>{object.comment}</CardText>
-                             
                   <Button>Button</Button>
                 </CardBody>
               </Card>
-        )})}
-     
-    </div>
-      
+        )})
+      }
+      </div>
     )
   }
 }
