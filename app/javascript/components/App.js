@@ -12,18 +12,19 @@ import {
 } from 'react-router-dom'
 
 class App extends React.Component {
+  createRestaurant = (restaurant) => {
+  }
   render () {
     return (
       <Router>
+        <Header/>
         <Switch>
+        <Route path="/restaurantnew"render={(props) => <RestaurantNew createRestaurant={this.createRestaurant} />} />
           <Route exact path="/" component={Home} />
           <Route path="/AboutUs" component={AboutUs} />
           <Route component={NotFound}/>
-            <React.Fragment>
-              <Header/>
-              <Footer/>
-            </React.Fragment>
         </Switch>
+        <Footer/>
       </Router>
     );
   }
