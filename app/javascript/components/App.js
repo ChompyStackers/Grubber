@@ -1,5 +1,6 @@
 import React from "react"
 import Header from "./components/Header"
+import Footer from "./components/Footer"
 import PropTypes from "prop-types"
 import {
   BrowserRouter as  Router,
@@ -12,7 +13,9 @@ class App extends React.Component {
     return (
       <React.Fragment>
       <Header/>
+      <Footer/>
       </React.Fragment>
+
     );
   }
 }
