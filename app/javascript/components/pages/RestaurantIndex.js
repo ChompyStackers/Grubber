@@ -5,48 +5,18 @@ import { Card, CardImg, CardText, CardBody,
 export default class RestaurantIndex extends Component {
     
   render() {
-    const mockData = [ 
-        {name: "ABC", 
-        street: "123 Ash St.",
-        city: "San Diego",
-        state: "CA",
-        foodType: "Italian",
-        comment: "Decent, 2 out of 5 stars.",
-        image: "https://newdenizen.com/wp-content/uploads/2019/06/lasagna-coperta.jpg"
-
-        },
-
-        {name: "kimiko", 
-        street: "123 Ash St.",
-        city: "San Diego",
-        state: "CA",
-        foodType: "Japanese",
-        comment: "Decent, 2 out of 5 stars.",
-        image: "https://newdenizen.com/wp-content/uploads/2019/06/lasagna-coperta.jpg"
-
-        },
-        {name: "Alberto's", 
-        street: "123 Ash St.",
-        city: "San Diego",
-        state: "CA",
-        foodType: "Mexican",
-        comment: "Decent, 2 out of 5 stars.",
-        image: "https://newdenizen.com/wp-content/uploads/2019/06/lasagna-coperta.jpg"
-
-        },
-    ]
+    const {restaurants} = this.props
     return (
         <div>
-           { mockData.map(( object , index) => { 
+           { restaurants.map(( object , index) => { 
             return(
-                <Card>
+                <Card key={index}>
                 <CardImg top id="cardimage"src={object.image} alt="Card image cap" />
                 <CardBody>
                   <CardTitle>{object.name}</CardTitle>
-                  <CardSubtitle>{object.street}, {object.city}, {object.state}</CardSubtitle>
-                  <CardText>{object.foodType}</CardText>
-                  <CardText>{object.comment}</CardText>
-                             
+                  <CardSubtitle>Location: {object.street}, {object.city}, {object.state}</CardSubtitle>
+                  <CardText>Type: {object.foodType}</CardText>
+                  <CardText>{object.comment}</CardText>      
                   <Button>Button</Button>
                 </CardBody>
               </Card>

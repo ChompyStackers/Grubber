@@ -14,27 +14,25 @@ import RestaurantIndex from './RestaurantIndex'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe("When restaurantIndex renders", () => {
-    // const props = {
-    //     mockData: [
-    //         {name: "kimiko", 
-    //     street: "123 Ash St.",
-    //     city: "San Diego",
-    //     state: "CA",
-    //     foodType: "Japanese",
-    //     comment: "Decent, 2 out of 5 stars.",
-    //     image: "https://newdenizen.com/wp-content/uploads/2019/06/lasagna-coperta.jpg"
-
-    //     }
-
-    //     ]
-    // } saving this portion for when have the database working to pass props
+    const props = {
+        restaurants: [
+          {name: "kimiko", 
+          street: "123 Ash St.",
+          city: "San Diego",
+          state: "CA",
+          foodType: "Japanese",
+          comment: "Decent, 2 out of 5 stars.",
+          image: "https://newdenizen.com/wp-content/uploads/2019/06/lasagna-coperta.jpg"
+          }
+        ]
+    }
 
     let indexRender
     beforeEach(() => {
-      indexRender = shallow(<RestaurantIndex />)
+      indexRender = shallow(<RestaurantIndex {...props}/>)
     })
     it("displays a card", () => {
       const card = indexRender.find("Card")
-      expect(card.length).toEqual(3)
+      expect(card.length).toEqual(1)
     })
 })
