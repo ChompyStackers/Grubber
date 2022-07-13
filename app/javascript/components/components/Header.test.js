@@ -18,9 +18,16 @@ describe("When Header renders", () => {
     beforeEach(() => {
       headerRender = shallow(<Header />)
     })
-    it("displays a heading", () => {
+    it("displays a title", () => {
       const title = headerRender.find("NavbarBrand")
-      // console.log("greeting", greeting.debug()); 
-      expect(title.text).toEqual("Grubber")
-  })
+      expect(title.props().children).toEqual("Grubber")
+    })
+    it("displays a image", () => {
+      const hamburgericon = headerRender.find("img")
+      expect(hamburgericon.length).toEqual(1)
+    })
+    it("displays Dropdownlinks", () => {
+      const dropdowns = headerRender.find("DropdownItem")
+      expect(dropdowns.length).toEqual(4)
+    })
 })

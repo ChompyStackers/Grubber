@@ -37,15 +37,15 @@ export default class Header extends Component {
             <Nav className="ml-auto" navbar>
                <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  < img src = {Hamburgericon} />
+                <img src={Hamburgericon} />
                 </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                   All restaurants
+                <DropdownMenu end>
+                  <DropdownItem id="All restaurants">
+                   All Restaurants
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>
-                    My Restaurants
+                  <DropdownItem id="About Us">
+                    About Us
                   </DropdownItem>
                   <DropdownItem>
                     Sign Out
