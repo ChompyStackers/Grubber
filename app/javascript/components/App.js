@@ -32,11 +32,13 @@ class App extends React.Component {
     createRestaurant = (newRestaurant) => {
       fetch("/restaurants", {
         body: JSON.stringify(newRestaurant),
-        headers: {"Content-Type": "application/json"},
+        headers: {
+          "Content-Type": "application/json"
+        },
         method: "POST"
       })
       .then(response => response.json())
-      .then(restaurantArray => this.readRestaurant())
+      .then(payload => this.readRestaurant())
       .catch(errors => console.log("App.js createRestaurant errors:", errors))
   }
 
@@ -46,12 +48,11 @@ class App extends React.Component {
       <Router>
         <Header {...this.props}/>
         <Switch>
-          <Route path="/restaurantnew"render={(props) => <RestaurantNew createRestaurant={this.createRestaurant} />} />
           <Route exact path="/" component={Home} />
           <Route path="/AboutUs" component={AboutUs} />
           <Route path="/restaurantindex" render={props => <RestaurantIndex restaurants={this.state.restaurants}/>} />
-          <Route component={NotFound}/>
-          <Route path="/restaurantnew" render = {props => <RestaurantNew {...this.props}/>}/>          
+          <Route path="/restaurantnew" render={(props) => <RestaurantNew createRestaurant={this.createRestaurant} />} />
+          <Route component={NotFound}/>        
           <Route path="/restaurantedit" component={RestaurantShow} />
         </Switch>
         <Footer/>

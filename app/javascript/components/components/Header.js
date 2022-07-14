@@ -34,8 +34,7 @@ export default class Header extends Component {
       sign_in_route,
       sign_out_route
     } = this.props
-
-    console.log("current_user", sign_in_route)
+    console.log("this is the current user", current_user)
     return (
         <div>
         <Navbar color="dark" light expand="md">
