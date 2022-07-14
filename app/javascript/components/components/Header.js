@@ -16,7 +16,6 @@ import {
 export default class Header extends Component {
     constructor(props) {
         super(props);
-    
         this.toggle = this.toggle.bind(this);
         this.state = {
           isOpen: false
@@ -62,6 +61,10 @@ export default class Header extends Component {
                   <DropdownItem href='/restaurants/:id'>
                     My Restaurants
                   </DropdownItem>
+                  <DropdownItem href='/restaurantnew'>
+                    New Restaurant
+                  </DropdownItem>
+
                   <DropdownItem href='/users/sign_out'>
                     Sign Out
                   </DropdownItem>
