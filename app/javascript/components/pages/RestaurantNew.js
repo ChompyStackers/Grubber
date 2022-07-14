@@ -17,12 +17,20 @@ export default class RestaurantNew extends Component {
             street:"", 
             city:"", 
             state:"", 
-            foodType:"", 
+            foodtype:"", 
             comment:"", 
-            image:""
+            image:"",
+            // user_id:current_user.id
           },
           submitted: false
         }
+        // const {
+        //   logged_in,
+        //   current_user,
+        //   new_user_route,
+        //   sign_in_route,
+        //   sign_out_route
+        // } = this.props  
       }
       handleChange = (e) => {
         let { newRestaurant } = this.state
@@ -33,7 +41,9 @@ export default class RestaurantNew extends Component {
         this.props.createRestaurant(this.state.newRestaurant)
         this.setState({submitted: true})
       }
+      
   render() {
+    console.log("this is the current user", this.props.current_user)
     return (
         <Form>
         <FormGroup>

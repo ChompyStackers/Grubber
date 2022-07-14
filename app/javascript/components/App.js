@@ -51,11 +51,7 @@ class App extends React.Component {
           <Route path="/AboutUs" component={AboutUs} />
           <Route path="/restaurantindex" render={props => <RestaurantIndex restaurants={this.state.restaurants}/>} />
           <Route component={NotFound}/>
-          <Route path="/restaurantshow/:id" render={(props) => {
-            let id = props.match.params.id
-            let restaurant = this.state.restaurants.find(restaurant => restaurant.id == +id)
-            return <RestaurantShow restaurant={restaurant} />
-          }} />          
+          <Route path="/restaurantnew" render = {props => <RestaurantNew {...this.props}/>}/>          
           <Route path="/restaurantedit" component={RestaurantShow} />
         </Switch>
         <Footer/>

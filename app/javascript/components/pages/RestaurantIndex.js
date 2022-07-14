@@ -12,9 +12,9 @@ export default class RestaurantIndex extends Component {
     const {restaurants} = this.props
     return (
        <div>
-        { restaurants.map((restaurant) => { 
+        { restaurants.map((restaurant, index) => { 
           return(
-          <Card key={restaurant.id}>
+          <Card key={index}>
           <CardImg top id="cardimage"src={restaurant.image} alt="Card image cap" />
           <CardBody>
             <CardTitle>{restaurant.name}</CardTitle>
