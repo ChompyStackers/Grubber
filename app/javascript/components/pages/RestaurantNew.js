@@ -13,7 +13,7 @@ export default class RestaurantNew extends Component {
         super(props)
         this.state = {
           newRestaurant: {
-            // name:"", 
+            name:"", 
             street:"", 
             city:"", 
             state:"", 
