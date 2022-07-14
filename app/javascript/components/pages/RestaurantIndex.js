@@ -12,15 +12,15 @@ export default class RestaurantIndex extends Component {
     const {restaurants} = this.props
     return (
        <div>
-        { restaurants.map(( object , index) => { 
+        { restaurants.map((restaurant) => { 
           return(
-          <Card key={index}>
-          <CardImg top id="cardimage"src={object.image} alt="Card image cap" />
+          <Card key={restaurant.id}>
+          <CardImg top id="cardimage"src={restaurant.image} alt="Card image cap" />
           <CardBody>
-            <CardTitle>{object.name}</CardTitle>
-            <CardSubtitle>Location: {object.street}, {object.city}, {object.state}</CardSubtitle>
-            <CardText>Type: {object.foodType}</CardText>
-            <CardText>{object.comment}</CardText>      
+            <CardTitle>{restaurant.name}</CardTitle>
+            <CardSubtitle>Location: {restaurant.street}, {restaurant.city}, {restaurant.state}</CardSubtitle>
+            <CardText>Type: {restaurant.foodtype}</CardText>
+            <CardText>{restaurant.comment}</CardText>      
             <Button>Button</Button>
           </CardBody>
           </Card>
