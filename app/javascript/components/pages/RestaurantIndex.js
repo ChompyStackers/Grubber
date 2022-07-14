@@ -1,27 +1,33 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 import { Card, 
   CardImg, 
   CardText, 
   CardBody,
   CardTitle, 
   CardSubtitle, 
-  Button } from 'reactstrap';
+  Button
+} from 'reactstrap';
   
 export default class RestaurantIndex extends Component {
   render() {
     const {restaurants} = this.props
     return (
        <div>
-        { restaurants.map(( object , index) => { 
+        { restaurants.map(( restaurant , index) => { 
           return(
           <Card key={index}>
-          <CardImg top id="cardimage"src={object.image} alt="Card image cap" />
+          <CardImg top id="cardimage"src={restaurant.image} alt="Card image cap" />
           <CardBody>
-            <CardTitle>{object.name}</CardTitle>
-            <CardSubtitle>Location: {object.street}, {object.city}, {object.state}</CardSubtitle>
-            <CardText>Type: {object.foodType}</CardText>
-            <CardText>{object.comment}</CardText>      
-            <Button>Button</Button>
+            <CardTitle>{restaurant.name}</CardTitle>
+            <CardSubtitle>Location: {restaurant.street}, {restaurant.city}, {restaurant.state}</CardSubtitle>
+            <CardText>Type: {restaurant.foodType}</CardText>
+            <CardText>{restaurant.comment}</CardText>   
+
+            <NavLink to={`/restaurantshow/${restaurant.id}`}>
+              <Button>More Info </Button>
+            </NavLink>
+
           </CardBody>
           </Card>
         )})

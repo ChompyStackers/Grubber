@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
 import {
     Form,
     FormGroup,
@@ -8,23 +7,10 @@ import {
     Button
   } from 'reactstrap'
 
-export default class RestaurantNew extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-          newRestaurant: {
-            name:"", 
-            street:"", 
-            city:"", 
-            state:"", 
-            foodType:"", 
-            comment:"", 
-            image:""
-          },
-          submitted: false
-        }
-      }
-      handleChange = (e) => {
+
+export default class RestaurantShow extends Component {
+ 
+    handleChange = (e) => {
         let { newRestaurant } = this.state
         newRestaurant[e.target.name] = e.target.value
         this.setState({newRestaurant: newRestaurant})
@@ -33,12 +19,19 @@ export default class RestaurantNew extends Component {
         this.props.createRestaurant(this.state.newRestaurant)
         this.setState({submitted: true})
       }
-  render() {
+ 
+ 
+    render() {
+    const { restaurant } = this.props
+  
     return (
-        <Form>
+  <>
+    <div>
+    <Form>
         <FormGroup>
             <Label>Name</Label>
             <Input
+            placeholder = "placeholder"
                 type="text"
                 name="name"
                 onChange={this.handleChange}
@@ -109,11 +102,17 @@ export default class RestaurantNew extends Component {
         <Button
           name="submit"
           onClick={this.handleSubmit}>
-          Create a New Restaurant
+          Update Restaurant
+        </Button>
+        <Button
+          name="submit"
+          onClick={this.handleSubmit}>
+          Delete Restaurant
         </Button>
         {this.state.submitted && <Redirect to="/restaurantindex" />}
       </Form>
+    </div>
+  </>
     )
-  }
+  } 
 }
-

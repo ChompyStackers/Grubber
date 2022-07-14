@@ -6,6 +6,7 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import RestaurantIndex from "./pages/RestaurantIndex"
 import RestaurantNew from "./pages/RestaurantNew"
+import RestaurantShow from "./pages/RestaurantShow"
 import PropTypes from "prop-types"
 import {
   BrowserRouter as  Router,
@@ -49,6 +50,16 @@ class App extends React.Component {
           <Route exact path="/" component={Home} />
           <Route path="/AboutUs" component={AboutUs} />
           <Route path="/restaurantindex" render={props => <RestaurantIndex restaurants={this.state.restaurants}/>} />
+
+
+          <Route path="/restaurantshow/:id" render={(props) => {
+            let id = props.match.params.id
+            let restaurant = this.state.restaurants.find(restaurant => restaurant.id == id)
+            return <RestaurantShow restaurant={restaurant} />
+            }} />
+
+
+
           <Route component={NotFound}/>
         </Switch>
         <Footer/>
