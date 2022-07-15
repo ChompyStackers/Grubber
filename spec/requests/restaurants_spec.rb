@@ -34,7 +34,7 @@ user = User.where(email: 'testing@example.com').first_or_create(password: '12345
         state: "CA",
         foodtype: "American",
         comment: "Great place to drink and eat", 
-        image: 'hello',
+        image: ' hello hello',
         user_id: user.id
         }
       }
@@ -194,6 +194,140 @@ post '/restaurants', params: restaurant
 expect(response).to have_http_status(422)
 restaurant= JSON.parse(response.body) 
 expect(restaurant['user_id']).to include "can't be blank"
+end
+
+it "does not allow a restaurant with a name of less than three characters" do
+
+  restaurant = {
+    restaurant:{
+    name: "nn",
+    street: "2986 Ivy Street",
+    city: 'Chicago',
+    state: "CA",
+    foodtype: "American",
+    comment: "Great place to drink and eat", 
+    image: 'hello hello',
+    user_id: user.id
+    }
+  }
+  post '/restaurants', params: restaurant
+  expect(response).to have_http_status(422)
+  restaurant= JSON.parse(response.body) 
+   expect(restaurant['name']).to include "is too short (minimum is 3 characters)"
+end
+it "does not allow a restaurant with a street of less than 3 characters" do
+
+  restaurant = {
+    restaurant:{
+    name: "Grubbers Bar&Grill",
+    street: "23",
+    city: 'Chicago',
+    state: "CA",
+    foodtype: "American",
+    comment: "Great place to drink and eat", 
+    image: 'hello hello',
+    user_id: user.id
+    }
+  }
+  post '/restaurants', params: restaurant
+  expect(response).to have_http_status(422)
+  restaurant= JSON.parse(response.body) 
+  expect(restaurant['street']).to include "is too short (minimum is 3 characters)"
+end
+it "does not allow a restaurant with a city of less than 3 characters" do
+
+  restaurant = {
+    restaurant:{
+    name: 'Grubbers Bar&Grill',
+    street: "2986 Ivy Street",
+    city: 'CO',
+    state: "CA",
+    foodtype: "American",
+    comment: "Great place to drink and eat", 
+    image: 'hello hello',
+    user_id: user.id
+    }
+  }
+post '/restaurants', params: restaurant
+expect(response).to have_http_status(422)
+restaurant= JSON.parse(response.body) 
+expect(restaurant['city']).to include "is too short (minimum is 3 characters)"
+end
+it "does not allow a restaurant with a state of less than 2 characters" do
+
+  restaurant = {
+    restaurant:{
+    name: 'Grubbers Bar&Grill',
+    street: "2986 Ivy Street",
+    city: 'Chicago',
+    state: "V",
+    foodtype: "American",
+    comment: "Great place to drink and eat", 
+    image: 'hello hello',
+    user_id: user.id
+    }
+  }
+post '/restaurants', params: restaurant
+expect(response).to have_http_status(422)
+restaurant= JSON.parse(response.body) 
+expect(restaurant['state']).to include "is too short (minimum is 2 characters)"
+end
+it "does not allow a restaurant with a food type of less than 3 characters" do
+
+restaurant = {
+restaurant:{
+name: 'Grubbers Bar&Grill',
+street: "2986 Ivy Street",
+city: 'Chicago',
+state: "CA",
+foodtype: "cc",
+comment: "Great place to drink and eat", 
+image: 'hello hello',
+user_id: user.id
+}
+}
+post '/restaurants', params: restaurant
+expect(response).to have_http_status(422)
+restaurant= JSON.parse(response.body) 
+expect(restaurant['foodtype']).to include "is too short (minimum is 3 characters)"
+end
+it "does not allow a restaurant with a comment of less than 3 characters" do
+
+restaurant = {
+restaurant:{
+name: 'Grubbers Bar&Grill',
+street: "2986 Ivy Street",
+city: 'Chicago',
+state: "CA",
+foodtype: "American",
+comment: "mm", 
+image: 'hello hello',
+user_id: user.id
+}
+}
+post '/restaurants', params: restaurant
+expect(response).to have_http_status(422)
+restaurant= JSON.parse(response.body) 
+expect(restaurant['comment']).to include "is too short (minimum is 3 characters)"
+end
+it "does not allow a restaurant with an image of less than 8 characters" do
+
+restaurant = {
+restaurant:{
+name: 'Grubbers Bar&Grill',
+street: "2986 Ivy Street",
+city: 'Chicago',
+state: "CA",
+foodtype: "American",
+comment: "Great place to drink and eat", 
+image: 'hello ',
+user_id: user.id
+}
+}
+post '/restaurants', params: restaurant
+expect(response).to have_http_status(422)
+restaurant= JSON.parse(response.body) 
+expect(restaurant['image']).to include "is too short (minimum is 8 characters)"
 end
 
 
