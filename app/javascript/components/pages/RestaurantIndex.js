@@ -14,14 +14,14 @@ export default class RestaurantIndex extends Component {
     const {restaurants} = this.props
     return (
        <div>
-        { restaurants.map(( restaurant , index) => { 
+        { restaurants.map((restaurant) => { 
           return(
-          <Card key={index}>
+          <Card key={restaurant.id}>
           <CardImg top id="cardimage"src={restaurant.image} alt="Card image cap" />
           <CardBody>
             <CardTitle>{restaurant.name}</CardTitle>
             <CardSubtitle>Location: {restaurant.street}, {restaurant.city}, {restaurant.state}</CardSubtitle>
-            <CardText>Type: {restaurant.foodType}</CardText>
+            <CardText>Type: {restaurant.foodtype}</CardText>
             <CardText>{restaurant.comment}</CardText>   
 
             <NavLink to={`/restaurantshow/${restaurant.id}`}>
