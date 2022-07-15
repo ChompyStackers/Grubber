@@ -52,7 +52,7 @@ export default class AboutUs extends Component {
                     <CardImg top width="100%" src="https://avatars.githubusercontent.com/u/101531285?v=4" alt="designigator" />
                     <CardBody>
                     <CardTitle>Stephen O'Marrah</CardTitle>
-                    <CardSubtitle>Add your position/title in this section</CardSubtitle>
+                    <CardSubtitle>Grub Design Lead</CardSubtitle>
                     <CardText>Grub Design Lead</CardText>
                     <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">LinkedIn</NavLink>
                     <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">GitHub</NavLink>

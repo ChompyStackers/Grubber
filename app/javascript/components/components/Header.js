@@ -16,7 +16,6 @@ import {
 export default class Header extends Component {
     constructor(props) {
         super(props);
-    
         this.toggle = this.toggle.bind(this);
         this.state = {
           isOpen: false
@@ -35,8 +34,7 @@ export default class Header extends Component {
       sign_in_route,
       sign_out_route
     } = this.props
-
-    console.log("current_user", sign_in_route)
+    console.log("this is the current user", current_user)
     return (
         <div>
         <Navbar color="dark" light expand="md">
@@ -62,6 +60,10 @@ export default class Header extends Component {
                   <DropdownItem href='/restaurants/:id'>
                     My Restaurants
                   </DropdownItem>
+                  <DropdownItem href='/restaurantnew'>
+                    New Restaurant
+                  </DropdownItem>
+
                   <DropdownItem href='/users/sign_out'>
                     Sign Out
                   </DropdownItem>
