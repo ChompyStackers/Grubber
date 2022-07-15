@@ -57,7 +57,7 @@ export default class Header extends Component {
                   <DropdownItem divider />
                   {logged_in &&  
                   <>
-                  <DropdownItem href='/restaurants/:id'>
+                  <DropdownItem href='/myrestaurants'>
                     My Restaurants
                   </DropdownItem>
                   <DropdownItem href='/restaurantnew'>

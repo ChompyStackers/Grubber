@@ -7,6 +7,7 @@ import Footer from "./components/Footer"
 import RestaurantIndex from "./pages/RestaurantIndex"
 import RestaurantNew from "./pages/RestaurantNew"
 import RestaurantShow from './pages/RestaurantShow'
+import RestaurantIndexProtected from './pages/RestaurantIndexProtected'
 import {
   BrowserRouter as  Router,
   Route,
@@ -63,18 +64,14 @@ class App extends React.Component {
           <Route exact path="/" component={Home} />
           <Route path="/AboutUs" component={AboutUs} />
           <Route path="/restaurantindex" render={props => <RestaurantIndex restaurants={this.state.restaurants}/>} />
-
-
+          <Route path="/myrestaurants" render={props => <RestaurantIndexProtected restaurants={this.state.restaurants} {...this.props}/>} />
           <Route path="/restaurantshow/:id" render={(props) => {
             let id = props.match.params.id
             let restaurant = this.state.restaurants.find(restaurant => restaurant.id == id)
             return <RestaurantShow restaurant={restaurant} id={id} updateRestaurant={this.updateRestaurant}/>
             }} />
-
-
-
-          <Route component={NotFound}/>       
           <Route path="/restaurantnew" render={(props) => <RestaurantNew createRestaurant={this.createRestaurant} />} />
+          <Route component={NotFound}/>       
         </Switch>
         <Footer/>
       </Router>

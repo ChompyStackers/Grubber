@@ -22,12 +22,7 @@ export default class RestaurantIndex extends Component {
             <CardTitle>{restaurant.name}</CardTitle>
             <CardSubtitle>Location: {restaurant.street}, {restaurant.city}, {restaurant.state}</CardSubtitle>
             <CardText>Type: {restaurant.foodtype}</CardText>
-            <CardText>{restaurant.comment}</CardText>   
-
-            <NavLink to={`/restaurantshow/${restaurant.id}`}>
-              <Button>More Info </Button>
-            </NavLink>
-
+            <CardText>{restaurant.comment}</CardText>  
           </CardBody>
           </Card>
         )})
