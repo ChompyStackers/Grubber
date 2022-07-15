@@ -20,7 +20,8 @@ export default class RestaurantNew extends Component {
             state:"", 
             foodtype:"", 
             comment:"", 
-            image:""
+            image:"",
+            user_id: this.props.current_user.id
           },
           submitted: false
         }
@@ -32,12 +33,21 @@ export default class RestaurantNew extends Component {
         this.setState({restaurant: restaurant})
       }
       handleSubmit = () => {
+        console.log("restaurant object:", this.state.restaurant)
         this.props.createRestaurant(this.state.restaurant)
         this.setState({submitted: true})
       }
       
       
   render() { 
+    const {
+      logged_in,
+      current_user,
+      new_user_route,
+      sign_in_route,
+      sign_out_route
+    } = this.props
+   
     return (
         <Form>
         <FormGroup>
