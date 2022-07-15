@@ -23,6 +23,12 @@ class RestaurantsController < ApplicationController
         end
     end
 
+    def destroy
+        restaurant = Restaurant.find(params[:id])
+        restaurant.destroy
+        render json: restaurant
+    end    
+
     private
     def restaurant_params
       params.require(:restaurant).permit(:name, :street, :city, :state, :foodtype, :comment, :image)

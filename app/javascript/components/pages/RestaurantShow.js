@@ -33,7 +33,10 @@ export default class RestaurantShow extends Component {
       this.props.updateRestaurant(this.state.editRestaurant, this.props.id)
       this.setState({submitted: true})
     }
- 
+    handleDelete = () => {
+      this.props.deleteRestaurant(this.props.id)
+      this.setState({submitted: true})
+    }
  
     render() {
     const { restaurant } = this.props
@@ -127,7 +130,7 @@ export default class RestaurantShow extends Component {
         </Button>
         <Button
           name="submit"
-          onClick={e=>console.log('delete')}>
+          onClick={this.handleDelete}>
           Delete Restaurant
         </Button>
         {this.state.submitted && <Redirect to="/restaurantindex" />}

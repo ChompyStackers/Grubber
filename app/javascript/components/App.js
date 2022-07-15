@@ -54,6 +54,17 @@ class App extends React.Component {
       .then(payload => this.readRestaurant())
       .catch(errors => console.log("Restaurant read errors:", errors))
     }
+    deleteRestaurant = (Restaurantid) => {
+      fetch(`/restaurants/${Restaurantid}`, {
+        headers: {
+          "Content-Type" : "application/json"
+        },
+        method: "DELETE"
+      })
+      .then(response => response.json())
+      .then(payload => this.readRestaurant())
+      .catch(errors => console.log("Restaurant read errors:", errors))
+    }
 
   render () {
    
@@ -68,7 +79,8 @@ class App extends React.Component {
           <Route path="/restaurantshow/:id" render={(props) => {
             let id = props.match.params.id
             let restaurant = this.state.restaurants.find(restaurant => restaurant.id == id)
-            return <RestaurantShow restaurant={restaurant} id={id} updateRestaurant={this.updateRestaurant}/>
+            return <RestaurantShow restaurant={restaurant} id={id} updateRestaurant={this.updateRestaurant} deleteRestaurant={this.deleteRestaurant}
+            />
             }} />
           <Route path="/restaurantnew" render={(props) => <RestaurantNew createRestaurant={this.createRestaurant} />} />
           <Route component={NotFound}/>       
