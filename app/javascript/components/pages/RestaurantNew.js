@@ -9,41 +9,35 @@ import {
   } from 'reactstrap'
 
 export default class RestaurantNew extends Component {
+  
     constructor(props){
         super(props)
         this.state = {
-          newRestaurant: {
+          restaurant: {
             name:"", 
             street:"", 
             city:"", 
             state:"", 
             foodtype:"", 
             comment:"", 
-            image:"",
-            // user_id:current_user.id
+            image:""
           },
           submitted: false
         }
-        // const {
-        //   logged_in,
-        //   current_user,
-        //   new_user_route,
-        //   sign_in_route,
-        //   sign_out_route
-        // } = this.props  
+        
       }
       handleChange = (e) => {
-        let { newRestaurant } = this.state
-        newRestaurant[e.target.name] = e.target.value
-        this.setState({newRestaurant: newRestaurant})
+        let { restaurant } = this.state
+        restaurant[e.target.name] = e.target.value
+        this.setState({restaurant: restaurant})
       }
       handleSubmit = () => {
-        this.props.createRestaurant(this.state.newRestaurant)
+        this.props.createRestaurant(this.state.restaurant)
         this.setState({submitted: true})
       }
       
-  render() {
-    console.log("this is the current user", this.props.current_user)
+      
+  render() { 
     return (
         <Form>
         <FormGroup>
@@ -52,7 +46,7 @@ export default class RestaurantNew extends Component {
                 type="text"
                 name="name"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.name}
+                value={this.state.restaurant.name}
             />
         </FormGroup>
 
@@ -62,7 +56,7 @@ export default class RestaurantNew extends Component {
                 type="text"
                 name="street"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.street}
+                value={this.state.restaurant.street}
             />
         </FormGroup>
 
@@ -72,7 +66,7 @@ export default class RestaurantNew extends Component {
                 type="text"
                 name="city"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.city}
+                value={this.state.restaurant.city}
             />
         </FormGroup>
 
@@ -82,7 +76,7 @@ export default class RestaurantNew extends Component {
                 type="text"
                 name="state"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.state}
+                value={this.state.restaurant.state}
             />
         </FormGroup>
 
@@ -92,7 +86,7 @@ export default class RestaurantNew extends Component {
                 type="text"
                 name="foodtype"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.foodtype}
+                value={this.state.restaurant.foodtype}
             />
         </FormGroup>
 
@@ -102,7 +96,7 @@ export default class RestaurantNew extends Component {
                 type="text"
                 name="comment"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.comment}
+                value={this.state.restaurant.comment}
             />
         </FormGroup>
 
@@ -112,7 +106,7 @@ export default class RestaurantNew extends Component {
                 type="text"
                 name="image"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.image}
+                value={this.state.restaurant.image}
             />
         </FormGroup>
 
