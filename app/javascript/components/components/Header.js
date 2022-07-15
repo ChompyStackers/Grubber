@@ -50,7 +50,6 @@ export default class Header extends Component {
                 <DropdownItem id="All restaurants" href='/restaurantindex'>
                    All Restaurants
                 </DropdownItem>
-                  
                 <DropdownItem id="About Us" href='/AboutUs'>
                   About Us
                 </DropdownItem>
