@@ -42,43 +42,43 @@ export default class Header extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-               <UncontrolledDropdown nav inNavbar>
+              <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                 <img src={Hamburgericon} />
                 </DropdownToggle>
                 <DropdownMenu end>
                 <DropdownItem id="All restaurants" href='/restaurantindex'>
                    All Restaurants
-                  </DropdownItem>
+                </DropdownItem>
                   
-                  <DropdownItem id="About Us" href='/AboutUs'>
-                    About Us
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  {logged_in &&  
-                  <>
-                  <DropdownItem href='/myrestaurants'>
-                    My Restaurants
-                  </DropdownItem>
-                  <DropdownItem href='/restaurantnew'>
-                    New Restaurant
-                  </DropdownItem>
+                <DropdownItem id="About Us" href='/AboutUs'>
+                  About Us
+                </DropdownItem>
+                <DropdownItem divider />
+                {logged_in &&  
+                <>
+                <DropdownItem href='/myrestaurants'>
+                  My Restaurants
+                </DropdownItem>
+                <DropdownItem href='/restaurantnew'>
+                  New Restaurant
+                </DropdownItem>
 
-                  <DropdownItem href='/users/sign_out'>
-                    Sign Out
-                  </DropdownItem>
-                  </>
-                  }
-                  {!logged_in && 
-                  <>
-                 <DropdownItem href='/users/sign_in'>
-                    Sign In
-                    </DropdownItem>
-                   <DropdownItem href='/users/sign_up'>
-                    Sign Up
-                  </DropdownItem>
-                  </>
-                  }
+                <DropdownItem href='/users/sign_out'>
+                  Sign Out
+                </DropdownItem>
+                </>
+                }
+                {!logged_in && 
+                <>
+                <DropdownItem href='/users/sign_in'>
+                  Sign In
+                </DropdownItem>
+                <DropdownItem href='/users/sign_up'>
+                Sign Up
+                </DropdownItem>
+                </>
+                }
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>

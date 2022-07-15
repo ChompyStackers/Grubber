@@ -13,8 +13,6 @@ export default class RestaurantIndexProtected extends Component {
   render() {
     const {restaurants} = this.props
     const {current_user} = this.props
-    console.log("restaurants:", restaurants)
-    console.log("current user:", current_user.id)
     return (
        <div>
         {restaurants && restaurants.filter(restaurant => restaurant.user_id === current_user.id).map((value,index)=>{

@@ -8,7 +8,6 @@ import {
   } from 'reactstrap'
   import { Redirect } from 'react-router-dom'
 
-
 export default class RestaurantShow extends Component {
     constructor(props){
         super(props)
@@ -29,11 +28,11 @@ export default class RestaurantShow extends Component {
         let { editRestaurant } = this.state
         editRestaurant[e.target.name] = e.target.value
         this.setState({editRestaurant: editRestaurant})
-      }
-      handleSubmit = () => {
-        this.props.updateRestaurant(this.state.editRestaurant, this.props.id)
-        this.setState({submitted: true})
-      }
+    }
+    handleSubmit = () => {
+      this.props.updateRestaurant(this.state.editRestaurant, this.props.id)
+      this.setState({submitted: true})
+    }
  
  
     render() {
@@ -133,7 +132,7 @@ export default class RestaurantShow extends Component {
         </Button>
         {this.state.submitted && <Redirect to="/restaurantindex" />}
         </Form>
-    }
+   }
     </div>
   </>
     )
