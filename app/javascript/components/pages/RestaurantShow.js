@@ -6,56 +6,74 @@ import {
     Label, 
     Button
   } from 'reactstrap'
+  import { Redirect } from 'react-router-dom'
 
 
 export default class RestaurantShow extends Component {
- 
+    constructor(props){
+        super(props)
+        this.state = {
+          editRestaurant: {
+            name: this.props.restaurant ? this.props.restaurant.name : "", 
+            street: this.props.restaurant ? this.props.restaurant.street : "", 
+            city: this.props.restaurant ? this.props.restaurant.city : "",  
+            state: this.props.restaurant ? this.props.restaurant.state : "",  
+            foodtype: this.props.restaurant ? this.props.restaurant.foodtype : "", 
+            comment: this.props.restaurant ? this.props.restaurant.comment : "", 
+            image: this.props.restaurant ? this.props.restaurant.image : "", 
+          },
+          submitted: false
+        }
+    }
     handleChange = (e) => {
-        let { newRestaurant } = this.state
-        newRestaurant[e.target.name] = e.target.value
-        this.setState({newRestaurant: newRestaurant})
+        let { editRestaurant } = this.state
+        editRestaurant[e.target.name] = e.target.value
+        this.setState({editRestaurant: editRestaurant})
       }
       handleSubmit = () => {
-        this.props.createRestaurant(this.state.newRestaurant)
+        this.props.updateRestaurant(this.state.editRestaurant, this.props.id)
         this.setState({submitted: true})
       }
  
  
     render() {
     const { restaurant } = this.props
-  
+
     return (
   <>
     <div>
-    <Form>
+   { restaurant && 
+        <Form>
         <FormGroup>
             <Label>Name</Label>
             <Input
-            placeholder = "placeholder"
+                placeholder ={restaurant.name}
                 type="text"
                 name="name"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.name}
+                value={this.state.name}
             />
         </FormGroup>
 
         <FormGroup>
             <Label>Street</Label>
             <Input
+                placeholder ={restaurant.street}
                 type="text"
                 name="street"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.street}
+                value={this.state.street}
             />
         </FormGroup>
 
         <FormGroup>
             <Label>City</Label>
             <Input
+                placeholder ={restaurant.city}
                 type="text"
                 name="city"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.city}
+                value={this.state.city}
             />
         </FormGroup>
 
@@ -65,7 +83,8 @@ export default class RestaurantShow extends Component {
                 type="text"
                 name="state"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.state}
+                value={this.state.state}
+                placeholder ={restaurant.state}
             />
         </FormGroup>
 
@@ -75,7 +94,8 @@ export default class RestaurantShow extends Component {
                 type="text"
                 name="foodtype"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.foodtype}
+                value={this.state.foodtype}
+                placeholder ={restaurant.foodtype}
             />
         </FormGroup>
 
@@ -85,7 +105,8 @@ export default class RestaurantShow extends Component {
                 type="text"
                 name="comment"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.comment}
+                value={this.state.comment}
+                placeholder ={restaurant.comment}
             />
         </FormGroup>
 
@@ -95,7 +116,8 @@ export default class RestaurantShow extends Component {
                 type="text"
                 name="image"
                 onChange={this.handleChange}
-                value={this.state.newRestaurant.image}
+                value={this.state.image}
+                placeholder ={restaurant.image}
             />
         </FormGroup>
 
@@ -106,11 +128,12 @@ export default class RestaurantShow extends Component {
         </Button>
         <Button
           name="submit"
-          onClick={this.handleSubmit}>
+          onClick={e=>console.log('delete')}>
           Delete Restaurant
         </Button>
         {this.state.submitted && <Redirect to="/restaurantindex" />}
-      </Form>
+        </Form>
+    }
     </div>
   </>
     )

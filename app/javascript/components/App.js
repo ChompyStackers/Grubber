@@ -40,10 +40,22 @@ class App extends React.Component {
       .then(response => response.json())
       .then(payload => this.readRestaurant())
       .catch(errors => console.log("App.js createRestaurant errors:", errors))
-  }
+    }
+    updateRestaurant = (editRestaurant, id) => {
+      fetch(`/restaurants/${id}`, {
+        body: JSON.stringify(editRestaurant),
+        headers: {
+          "Content-Type" : "application/json"
+        },
+        method: "PATCH"
+      })
+      .then(response => response.json())
+      .then(payload => this.readRestaurant())
+      .catch(errors => console.log("Restaurant read errors:", errors))
+    }
 
   render () {
-    const {current_user} = this.props
+   
     return (
       <Router>
         <Header {...this.props}/>
@@ -56,7 +68,7 @@ class App extends React.Component {
           <Route path="/restaurantshow/:id" render={(props) => {
             let id = props.match.params.id
             let restaurant = this.state.restaurants.find(restaurant => restaurant.id == id)
-            return <RestaurantShow restaurant={restaurant} />
+            return <RestaurantShow restaurant={restaurant} id={id} updateRestaurant={this.updateRestaurant}/>
             }} />
 
 
