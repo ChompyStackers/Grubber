@@ -7,6 +7,7 @@ import Footer from "./components/Footer"
 import RestaurantIndex from "./pages/RestaurantIndex"
 import RestaurantNew from "./pages/RestaurantNew"
 import RestaurantShow from './pages/RestaurantShow'
+import RestaurantIndexProtected from './pages/RestaurantIndexProtected'
 import {
   BrowserRouter as  Router,
   Route,
@@ -40,10 +41,33 @@ class App extends React.Component {
       .then(response => response.json())
       .then(payload => this.readRestaurant())
       .catch(errors => console.log("App.js createRestaurant errors:", errors))
-  }
+    }
+    updateRestaurant = (editRestaurant, id) => {
+      fetch(`/restaurants/${id}`, {
+        body: JSON.stringify(editRestaurant),
+        headers: {
+          "Content-Type" : "application/json"
+        },
+        method: "PATCH"
+      })
+      .then(response => response.json())
+      .then(payload => this.readRestaurant())
+      .catch(errors => console.log("Restaurant read errors:", errors))
+    }
+    deleteRestaurant = (Restaurantid) => {
+      fetch(`/restaurants/${Restaurantid}`, {
+        headers: {
+          "Content-Type" : "application/json"
+        },
+        method: "DELETE"
+      })
+      .then(response => response.json())
+      .then(payload => this.readRestaurant())
+      .catch(errors => console.log("Restaurant read errors:", errors))
+    }
 
   render () {
-    const {current_user} = this.props
+   
     return (
       <Router>
         <Header {...this.props}/>
@@ -51,9 +75,15 @@ class App extends React.Component {
           <Route exact path="/" component={Home} />
           <Route path="/AboutUs" component={AboutUs} />
           <Route path="/restaurantindex" render={props => <RestaurantIndex restaurants={this.state.restaurants}/>} />
+          <Route path="/myrestaurants" render={props => <RestaurantIndexProtected restaurants={this.state.restaurants} {...this.props}/>} />
+          <Route path="/restaurantshow/:id" render={(props) => {
+            let id = props.match.params.id
+            let restaurant = this.state.restaurants.find(restaurant => restaurant.id == id)
+            return <RestaurantShow restaurant={restaurant} id={id} updateRestaurant={this.updateRestaurant} deleteRestaurant={this.deleteRestaurant}
+            />
+            }} />
           <Route path="/restaurantnew" render={(props) => <RestaurantNew createRestaurant={this.createRestaurant} />} />
-          <Route component={NotFound}/>        
-          <Route path="/restaurantedit" component={RestaurantShow} />
+          <Route component={NotFound}/>       
         </Switch>
         <Footer/>
       </Router>

@@ -13,6 +13,21 @@ class RestaurantsController < ApplicationController
             render json: restaurant.errors, status: 422
         end
     end
+    def update
+        restaurant = Restaurant.find(params[:id])
+        restaurant.update(restaurant_params)
+        if restaurant.valid?
+            render json: restaurant
+        else
+            render json: restaurant.errors, status: 422
+        end
+    end
+
+    def destroy
+        restaurant = Restaurant.find(params[:id])
+        restaurant.destroy
+        render json: restaurant
+    end    
 
     private
     def restaurant_params
