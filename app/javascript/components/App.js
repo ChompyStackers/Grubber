@@ -72,7 +72,7 @@ class App extends React.Component {
       <Router>
         <Header {...this.props}/>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={props => <Home restaurants={this.state.restaurants}/>} />
           <Route path="/AboutUs" component={AboutUs} />
           <Route path="/restaurantindex" render={props => <RestaurantIndex restaurants={this.state.restaurants}/>} />
           <Route path="/myrestaurants" render={props => <RestaurantIndexProtected restaurants={this.state.restaurants} {...this.props}/>} />
@@ -81,7 +81,7 @@ class App extends React.Component {
             let restaurant = this.state.restaurants.find(restaurant => restaurant.id == id)
             return <RestaurantShow restaurant={restaurant} id={id} updateRestaurant={this.updateRestaurant} deleteRestaurant={this.deleteRestaurant}
             />
-            }} />
+          }}/>
           <Route path="/restaurantnew" render={(props) => <RestaurantNew {...this.props} createRestaurant={this.createRestaurant} />} />
           <Route component={NotFound}/>       
         </Switch>
