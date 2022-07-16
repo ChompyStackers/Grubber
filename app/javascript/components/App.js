@@ -72,7 +72,7 @@ class App extends React.Component {
       <Router>
         <Header {...this.props}/>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={props => <Home restaurants={this.state.restaurants}/>} />
           <Route path="/AboutUs" component={AboutUs} />
           <Route path="/restaurantindex" render={props => <RestaurantIndex restaurants={this.state.restaurants}/>} />
           <Route path="/myrestaurants" render={props => <RestaurantIndexProtected restaurants={this.state.restaurants} {...this.props}/>} />
