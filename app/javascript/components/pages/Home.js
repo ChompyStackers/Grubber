@@ -6,29 +6,56 @@ import { Card,
   CardLink,
 CardTitle, 
 CardSubtitle } from 'reactstrap';
+import foodTypes from '../assets/FoodTypes';
+
 
 
 export default class Home extends Component {
+  
   constructor(props){
     super(props)
     this.state = {
-      randomNum:1
+      randomNum:0,
     }
   }
 
   handleClick = () =>{
-    this.setState({randomNum: Math.floor(Math.random() * this.props.restaurants.length)})
+    this.setState({randomNum: Math.floor(Math.random() * foodTypes.length)})
     console.log("randumNumber", this.state.randomNum)
   }
-    
+
+  handleClickLoggedIn = () =>{
+    this.setState({randomNum: Math.floor(Math.random() * this.props.userRestaurants.length)})
+    console.log("randumNumber", this.state.randomNum)
+  }
+
   render() {
     const{restaurants} = this.props
-
+    const {
+      logged_in,
+      current_user,
+      new_user_route,
+      sign_in_route,
+      sign_out_route
+    } = this.props
+  
+    const {userRestaurants}= this.props
+    console.log("foodtypes:",foodTypes);
     return (
       <div>
-        {restaurants && restaurants.filter(randomRest => randomRest.id === this.state.randomNum ).map(restaurant => {
+        {!logged_in && foodTypes.filter((value, index)=> index === this.state.randomNum).map((type, index)=>{
+          return(
+            <Card key={index}>
+            <CardBody>
+              <CardTitle>{type.foodtype}</CardTitle>
+            </CardBody>
+            <CardSubtitle>{type.image}</CardSubtitle>
+          </Card> 
+          )
+        })}
+        {logged_in && userRestaurants.filter((restaurant, index) => index === this.state.randomNum).map((restaurant, index) => {
         return(
-          <Card>
+          <Card key={index}>
           <CardBody>
             <CardTitle>{restaurant.name}</CardTitle>
             <CardSubtitle>{restaurant.street},{restaurant.city}, {restaurant.state}</CardSubtitle>
@@ -37,16 +64,15 @@ export default class Home extends Component {
           
         </Card> 
         )
-
         })}
         
-      <button>
-        Randomize your Grub
-      </button>
+      {!logged_in && <button onClick={this.handleClick}>
+        Randomize Grub type
+      </button>}
 
-      <button onClick={this.handleClick}>
-        Randomize all Grub
-      </button>
+      {logged_in && <button onClick={this.handleClickLoggedIn}>
+        Randomize your Grub
+      </button>}
     </div>
     )
   }
