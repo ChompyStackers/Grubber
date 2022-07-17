@@ -37,16 +37,14 @@ export default class Header extends Component {
     // console.log("this is the current user", current_user)
     return (
         <div>
-        <Navbar color="dark" light expand="md">
+        <Navbar className="grubNavBar" expand="md">
           <NavbarBrand href="/">Grubber</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <UncontrolledDropdown nav inNavbar>
+              <UncontrolledDropdown nav inNavbar className='dropdownBurger'>
                 <DropdownToggle nav caret>
-                <img src={Hamburgericon} />
+                <img className="hamburgerIcon" src={Hamburgericon} />
                 </DropdownToggle>
-                <DropdownMenu end>
+                <DropdownMenu  end>
                 <DropdownItem id="All restaurants" href='/restaurantindex'>
                    All Restaurants
                 </DropdownItem>
@@ -81,7 +79,6 @@ export default class Header extends Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
-          </Collapse>
         </Navbar>
       </div>
     )

@@ -14,11 +14,105 @@
  *= require_self
  */
  @import 'bootstrap';
+
+.grubNavBar{
+  background-color: black;
+}
+.dropdownBurger{
+  padding-right: 50px;
+  
+}
+.hamburgerIcon{
+  height: 75px;
+}
  
- #Footer{ 
+.navbar-brand, .dropdown-toggle{
+    color: #66fcf1;
+    text-decoration: none;
+}
+.dropdown-toggle.nav-link::before{
+  color: #66fcf1;
+  text-decoration: none;
+}
+.dropdown-toggle.nav-link::after{
+  text-decoration: none;
+}
+
+.navbar-brand:hover, .navbar-brand::selection, .dropdown-toggle:hover, .dropdown-toggle::selection{
+  color: #45A29E;
+  text-decoration: none;
+}
+
+#Footer{ 
    display: block;
 
- }
- #cardimage{ 
+}
+#cardimage{ 
     width: 200px;
- }
+}
+
+// this is to make sure our dropdown menu does not shrink into the header.
+@media (min-width: 0px) {
+  /* line 166, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  /* line 171, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .navbar-nav {
+    flex-direction: row;
+  }
+  /* line 174, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .navbar-nav .dropdown-menu {
+    position: absolute;
+  }
+  /* line 178, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  /* line 184, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .navbar-nav-scroll {
+    overflow: visible;
+  }
+  /* line 188, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  /* line 193, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .navbar-toggler {
+    display: none;
+  }
+  /* line 197, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .offcanvas-header {
+    display: none;
+  }
+  /* line 201, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .offcanvas {
+    position: inherit;
+    bottom: 0;
+    z-index: 1000;
+    flex-grow: 1;
+    visibility: visible !important;
+    background-color: transparent;
+    border-right: 0;
+    border-left: 0;
+    transition: none;
+    transform: none;
+  }
+  /* line 213, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .offcanvas-top,
+.navbar-expand-md .offcanvas-bottom {
+    height: auto;
+    border-top: 0;
+    border-bottom: 0;
+  }
+  /* line 220, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .offcanvas-body {
+    display: flex;
+    flex-grow: 0;
+    padding: 0;
+    overflow-y: visible;
+  }
+}
