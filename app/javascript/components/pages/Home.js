@@ -16,12 +16,13 @@ export default class Home extends Component {
     super(props)
     this.state = {
       randomNum:0,
+      noUserNumber: 0,
     }
   }
 
   handleClick = () =>{
-    this.setState({randomNum: Math.floor(Math.random() * foodTypes.length)})
-    console.log("randumNumber", this.state.randomNum)
+    this.setState({noUserNumber: Math.floor(Math.random() * foodTypes.length)})
+    console.log("randumNumber", this.state.noUserNumber)
   }
 
   handleClickLoggedIn = () =>{
@@ -43,7 +44,7 @@ export default class Home extends Component {
     console.log("foodtypes:",foodTypes);
     return (
       <div>
-        {!logged_in && foodTypes.filter((value, index)=> index === this.state.randomNum).map((type, index)=>{
+        {foodTypes.filter((value, index)=> index === this.state.noUserNumber).map((type, index)=>{
           return(
             <Card key={index}>
             <CardBody>
@@ -66,7 +67,7 @@ export default class Home extends Component {
         )
         })}
         
-      {!logged_in && <button onClick={this.handleClick}>
+      {<button onClick={this.handleClick}>
         Randomize Grub type
       </button>}
 

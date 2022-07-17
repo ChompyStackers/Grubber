@@ -125,7 +125,7 @@ export default class RestaurantNew extends Component {
             onClick={this.handleSubmit}>
             Create a New Restaurant
           </Button>
-          {this.state.submitted && <Redirect to="/restaurantindex" />}
+          {this.state.submitted && <Redirect to="/myrestaurants" />}
       </Form>
     )
   }
