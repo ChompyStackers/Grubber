@@ -23,4 +23,8 @@ describe("When RestaurantNew renders", () => {
     const form = newRender.find("Form")
     expect(form.length).toEqual(1)
   })
+  it ("displays an input for the restaurants name", () => {
+    const restaurantNameRender = newRender.find('[name="name"]')
+    expect(restaurantNameRender.length).toEqual(1)
+  })
 })

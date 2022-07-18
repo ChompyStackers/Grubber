@@ -14,26 +14,21 @@ import RestaurantShow from './RestaurantShow'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe("When restaurantShow renders", () => {
-    const props = {
-        restaurants: [
-          {name: "kimiko", 
-          street: "123 Ash St.",
-          city: "San Diego",
-          state: "CA",
-          foodType: "Japanese",
-          comment: "Decent, 2 out of 5 stars.",
-          image: "https://newdenizen.com/wp-content/uploads/2019/06/lasagna-coperta.jpg"
-          }
-        ]
-    }
-
-    let showRender
+  let showRender
     beforeEach(() => {
-      showRender = shallow(<RestaurantShow {...props}/>)
-      
+      showRender = shallow(<RestaurantShow/>)
     })
     it("displays a form", () => {
       const form = showRender.find("Form")
       expect(form).toBeTruthy()
     })
+    it("should render a component", ()=>{
+      const button = showRender.find("Button")
+      expect(button).toBeTruthy()
+    })
+    it("should render a component", ()=>{
+      const button = showRender.find("Button")
+      expect(button).toBeTruthy()
+    })
 })
+// add tests for handleChange,handleSubmit, and handleDelete
