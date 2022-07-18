@@ -16,8 +16,9 @@ Enzyme.configure({ adapter: new Adapter() })
 describe("When RestaurantNew renders", () => {
   let newRender
   beforeEach(() => {
-    newRender = shallow(<RestaurantNew/>)
+    newRender = shallow(<RestaurantNew {...props}/>)
   })
+  let props = {current_user:{id:1}}
   it("displays a form", () => {
     const form = newRender.find("Form")
     expect(form.length).toEqual(1)

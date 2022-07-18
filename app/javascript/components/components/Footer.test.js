@@ -19,7 +19,7 @@ describe("When Footer renders", () => {
     footerRender = shallow(<Footer />)
   })
   it("displays a title", () => {
-    const title = footerRender.find("div").text()
+    const title = footerRender.find("footer").text()
     expect(title).toEqual("Chompy Stackers")
   })
 })
