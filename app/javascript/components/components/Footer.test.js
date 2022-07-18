@@ -14,12 +14,12 @@ import Footer from './Footer'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe("When Footer renders", () => {
-    let footerRender
-    beforeEach(() => {
-      footerRender = shallow(<Footer />)
-    })
-    it("displays a title", () => {
-      const title = footerRender.find("div")
-      expect(title.props().children).toEqual("Chompy Stackers")
-    })
+  let footerRender
+  beforeEach(() => {
+    footerRender = shallow(<Footer />)
+  })
+  it("displays a title", () => {
+    const title = footerRender.find("div").text()
+    expect(title).toEqual("Chompy Stackers")
+  })
 })

@@ -17,7 +17,7 @@ describe("When Home renders", () => {
     it("displays a heading", () => {
       const home = shallow(<Home />)
       const homeHeading = home.find("div").text()
-      expect(homeHeading).toEqual("Home<Card />")
+      expect(homeHeading).toEqual("Randomize your GrubRandomize all Grub")
        
     })    
     it("renders a button", () => {

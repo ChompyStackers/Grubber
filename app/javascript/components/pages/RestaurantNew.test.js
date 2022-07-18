@@ -14,13 +14,12 @@ import RestaurantNew from './RestaurantNew'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe("When RestaurantNew renders", () => {
-
-    let newRender
-    beforeEach(() => {
-      newRender = shallow(<RestaurantNew/>)
-    })
-    it("displays a form", () => {
-      const form = newRender.find("Form")
-      expect(form.length).toEqual(1)
-    })
+  let newRender
+  beforeEach(() => {
+    newRender = shallow(<RestaurantNew/>)
+  })
+  it("displays a form", () => {
+    const form = newRender.find("Form")
+    expect(form.length).toEqual(1)
+  })
 })
