@@ -49,7 +49,8 @@ export default class RestaurantNew extends Component {
     } = this.props
    
     return (
-        <Form>
+      <div className='container'>
+        <Form id='newRestaurantForm'>
         <FormGroup>
             <Label>Name</Label>
             <Input
@@ -127,6 +128,7 @@ export default class RestaurantNew extends Component {
         </Button>
         {this.state.submitted && <Redirect to="/restaurantindex" />}
       </Form>
+      </div>
     )
   }
 }

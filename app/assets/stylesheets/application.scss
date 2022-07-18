@@ -14,18 +14,49 @@
  *= require_self
  */
  @import 'bootstrap';
-
+html{
+  height: 100%;
+  width: 100%;
+}
+ body{
+  height: inherit;
+  width: inherit;
+  background-color: #E9EADC;
+ }
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width:540px){
+  .card-group{
+  margin-left: 1em;
+  margin-right: 1em;
+  .card{
+    width:fit-content;
+  }
+}}
 .grubNavBar{
-  background-color: black;
+  background-color: #0b0c1000;
 }
 .dropdownBurger{
   padding-right: 50px;
-  
 }
 .hamburgerIcon{
   height: 75px;
 }
- 
+.dropdown-menu{
+  background-color: rgba(250, 235, 215, 0);
+  border: 1px solid #45A29E;
+  border-radius: 0.25rem;
+} 
+.dropdown-item{
+  color: #66fcf1;
+}
+.dropdown-item:hover{
+  color:#45A29E;
+  background-color: rgba(0, 255, 255, 0);
+}
 .navbar-brand, .dropdown-toggle{
     color: #66fcf1;
     text-decoration: none;
@@ -36,19 +67,46 @@
 }
 .dropdown-toggle.nav-link::after{
   text-decoration: none;
+ 
 }
+.homeCardContainer{
+  display: flex;
+  justify-content: center;
+ 
+}
+.card{
+  background-color: #0b0c1000;
+  color: white;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #45A29E;
+  border-radius: 0.5rem;
+}
+.card-img-top{
+  width: 100%;
 
+}
 .navbar-brand:hover, .navbar-brand::selection, .dropdown-toggle:hover, .dropdown-toggle::selection{
   color: #45A29E;
   text-decoration: none;
 }
 
-#Footer{ 
-   display: block;
 
+.footer{ 
+   display: block;
+  bottom: 0;
 }
 #cardimage{ 
     width: 200px;
+}
+
+#newRestaurantForm{
+  color: white;
+  width: 30em;
+  border: 1px solid #45A29E;
+  border-radius: 0.5rem;
+  padding: 6px 6px 6px 6px;
 }
 
 // this is to make sure our dropdown menu does not shrink into the header.

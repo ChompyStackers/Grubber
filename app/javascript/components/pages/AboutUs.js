@@ -16,7 +16,7 @@ export default class AboutUs extends Component {
                 <CardGroup>
 {/* Jorge about me */}
                 <Card>
-                    <CardImg top width="100%" src="https://avatars.githubusercontent.com/u/101531326?v=4" alt="two dogs" />
+                    <CardImg top src="https://avatars.githubusercontent.com/u/101531326?v=4" alt="two dogs" />
                     <CardBody>
                     <CardTitle>Jorge Linares</CardTitle>
                     <CardSubtitle>Grub Project Manager</CardSubtitle>
@@ -27,7 +27,7 @@ export default class AboutUs extends Component {
                 </Card>
 {/* Frank about me */}
                 <Card>
-                    <CardImg top width="100%" src="https://avatars.githubusercontent.com/u/98143232?v=4" alt="frank the tank" />
+                    <CardImg top src="https://avatars.githubusercontent.com/u/98143232?v=4" alt="frank the tank" />
                     <CardBody>
                     <CardTitle>Francisco Rivera</CardTitle>
                     <CardSubtitle>Grub Tech Lead</CardSubtitle>
@@ -38,7 +38,7 @@ export default class AboutUs extends Component {
                 </Card>
 {/* JB about me */}
                 <Card>
-                    <CardImg top width="100%" src="https://avatars.githubusercontent.com/u/101531299?s=120&v=4" alt="github picture" />
+                    <CardImg top src="https://avatars.githubusercontent.com/u/101531299?s=120&v=4" alt="github picture" />
                     <CardBody>
                     <CardTitle>JB</CardTitle>
                     <CardSubtitle>Grub Product Manager</CardSubtitle>
@@ -49,9 +49,9 @@ export default class AboutUs extends Component {
                 </Card>
 {/* Stephen about me */}
                 <Card>
-                    <CardImg top width="100%" src="https://avatars.githubusercontent.com/u/101531285?v=4" alt="designigator" />
+                    <CardImg top src="https://avatars.githubusercontent.com/u/101531285?v=4" alt="designigator" />
                     <CardBody>
-                    <CardTitle>Stephen O'Marrah</CardTitle>
+                    <CardTitle>Stephen OMarrah</CardTitle>
                     <CardSubtitle>Grub Design Lead</CardSubtitle>
                     <CardText>Grub Design Lead</CardText>
                     <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">LinkedIn</NavLink>
