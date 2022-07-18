@@ -17,16 +17,22 @@ export default class Home extends Component {
     this.state = {
       randomNum:0,
       noUserNumber: 0,
+      renderCardLoggedIn: false,
+      renderCardNotLoggedIn: true, 
     }
   }
 
   handleClick = () =>{
     this.setState({noUserNumber: Math.floor(Math.random() * foodTypes.length)})
+    this.setState({renderCardLoggedIn:false})
+    this.setState({renderCardNotLoggedIn: true})
     console.log("randumNumber", this.state.noUserNumber)
   }
 
   handleClickLoggedIn = () =>{
     this.setState({randomNum: Math.floor(Math.random() * this.props.userRestaurants.length)})
+    this.setState({renderCardLoggedIn:true})
+    this.setState({renderCardNotLoggedIn: false})
     console.log("randumNumber", this.state.randomNum)
   }
 
@@ -44,7 +50,7 @@ export default class Home extends Component {
     console.log("foodtypes:",foodTypes);
     return (
       <div>
-        {foodTypes.filter((value, index)=> index === this.state.noUserNumber).map((type, index)=>{
+        {this.state.renderCardNotLoggedIn && foodTypes.filter((value, index)=> index === this.state.noUserNumber).map((type, index)=>{
           return(
             <Card key={index}>
             <CardBody>
@@ -54,7 +60,7 @@ export default class Home extends Component {
           </Card> 
           )
         })}
-        {logged_in && userRestaurants.filter((restaurant, index) => index === this.state.randomNum).map((restaurant, index) => {
+        {logged_in && this.state.renderCardLoggedIn && userRestaurants.filter((restaurant, index) => index === this.state.randomNum).map((restaurant, index) => {
         return(
           <Card key={index}>
           <CardBody>
