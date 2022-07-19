@@ -41,7 +41,6 @@ body{
 }
 @media (max-width:700px){
   .titleImage{
-    // max-width: 200px;
     max-height: 50px;
   }
   .navbar-brand{
@@ -53,6 +52,8 @@ body{
   .hamburgerIcon{
     max-height: 50px;
     z-index: 3;
+  }
+  .dropdown{
     margin-right: 30px;
   }
   #homeplanetImage{
@@ -62,12 +63,13 @@ body{
 }
 @media (max-width:540px){
   .card-group{
-  margin-left: 1em;
-  margin-right: 1em;
-  .card{
-    width:fit-content;
+    margin-left: 1em;
+    margin-right: 1em;
+    .card{
+      width:fit-content;
+    }
   }
-}}
+}
 .grubNavBar{
   background-color: #E9EADC;
   margin-top: 1.5%;
@@ -88,11 +90,11 @@ body{
   transform: translate(-50%, -50%);
 }
 #homeplanetImage{
-position: absolute;
-margin-top: 40%;
-z-index: 0;
-width: 100%;
-overflow: hidden;
+  position: absolute;
+  margin-top: 40%;
+  z-index: 0;
+  width: 100%;
+  overflow: hidden;
 }
 .dropdownBurger{
   padding-right: 50px;
@@ -103,8 +105,8 @@ overflow: hidden;
 }
 
 .dropdown-menu{
-  background-color: rgba(250, 235, 215, 0);
-  border: 1px solid #45A29E;
+  margin-top: -2em;
+  background-color: #3A7B68;
   border-radius: 0.25rem;
 } 
 .dropdown-item{
@@ -125,10 +127,12 @@ overflow: hidden;
 .navbar-nav{
   margin-right: -10em;
 }
-
-.navbar-brand, .dropdown-toggle{
-    color: #E9EADC;
-    text-decoration: none;
+.dropdown-toggle{
+  color: #F94912;
+}
+.navbar-brand{
+  color: #E9EADC;
+  text-decoration: none;
 }
 .dropdown-toggle.nav-link::before{
   color: #E9EADC;
@@ -189,7 +193,7 @@ overflow: hidden;
 }
 
 #cardimage{ 
-    width: 200px;
+  width: 200px;
 }
 
 #newRestaurantForm{
@@ -200,7 +204,7 @@ overflow: hidden;
   padding: 6px 6px 6px 6px;
 }
 
-// this is to make sure our dropdown menu does not shrink into the header.
+// this was imported from our node modules...it ensures that I have more control over styling...
 @media (min-width: 0px) {
   /* line 166, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
   .navbar-expand-md {
