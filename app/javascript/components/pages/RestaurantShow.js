@@ -42,102 +42,102 @@ export default class RestaurantShow extends Component {
     const { restaurant } = this.props
 
     return (
-  <>
-    <div>
-   { restaurant && 
+      <>
+      <div>
+      { restaurant && 
         <Form>
-        <FormGroup>
-            <Label>Name</Label>
-            <Input
-                placeholder ={restaurant.name}
-                type="text"
-                name="name"
-                onChange={this.handleChange}
-                value={this.state.name}
-            />
-        </FormGroup>
+          <FormGroup>
+              <Label>Name</Label>
+              <Input
+                  placeholder ={restaurant.name}
+                  type="text"
+                  name="name"
+                  onChange={this.handleChange}
+                  value={this.state.name}
+              />
+          </FormGroup>
 
-        <FormGroup>
-            <Label>Street</Label>
-            <Input
-                placeholder ={restaurant.street}
-                type="text"
-                name="street"
-                onChange={this.handleChange}
-                value={this.state.street}
-            />
-        </FormGroup>
+          <FormGroup>
+              <Label>Street</Label>
+              <Input
+                  placeholder ={restaurant.street}
+                  type="text"
+                  name="street"
+                  onChange={this.handleChange}
+                  value={this.state.street}
+              />
+          </FormGroup>
 
-        <FormGroup>
-            <Label>City</Label>
-            <Input
-                placeholder ={restaurant.city}
-                type="text"
-                name="city"
-                onChange={this.handleChange}
-                value={this.state.city}
-            />
-        </FormGroup>
+          <FormGroup>
+              <Label>City</Label>
+              <Input
+                  placeholder ={restaurant.city}
+                  type="text"
+                  name="city"
+                  onChange={this.handleChange}
+                  value={this.state.city}
+              />
+          </FormGroup>
 
-        <FormGroup>
-            <Label>State</Label>
-            <Input
-                type="text"
-                name="state"
-                onChange={this.handleChange}
-                value={this.state.state}
-                placeholder ={restaurant.state}
-            />
-        </FormGroup>
+          <FormGroup>
+              <Label>State</Label>
+              <Input
+                  type="text"
+                  name="state"
+                  onChange={this.handleChange}
+                  value={this.state.state}
+                  placeholder ={restaurant.state}
+              />
+          </FormGroup>
 
-        <FormGroup>
-            <Label>Food Type</Label>
-            <Input
-                type="text"
-                name="foodtype"
-                onChange={this.handleChange}
-                value={this.state.foodtype}
-                placeholder ={restaurant.foodtype}
-            />
-        </FormGroup>
+          <FormGroup>
+              <Label>Food Type</Label>
+              <Input
+                  type="text"
+                  name="foodtype"
+                  onChange={this.handleChange}
+                  value={this.state.foodtype}
+                  placeholder ={restaurant.foodtype}
+              />
+          </FormGroup>
 
-        <FormGroup>
-            <Label>Comment</Label>
-            <Input
-                type="text"
-                name="comment"
-                onChange={this.handleChange}
-                value={this.state.comment}
-                placeholder ={restaurant.comment}
-            />
-        </FormGroup>
+          <FormGroup>
+              <Label>Comment</Label>
+              <Input
+                  type="text"
+                  name="comment"
+                  onChange={this.handleChange}
+                  value={this.state.comment}
+                  placeholder ={restaurant.comment}
+              />
+          </FormGroup>
 
-        <FormGroup>
-            <Label>Image</Label>
-            <Input
-                type="text"
-                name="image"
-                onChange={this.handleChange}
-                value={this.state.image}
-                placeholder ={restaurant.image}
-            />
-        </FormGroup>
+          <FormGroup>
+              <Label>Image</Label>
+              <Input
+                  type="text"
+                  name="image"
+                  onChange={this.handleChange}
+                  value={this.state.image}
+                  placeholder ={restaurant.image}
+              />
+          </FormGroup>
 
-        <Button
-          name="submit"
-          onClick={this.handleSubmit}>
-          Update Restaurant
-        </Button>
-        <Button
-          name="submit"
-          onClick={this.handleDelete}>
-          Delete Restaurant
-        </Button>
-        {this.state.submitted && <Redirect to="/restaurantindex" />}
+          <Button
+            name="submit"
+            onClick={this.handleSubmit}>
+            Update Restaurant
+          </Button>
+          <Button
+            name="submit"
+            onClick={this.handleDelete}>
+            Delete Restaurant
+          </Button>
+          {this.state.submitted && <Redirect to="/restaurantindex" />}
         </Form>
-   }
-    </div>
-  </>
+      }
+      </div>
+      </>
     )
   } 
 }
