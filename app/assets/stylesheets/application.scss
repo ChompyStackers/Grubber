@@ -14,11 +14,258 @@
  *= require_self
  */
  @import 'bootstrap';
+ @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Yesteryear&display=swap');
  
- #Footer{ 
-   display: block;
+html{
+  height: 95vh;
+} 
+body{
+  height: 95vh;
+  width: inherit;
+  background-color: #132B47 ;
+}
+#appIndex{
+  height: 97.3vh;
+  width: 100vw;
+  background-color: #E9EADC;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-group{
+  margin-top: 5em;
+  width: 95%;
+  height:100%;
+}
+@media (max-width:700px){
+  .titleImage{
+    max-height: 50px;
+  }
+  .navbar-brand{
+    font-size: 10px;
+  }
+  .grubNavBar{
+    max-height: 30px;
+  }
+  .hamburgerIcon{
+    max-height: 50px;
+    z-index: 3;
+  }
+  .dropdown{
+    margin-right: 30px;
+  }
+  #homeplanetImage{
+    position: absolute;
+    bottom: 0;
+  }
+}
+@media (max-width:540px){
+  .card-group{
+    margin-left: 1em;
+    margin-right: 1em;
+    .card{
+      width:fit-content;
+    }
+  }
+}
+.grubNavBar{
+  background-color: #E9EADC;
+  margin-top: 1.5%;
+  height: 75px;
+}
+#headerContainterTitle{
+  position: relative;
+  text-align: center;
+}
+#titleText{
+  position: absolute;
+  font-family: "Orbitron";
+  text-align: center;
+  font-weight: 900;
+  font-size: 2em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#homeplanetImage{
+  position: absolute;
+  margin-top: 40%;
+  z-index: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.dropdownBurger{
+  padding-right: 50px;
+}
+.hamburgerIcon{
+  height: 75px;
+  margin-bottom: 1.3em;
+}
 
- }
- #cardimage{ 
-    width: 200px;
- }
+.dropdown-menu{
+  margin-top: -2em;
+  background-color: #3A7B68;
+  border-radius: 0.25rem;
+} 
+.dropdown-item{
+  color: #E9EADC;
+}
+.dropdown-item:hover{
+  color:#132B47 ;
+  background-color: rgba(0, 255, 255, 0);
+}
+.container-fluid{
+  flex-direction: row-reverse;
+}
+.navbar-brand{
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+}
+.navbar-nav{
+  margin-right: -10em;
+}
+.dropdown-toggle{
+  color: #F94912;
+}
+.navbar-brand{
+  color: #E9EADC;
+  text-decoration: none;
+}
+.dropdown-toggle.nav-link::before{
+  color: #E9EADC;
+  text-decoration: none;
+}
+.dropdown-toggle.nav-link::after{
+  text-decoration: none;
+ 
+}
+.homeColorContainer{
+  width: 100%;
+  background-color: #E9EADC;
+  height: 80%;
+  z-index: 1;
+}
+.homeCardContainer{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+.aboutUsColorContainer{
+  width: 100%;
+  background-color: #E9EADC;
+  height: fit-content;
+  height: 80%;
+}
+.aboutUsCardContainer{
+  display: flex;
+  justify-content: center;
+  height: 80%;
+}
+
+.card{
+  background-color: #0b0c1000;
+  color: #E9EADC;
+  width: 95%;
+  justify-content: center;
+  align-items: center;
+  border: #132b4700;
+  border-radius: 0.5rem;
+  background-color: #132B47;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+.card-body{
+  z-index: 1;
+}
+.card-img-top{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.navbar-brand:hover, .navbar-brand::selection, .dropdown-toggle:hover, .dropdown-toggle::selection{
+  color: #132B47 ;
+  text-decoration: none;
+}
+
+#cardimage{ 
+  width: 200px;
+}
+
+#newRestaurantForm{
+  color: white;
+  width: 30em;
+  border: 1px solid #45A29E;
+  border-radius: 0.5rem;
+  padding: 6px 6px 6px 6px;
+}
+
+// this was imported from our node modules...it ensures that I have more control over styling...
+@media (min-width: 0px) {
+  /* line 166, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  /* line 171, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .navbar-nav {
+    flex-direction: row;
+  }
+  /* line 174, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .navbar-nav .dropdown-menu {
+    position: absolute;
+  }
+  /* line 178, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  /* line 184, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .navbar-nav-scroll {
+    overflow: visible;
+  }
+  /* line 188, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  /* line 193, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .navbar-toggler {
+    display: none;
+  }
+  /* line 197, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .offcanvas-header {
+    display: none;
+  }
+  /* line 201, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .offcanvas {
+    position: inherit;
+    bottom: 0;
+    z-index: 1000;
+    flex-grow: 1;
+    visibility: visible !important;
+    background-color: transparent;
+    border-right: 0;
+    border-left: 0;
+    transition: none;
+    transform: none;
+  }
+  /* line 213, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .offcanvas-top,
+.navbar-expand-md .offcanvas-bottom {
+    height: auto;
+    border-top: 0;
+    border-bottom: 0;
+  }
+  /* line 220, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-expand-md .offcanvas-body {
+    display: flex;
+    flex-grow: 0;
+    padding: 0;
+    overflow-y: visible;
+  }
+}

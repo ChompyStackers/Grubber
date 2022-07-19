@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Hamburgericon from "../assets/Hamburger icon.png"
+import Hamburgericon from "../assets/hamburgerIcon.png"
+import TitleImage from "../assets/Title image.png"
 import {
     Collapse,
     Navbar,
@@ -36,54 +37,53 @@ export default class Header extends Component {
     } = this.props
     // console.log("this is the current user", current_user)
     return (
-        <div>
-        <Navbar color="dark" light expand="md">
-          <NavbarBrand href="/">Grubber</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
+        <Navbar className="grubNavBar" expand="md">
+          <NavbarBrand href="/">
+            <div id="headerContainterTitle">
+              <img className='titleImage' src={TitleImage}/>
+              <div id='titleText'>Grubber</div>
+            </div>
+          </NavbarBrand>
             <Nav className="ml-auto" navbar>
-              <UncontrolledDropdown nav inNavbar>
+              <UncontrolledDropdown nav inNavbar className='dropdownBurger'>
                 <DropdownToggle nav caret>
-                <img src={Hamburgericon} />
+                  <img className="hamburgerIcon" src={Hamburgericon} />
                 </DropdownToggle>
-                <DropdownMenu end>
-                <DropdownItem id="All restaurants" href='/restaurantindex'>
-                   All Restaurants
-                </DropdownItem>
-                <DropdownItem id="About Us" href='/AboutUs'>
-                  About Us
-                </DropdownItem>
-                <DropdownItem divider />
-                {logged_in &&  
-                <>
-                <DropdownItem href='/myrestaurants'>
-                  My Restaurants
-                </DropdownItem>
-                <DropdownItem href='/restaurantnew'>
-                  New Restaurant
-                </DropdownItem>
-
-                <DropdownItem href='/users/sign_out'>
-                  Sign Out
-                </DropdownItem>
-                </>
-                }
-                {!logged_in && 
-                <>
-                <DropdownItem href='/users/sign_in'>
-                  Sign In
-                </DropdownItem>
-                <DropdownItem href='/users/sign_up'>
-                Sign Up
-                </DropdownItem>
-                </>
-                }
+                <DropdownMenu >
+                  <DropdownItem id="All restaurants" href='/restaurantindex'>
+                    All Restaurants
+                  </DropdownItem>
+                  <DropdownItem id="About Us" href='/AboutUs'>
+                    About Us
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  {logged_in &&  
+                  <>
+                  <DropdownItem href='/myrestaurants'>
+                    My Restaurants
+                  </DropdownItem>
+                  <DropdownItem href='/restaurantnew'>
+                    New Restaurant
+                  </DropdownItem>
+                  <DropdownItem href='/users/sign_out'>
+                    Sign Out
+                  </DropdownItem>
+                  </>
+                  }
+                  {!logged_in && 
+                  <>
+                  <DropdownItem href='/users/sign_in'>
+                    Sign In
+                  </DropdownItem>
+                  <DropdownItem href='/users/sign_up'>
+                  Sign Up
+                  </DropdownItem>
+                  </>
+                  }
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
-          </Collapse>
         </Navbar>
-      </div>
     )
   }
 }

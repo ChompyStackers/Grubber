@@ -88,7 +88,7 @@ class App extends React.Component {
           <Route path="/restaurantnew" render={(props) => <RestaurantNew {...this.props} createRestaurant={this.createRestaurant} />} />
           <Route component={NotFound}/>       
         </Switch>
-        <Footer/>
+        {/* <Footer/> */}
       </Router>
     );
   }
