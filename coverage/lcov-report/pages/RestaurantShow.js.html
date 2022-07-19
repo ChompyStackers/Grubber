@@ -204,8 +204,7 @@
 <a name='L139'></a><a href='#L139'>139</a>
 <a name='L140'></a><a href='#L140'>140</a>
 <a name='L141'></a><a href='#L141'>141</a>
-<a name='L142'></a><a href='#L142'>142</a>
-<a name='L143'></a><a href='#L143'>143</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L142'></a><a href='#L142'>142</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -217,8 +216,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -231,24 +230,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -358,118 +356,117 @@ import {
   import { Redirect } from 'react-router-dom'
 &nbsp;
 export default class RestaurantShow extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-          editRestaurant: {
-            name: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.name </span>: "", 
-            street: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.street </span>: "", 
-            city: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.city </span>: "",  
-            state: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.state </span>: "",  
-            foodtype: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.foodtype </span>: "", 
-            comment: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.comment </span>: "", 
-            image: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.image </span>: "", 
-          },
-          submitted: false
-        }
+  constructor(props){
+    super(props)
+    this.state = {
+      editRestaurant: {
+        name: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.name </span>: "", 
+        street: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.street </span>: "", 
+        city: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.city </span>: "",  
+        state: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.state </span>: "",  
+        foodtype: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.foodtype </span>: "", 
+        comment: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.comment </span>: "", 
+        image: this.props.restaurant ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.restaurant.image </span>: "", 
+      },
+      submitted: false
     }
-    handleChange = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
-        let { editRestaurant } = <span class="cstat-no" title="statement not covered" >this.state</span>
-<span class="cstat-no" title="statement not covered" >        editRestaurant[e.target.name] = e.target.value</span>
-<span class="cstat-no" title="statement not covered" >        this.setState({editRestaurant: editRestaurant})</span>
-    }
-    handleSubmit = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >      this.props.updateRestaurant(this.state.editRestaurant, this.props.id)</span>
-<span class="cstat-no" title="statement not covered" >      this.setState({submitted: true})</span>
-    }
-    handleDelete = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >      this.props.deleteRestaurant(this.props.id)</span>
-<span class="cstat-no" title="statement not covered" >      this.setState({submitted: true})</span>
-    }
+  }
+  handleChange = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
+    let { editRestaurant } = <span class="cstat-no" title="statement not covered" >this.state</span>
+<span class="cstat-no" title="statement not covered" >    editRestaurant[e.target.name] = e.target.value</span>
+<span class="cstat-no" title="statement not covered" >    this.setState({editRestaurant: editRestaurant})</span>
+  }
+  handleSubmit = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >    this.props.updateRestaurant(this.state.editRestaurant, this.props.id)</span>
+<span class="cstat-no" title="statement not covered" >    this.setState({submitted: true})</span>
+  }
+  handleDelete = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >    this.props.deleteRestaurant(this.props.id)</span>
+<span class="cstat-no" title="statement not covered" >    this.setState({submitted: true})</span>
+  }
  
-    render() {
-    const { restaurant } = this.props
-&nbsp;
+  render() {
+  const { restaurant } = this.props
     return (
       &lt;&gt;
       &lt;div&gt;
       { restaurant &amp;&amp; 
 <span class="branch-1 cbranch-no" title="branch not covered" >        &lt;Form&gt;</span>
           &lt;FormGroup&gt;
-              &lt;Label&gt;Name&lt;/Label&gt;
-              &lt;Input data-testid="down"
-                  placeholder ={restaurant.name}
-                  type="text"
-                  name="name"
-                  onChange={this.handleChange}
-                  value={this.state.name}
-              /&gt;
+            &lt;Label&gt;Name&lt;/Label&gt;
+            &lt;Input data-testid="down"
+              placeholder ={restaurant.name}
+              type="text"
+              name="name"
+              onChange={this.handleChange}
+              value={this.state.name}
+            /&gt;
           &lt;/FormGroup&gt;
 &nbsp;
           &lt;FormGroup&gt;
-              &lt;Label&gt;Street&lt;/Label&gt;
-              &lt;Input
-                  placeholder ={restaurant.street}
-                  type="text"
-                  name="street"
-                  onChange={this.handleChange}
-                  value={this.state.street}
-              /&gt;
+            &lt;Label&gt;Street&lt;/Label&gt;
+            &lt;Input
+              placeholder ={restaurant.street}
+              type="text"
+              name="street"
+              onChange={this.handleChange}
+              value={this.state.street}
+            /&gt;
           &lt;/FormGroup&gt;
 &nbsp;
           &lt;FormGroup&gt;
-              &lt;Label&gt;City&lt;/Label&gt;
-              &lt;Input
-                  placeholder ={restaurant.city}
-                  type="text"
-                  name="city"
-                  onChange={this.handleChange}
-                  value={this.state.city}
-              /&gt;
+            &lt;Label&gt;City&lt;/Label&gt;
+            &lt;Input
+              placeholder ={restaurant.city}
+              type="text"
+              name="city"
+              onChange={this.handleChange}
+              value={this.state.city}
+            /&gt;
           &lt;/FormGroup&gt;
 &nbsp;
           &lt;FormGroup&gt;
-              &lt;Label&gt;State&lt;/Label&gt;
-              &lt;Input
-                  type="text"
-                  name="state"
-                  onChange={this.handleChange}
-                  value={this.state.state}
-                  placeholder ={restaurant.state}
-              /&gt;
+            &lt;Label&gt;State&lt;/Label&gt;
+            &lt;Input
+              type="text"
+              name="state"
+              onChange={this.handleChange}
+              value={this.state.state}
+              placeholder ={restaurant.state}
+            /&gt;
           &lt;/FormGroup&gt;
 &nbsp;
           &lt;FormGroup&gt;
-              &lt;Label&gt;Food Type&lt;/Label&gt;
-              &lt;Input
-                  type="text"
-                  name="foodtype"
-                  onChange={this.handleChange}
-                  value={this.state.foodtype}
-                  placeholder ={restaurant.foodtype}
-              /&gt;
+            &lt;Label&gt;Food Type&lt;/Label&gt;
+            &lt;Input
+              type="text"
+              name="foodtype"
+              onChange={this.handleChange}
+              value={this.state.foodtype}
+              placeholder ={restaurant.foodtype}
+            /&gt;
           &lt;/FormGroup&gt;
 &nbsp;
           &lt;FormGroup&gt;
-              &lt;Label&gt;Comment&lt;/Label&gt;
-              &lt;Input
-                  type="text"
-                  name="comment"
-                  onChange={this.handleChange}
-                  value={this.state.comment}
-                  placeholder ={restaurant.comment}
-              /&gt;
+            &lt;Label&gt;Comment&lt;/Label&gt;
+            &lt;Input
+              type="text"
+              name="comment"
+              onChange={this.handleChange}
+              value={this.state.comment}
+              placeholder ={restaurant.comment}
+            /&gt;
           &lt;/FormGroup&gt;
 &nbsp;
           &lt;FormGroup&gt;
-              &lt;Label&gt;Image&lt;/Label&gt;
-              &lt;Input
-                  type="text"
-                  name="image"
-                  onChange={this.handleChange}
-                  value={this.state.image}
-                  placeholder ={restaurant.image}
-              /&gt;
+            &lt;Label&gt;Image&lt;/Label&gt;
+            &lt;Input
+              type="text"
+              name="image"
+              onChange={this.handleChange}
+              value={this.state.image}
+              placeholder ={restaurant.image}
+            /&gt;
           &lt;/FormGroup&gt;
 &nbsp;
           &lt;Button
@@ -496,7 +493,7 @@ export default class RestaurantShow extends Component {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Jul 19 2022 10:23:17 GMT-0700 (Pacific Daylight Time)
+                at Tue Jul 19 2022 10:54:13 GMT-0700 (Pacific Daylight Time)
             </div>
         <script src="../prettify.js"></script>
         <script>
