@@ -14,19 +14,51 @@
  *= require_self
  */
  @import 'bootstrap';
+ @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Yesteryear&display=swap');
+ 
 html{
-  height: 100%;
-  width: 100%;
-}
- body{
-  height: inherit;
+  height: 95vh;
+} 
+body{
+  height: 95vh;
   width: inherit;
-  background-color: #E9EADC;
+  background-color: #132B47 ;
  }
+#appIndex{
+  height: 97.3vh;
+  width: 100vw;
+  background-color: #E9EADC;
+}
 .container{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.card-group{
+  margin-top: 5em;
+  width: 95%;
+  height:100%;
+}
+@media (max-width:700px){
+  .titleImage{
+    // max-width: 200px;
+    max-height: 50px;
+  }
+  .navbar-brand{
+    font-size: 10px;
+  }
+  .grubNavBar{
+    max-height: 30px;
+  }
+  .hamburgerIcon{
+    max-height: 50px;
+    z-index: 3;
+    margin-right: 30px;
+  }
+  #homeplanetImage{
+    position: absolute;
+    bottom: 0;
+  }
 }
 @media (max-width:540px){
   .card-group{
@@ -37,66 +69,125 @@ html{
   }
 }}
 .grubNavBar{
-  background-color: #0b0c1000;
+  background-color: #E9EADC;
+  margin-top: 1.5%;
+  height: 75px;
+}
+#headerContainterTitle{
+  position: relative;
+  text-align: center;
+}
+#titleText{
+  position: absolute;
+  font-family: "Orbitron";
+  text-align: center;
+  font-weight: 900;
+  font-size: 2em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#homeplanetImage{
+position: absolute;
+margin-top: 40%;
+z-index: 0;
+width: 100%;
+overflow: hidden;
 }
 .dropdownBurger{
   padding-right: 50px;
 }
 .hamburgerIcon{
   height: 75px;
+  margin-bottom: 1.3em;
 }
+
 .dropdown-menu{
   background-color: rgba(250, 235, 215, 0);
   border: 1px solid #45A29E;
   border-radius: 0.25rem;
 } 
 .dropdown-item{
-  color: #66fcf1;
+  color: #E9EADC;
 }
 .dropdown-item:hover{
-  color:#45A29E;
+  color:#132B47 ;
   background-color: rgba(0, 255, 255, 0);
 }
+.container-fluid{
+  flex-direction: row-reverse;
+}
+.navbar-brand{
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+}
+.navbar-nav{
+  margin-right: -10em;
+}
+
 .navbar-brand, .dropdown-toggle{
-    color: #66fcf1;
+    color: #E9EADC;
     text-decoration: none;
 }
 .dropdown-toggle.nav-link::before{
-  color: #66fcf1;
+  color: #E9EADC;
   text-decoration: none;
 }
 .dropdown-toggle.nav-link::after{
   text-decoration: none;
  
 }
+.homeColorContainer{
+  width: 100%;
+  background-color: #E9EADC;
+  height: 80%;
+  z-index: 1;
+}
 .homeCardContainer{
   display: flex;
   justify-content: center;
- 
+  height: 100%;
 }
+.aboutUsColorContainer{
+  width: 100%;
+  background-color: #E9EADC;
+  height: fit-content;
+  height: 80%;
+}
+.aboutUsCardContainer{
+  display: flex;
+  justify-content: center;
+  height: 80%;
+}
+
 .card{
   background-color: #0b0c1000;
-  color: white;
-  width: 50%;
+  color: #E9EADC;
+  width: 95%;
   justify-content: center;
   align-items: center;
-  border: 1px solid #45A29E;
+  border: #132b4700;
   border-radius: 0.5rem;
+  background-color: #132B47;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+.card-body{
+  z-index: 1;
 }
 .card-img-top{
-  width: 100%;
-
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  z-index: 1;
 }
 .navbar-brand:hover, .navbar-brand::selection, .dropdown-toggle:hover, .dropdown-toggle::selection{
-  color: #45A29E;
+  color: #132B47 ;
   text-decoration: none;
 }
 
-
-.footer{ 
-   display: block;
-  bottom: 0;
-}
 #cardimage{ 
     width: 200px;
 }

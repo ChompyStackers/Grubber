@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Hamburgericon from "../assets/Hamburger icon.png"
+import Hamburgericon from "../assets/hamburgerIcon.png"
+import TitleImage from "../assets/Title image.png"
 import {
     Collapse,
     Navbar,
@@ -38,13 +39,13 @@ export default class Header extends Component {
     return (
         <div>
         <Navbar className="grubNavBar" expand="md">
-          <NavbarBrand href="/">Grubber</NavbarBrand>
+          <NavbarBrand href="/"><div id="headerContainterTitle"><img className='titleImage' src={TitleImage}/><div id='titleText'>Grubber</div></div></NavbarBrand>
             <Nav className="ml-auto" navbar>
               <UncontrolledDropdown nav inNavbar className='dropdownBurger'>
                 <DropdownToggle nav caret>
                 <img className="hamburgerIcon" src={Hamburgericon} />
                 </DropdownToggle>
-                <DropdownMenu  end>
+                <DropdownMenu >
                 <DropdownItem id="All restaurants" href='/restaurantindex'>
                    All Restaurants
                 </DropdownItem>
