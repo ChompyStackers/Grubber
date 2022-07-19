@@ -31,6 +31,8 @@ module GrubberApp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    config.assets.intialize_on_precompile = false
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
