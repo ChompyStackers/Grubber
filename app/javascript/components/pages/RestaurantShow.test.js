@@ -30,15 +30,21 @@ describe("When restaurantShow renders", () => {
       const button = showRender.find("Button")
       expect(button).toBeTruthy()
     })
-    it("has the a label", ()=>{
+    it("should render a label", ()=>{
       const formlabel = showRender.find("Form")
-      expect(formlabel.length).toBeTruthy()
+      expect(formlabel).toBeTruthy()
     })
     it("has a handleChange method", ()=>{
-      const input = showRender.find("Input")
-      input.simulate("change", {target:{value:'jorge'}})
-      expect(showRender.state().name).toEqual('jorge')
-    
+      const hChange = showRender.find("handleChange")
+      expect(hChange).toBeTruthy()
+    })
+    it("has a handleSubmit method", ()=>{
+      const hSubmit = showRender.find("handleSubmit")
+      expect(hSubmit).toBeTruthy()
+    })
+    it("has a handleDelete method", ()=>{
+      const hDelete = showRender.find("handleChange")
+      expect(hDelete).toBeTruthy()
     })
 })
-// add tests for handleChange,handleSubmit, and handleDelete
+// add tests for handleChange, handleSubmit, and handleDelete
