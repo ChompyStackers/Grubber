@@ -13,8 +13,8 @@ export default class AboutUs extends Component {
     render() {
         return (
             <div className='aboutUsColorContainer'>
-            <div className='aboutUsCardContainer'>
-                <CardGroup>
+                <div className='aboutUsCardContainer'>
+                    <CardGroup>
     {/* Jorge about me */}
                     <Card className='aboutUsCard'>
                         <CardImg top src="https://avatars.githubusercontent.com/u/101531326?v=4" alt="two dogs" />
@@ -60,8 +60,8 @@ export default class AboutUs extends Component {
                         </CardBody>
                     </Card>
 
-                </CardGroup>
-            </div>
+                    </CardGroup>
+                </div>
             </div>
         )
     }

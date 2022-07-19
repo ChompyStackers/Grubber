@@ -37,9 +37,13 @@ export default class Header extends Component {
     } = this.props
     // console.log("this is the current user", current_user)
     return (
-        <div>
         <Navbar className="grubNavBar" expand="md">
-          <NavbarBrand href="/"><div id="headerContainterTitle"><img className='titleImage' src={TitleImage}/><div id='titleText'>Grubber</div></div></NavbarBrand>
+          <NavbarBrand href="/">
+            <div id="headerContainterTitle">
+              <img className='titleImage' src={TitleImage}/>
+              <div id='titleText'>Grubber</div>
+            </div>
+          </NavbarBrand>
             <Nav className="ml-auto" navbar>
               <UncontrolledDropdown nav inNavbar className='dropdownBurger'>
                 <DropdownToggle nav caret>
@@ -80,7 +84,6 @@ export default class Header extends Component {
               </UncontrolledDropdown>
             </Nav>
         </Navbar>
-      </div>
     )
   }
 }
