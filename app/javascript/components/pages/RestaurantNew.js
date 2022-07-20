@@ -25,7 +25,7 @@ export default class RestaurantNew extends Component {
       submitted: false
     }
         
-  }
+    }
   handleChange = (e) => {
     let { restaurant } = this.state
     restaurant[e.target.name] = e.target.value
@@ -123,7 +123,7 @@ export default class RestaurantNew extends Component {
           Create a New Restaurant
         </Button>
         {this.state.submitted && <Redirect to="/restaurantindex" />}
-      </Form>
+        </Form>
       </div>
     )
   }

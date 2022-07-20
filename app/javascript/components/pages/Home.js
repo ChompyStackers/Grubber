@@ -70,27 +70,27 @@ export default class Home extends Component {
         </div>
       </div>
       
-        {this.state.renderCardNotLoggedIn && foodTypes.filter((value, index)=> index === this.state.noUserNumber).map((type, index)=>{
-          return(
-            <Card key={index}>
-            <CardBody>
-              <CardTitle>{type.foodtype}</CardTitle>
-            </CardBody>
-            <CardSubtitle>{type.image}</CardSubtitle>
-          </Card> 
-          )
-        })}
-        {logged_in && this.state.renderCardLoggedIn && userRestaurants.filter((restaurant, index) => index === this.state.randomNum).map((restaurant, index) => {
+      {this.state.renderCardNotLoggedIn && foodTypes.filter((value, index)=> index === this.state.noUserNumber).map((type, index)=>{
         return(
           <Card key={index}>
           <CardBody>
-            <CardTitle>{restaurant.name}</CardTitle>
-            <CardSubtitle>{restaurant.street},{restaurant.city}, {restaurant.state}</CardSubtitle>
+            <CardTitle>{type.foodtype}</CardTitle>
           </CardBody>
-          <img width="100%" src={restaurant.image} alt="Card image cap" />     
+          <CardSubtitle>{type.image}</CardSubtitle>
         </Card> 
         )
-        })}
+      })}
+      {logged_in && this.state.renderCardLoggedIn && userRestaurants.filter((restaurant, index) => index === this.state.randomNum).map((restaurant, index) => {
+      return(
+        <Card key={index}>
+        <CardBody>
+          <CardTitle>{restaurant.name}</CardTitle>
+          <CardSubtitle>{restaurant.street},{restaurant.city}, {restaurant.state}</CardSubtitle>
+        </CardBody>
+        <img width="100%" src={restaurant.image} alt="Card image cap" />     
+      </Card> 
+      )
+      })}
         
       {<button onClick={this.handleClick}>
         Randomize Grub type

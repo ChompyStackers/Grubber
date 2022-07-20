@@ -14,20 +14,20 @@ import Header from './Header'
 configure({ adapter: new Adapter() })
 
 describe("When Header renders", () => {
-    let headerRender
-    beforeEach(() => {
-      headerRender = shallow(<Header />)
-    })
-    it("displays a title", () => {
-      const title = headerRender.find("NavbarBrand")
-      expect(title.props().children).toEqual("Grubber")
-    })
-    it("displays a image", () => {
-      const hamburgericon = headerRender.find("img")
-      expect(hamburgericon.length).toEqual(1)
-    })
-    it("displays Dropdownlinks", () => {
-      const dropdowns = headerRender.find("DropdownItem")
-      expect(dropdowns.length).toEqual(5)
-    })
+  let headerRender
+  beforeEach(() => {
+    headerRender = shallow(<Header />)
+  })
+  it("displays a title", () => {
+    const title = headerRender.find("NavbarBrand").text()
+    expect(title).toEqual("<NavbarBrand />")
+  })
+  it("displays a image", () => {
+    const hamburgericon = headerRender.find("img")
+    expect(hamburgericon.length).toEqual(2)
+  })
+  it("displays Dropdownlinks", () => {
+    const dropdowns = headerRender.find("DropdownItem")
+    expect(dropdowns.length).toEqual(5)
+  })
 })

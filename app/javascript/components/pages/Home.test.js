@@ -14,18 +14,17 @@ import Home from './Home'
 configure({adapter: new Adapter()})
 
 describe("When Home renders", () => {
-    it("displays a heading", () => {
-      const home = shallow(<Home />)
-      const homeHeading = home.find("div").text()
-      expect(homeHeading).toEqual("Randomize your GrubRandomize all Grub")
-       
-    })    
-    it("renders a button", () => {
-      const home = shallow(<Home />)
-      const homeHeading = home.find("button")
-      expect(homeHeading.length).toEqual(2)
-     })
+  it("displays a heading", () => {
+    const home = shallow(<Home />)
+    const homeHeading = home.find("Card")
+    expect(homeHeading.length).toEqual(2)
+  })    
+  it("renders a button", () => {
+    const home = shallow(<Home />)
+    const homeHeading = home.find("button")
+    expect(homeHeading.length).toEqual(3)
   })
+})
 
 
 
