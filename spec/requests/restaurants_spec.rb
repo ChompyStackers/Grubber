@@ -326,9 +326,28 @@ RSpec.describe "Restaurants", type: :request do
         name:"McDonald's",
         user_id: user.id
       )
-  restaurant = Restaurant.first 
-    updated_restaurant_params = {
-      restaurant: {
+      restaurant = Restaurant.first 
+      updated_restaurant_params = {
+        restaurant: {
+          street: '123 street',
+          city: 'Chicago',
+          state: 'illinois',
+          foodtype: 'FastFood',
+          comment: 'ok 5/5',
+          image: 'https://mcdonalds.com',
+          name:"McDonald's",
+          user_id: user.id
+        }
+      }
+      patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
+      expect(response).to have_http_status(200)
+      updated_restaurant = Restaurant.find(restaurant.id)
+      expect(restaurant.comment).to eq "ok 2/5"
+      expect(updated_restaurant.comment).to eq "ok 5/5"
+    end
+
+    it 'does not update a restaurant without a name and minimum length' do 
+      Restaurant.create(
         street: '123 street',
         city: 'Chicago',
         state: 'illinois',
@@ -337,109 +356,96 @@ RSpec.describe "Restaurants", type: :request do
         image: 'https://mcdonalds.com',
         name:"McDonald's",
         user_id: user.id
-      }
-    }
-    patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
-      expect(response).to have_http_status(200)
-      updated_restaurant = Restaurant.find(restaurant.id)
-      expect(restaurant.age).to eq 40
-      expect(updated_restaurant.age).to eq 900
-end
-
-it 'does not update a restaurant without a name and minimum length' do 
-  Restaurant.create(
-    street: '123 street',
-    city: 'Chicago',
-    state: 'illinois',
-    foodtype: 'FastFood',
-    comment: 'ok 2/5',
-    image: 'https://mcdonalds.com',
-    name:"McDonald's",
-    user_id: user.id
-  )
-  monster = Restaurant.first 
-
-  updated_restaurant_params = {
-    restaurant: {
-        name:'',
-        age: 900,
-        specialty:'Trans-dimensional Demonic Alien',
-        quote:'Time to float.',
-        image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
-    }
-    }
-    patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
-
-    expect(response).to have_http_status(422)
-    restaurant = JSON.parse(response.body)
-    expect(monster['name']).to include "can't be blank", "is too short (minimum is 2 characters)"
-end
-it 'does not update a Restaurant without a age and minimum length' do 
-  Restaurant.create(
-      name:'Pennywise',
-      age: 40,
-      specialty:'Trans-dimensional Demonic Alien',
-      quote:'Time to float.',
-      image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
-  )
-  monster = Restaurant.first 
-
-  updated_restaurant_params = {
-    monster: {
-        name:'Pennywise',
-        age: '',
-        specialty:'Trans-dimensional Demonic Alien',
-        quote:'Time to float.',
-        image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
-    }
-    }
-    patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
-
-    expect(response).to have_http_status(422)
-    restaurant = JSON.parse(response.body)
-    expect(restaurant['age']).to include "can't be blank", "is too short (minimum is 1 character)"
-end
-it 'does not update a Restaurant without a specialty and minimum length' do 
-  Restaurant.create(
-      name:'Pennywise',
-      age: 40,
-      specialty:'Trans-dimensional Demonic Alien',
-      quote:'Time to float.',
-      image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
-  )
-  restaurant = Restaurant.first 
-
-  updated_restaurant_params = {
-    monster: {
-        name:'Pennywise',
-        age: 40,
-        specialty:'',
-        quote:'Time to float.',
-        image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
-    }
-    }
-    patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
-
-    expect(response).to have_http_status(422)
-    restaurant = JSON.parse(response.body)
-    expect(restaurant['specialty']).to include "can't be blank", "is too short (minimum is 5 characters)"
-end
-
-   end
-describe "DELETE /destroy" do
-    it "deletes a Restaurant from the database" do 
-      Restaurant.create(
-      #     name:'Pennywise',
-      #     age: 40,
-      #     specialty:'Trans-dimensional Demonic Alien',
-      #     quote:'Time to float.',
-      #     image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
-      # )
+      )
       restaurant = Restaurant.first 
 
-       delete "/restaurants/#{restaurant.id}"
+      updated_restaurant_params = {
+        restaurant: {
+          street: '123 street',
+          city: 'Chicago',
+          state: 'illinois',
+          foodtype: 'FastFood',
+          comment: 'ok 2/5',
+          image: 'https://mcdonalds.com',
+          name:"",
+          user_id: user.id
+        }
+      }
+      patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
 
-       expect(response).to have_http_status(200)
+      expect(response).to have_http_status(422)
+      restaurant = JSON.parse(response.body)
+      expect(restaurant['name']).to include "can't be blank", "is too short (minimum is 2 characters)"
     end
+    
+    it 'does not update a Restaurant without a age and minimum length' do 
+      Restaurant.create(
+          name:'Pennywise',
+          age: 40,
+          specialty:'Trans-dimensional Demonic Alien',
+          quote:'Time to float.',
+          image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
+      )
+      restaurant = Restaurant.first 
+
+      updated_restaurant_params = {
+        restaurant: {
+            name:'Pennywise',
+            age: '',
+            specialty:'Trans-dimensional Demonic Alien',
+            quote:'Time to float.',
+            image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
+        }
+        }
+        patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
+
+        expect(response).to have_http_status(422)
+        restaurant = JSON.parse(response.body)
+        expect(restaurant['age']).to include "can't be blank", "is too short (minimum is 1 character)"
     end
+    it 'does not update a Restaurant without a specialty and minimum length' do 
+      Restaurant.create(
+          name:'Pennywise',
+          age: 40,
+          specialty:'Trans-dimensional Demonic Alien',
+          quote:'Time to float.',
+          image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
+      )
+      restaurant = Restaurant.first 
+
+      updated_restaurant_params = {
+        restaurant: {
+            name:'Pennywise',
+            age: 40,
+            specialty:'',
+            quote:'Time to float.',
+            image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
+        }
+        }
+        patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
+
+        expect(response).to have_http_status(422)
+        restaurant = JSON.parse(response.body)
+        expect(restaurant['specialty']).to include "can't be blank", "is too short (minimum is 5 characters)"
+    end
+
+  end
+  
+  describe "DELETE /destroy" do
+    it "deletes a Restaurant from the database" do 
+      Restaurant.create(
+        street: '123 street',
+        city: 'Chicago',
+        state: 'illinois',
+        foodtype: 'FastFood',
+        comment: 'ok 2/5',
+        image: 'https://mcdonalds.com',
+        name:"McDonald's",
+        user_id: user.id
+      )
+      restaurant = Restaurant.first
+      delete "/restaurants/#{restaurant.id}"
+      expect(response).to have_http_status(200)
+    end
+  end
 end
