@@ -110,7 +110,7 @@ RSpec.describe Restaurant, type: :model do
       p restaurant.errors[:name]
       expect(restaurant.errors[:name]).to include "is too short (minimum is 3 characters)"
     end 
-    it 'will validate street minimum length of restaurant street to 3' do 
+    it 'will validate street and minimum length of restaurant street to 3' do 
       restaurant = Restaurant.create(
         name: "McDonalds",
         street:"1",

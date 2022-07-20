@@ -34,6 +34,30 @@ describe("When restaurantShow renders", () => {
       const formlabel = showRender.find("Form")
       expect(formlabel).toBeTruthy()
     })
+    it("should render a name", ()=>{
+      const formlabel = showRender.find("name")
+      expect(formlabel).toBeTruthy()
+    })
+    it("should render as street", ()=>{
+      const formlabel = showRender.find("street")
+      expect(formlabel).toBeTruthy()
+    })
+    it("should render as city", ()=>{
+      const formlabel = showRender.find("city")
+      expect(formlabel).toBeTruthy()
+    })
+    it("should render a foodtype", ()=>{
+      const formlabel = showRender.find("foodtype")
+      expect(formlabel).toBeTruthy()
+    })
+    it("should render a comment", ()=>{
+      const formlabel = showRender.find("comment")
+      expect(formlabel).toBeTruthy()
+    })
+    it("should render an image", ()=>{
+      const formlabel = showRender.find("image")
+      expect(formlabel).toBeTruthy()
+    })
     it("has a handleChange method", ()=>{
       const hChange = showRender.find("handleChange")
       expect(hChange).toBeTruthy()
@@ -47,4 +71,3 @@ describe("When restaurantShow renders", () => {
       expect(hDelete).toBeTruthy()
     })
 })
-// add tests for handleChange, handleSubmit, and handleDelete
