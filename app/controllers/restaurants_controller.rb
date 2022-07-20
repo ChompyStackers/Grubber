@@ -27,6 +27,7 @@ class RestaurantsController < ApplicationController
         restaurant.destroy
         render json: restaurant
     end    
+    
 
     private
     def restaurant_params
