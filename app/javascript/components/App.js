@@ -18,7 +18,8 @@ class App extends React.Component {
     constructor(props){
       super(props)
       this.state = {
-        restaurants: []
+        restaurants: [],
+        
       }
     }
     componentDidMount(){
@@ -67,12 +68,14 @@ class App extends React.Component {
     }
 
   render () {
-   
+    let userRestaurants = []
+    if(this.props.logged_in){userRestaurants= this.state.restaurants.filter(restaurant => restaurant.user_id === this.props.current_user.id)}
+    // console.log("userrestaurants:", userRestaurants);
     return (
       <Router>
         <Header {...this.props}/>
         <Switch>
-          <Route exact path="/" render={props => <Home restaurants={this.state.restaurants}/>} />
+          <Route exact path="/" render={props => <Home restaurants={this.state.restaurants} {...this.props} userRestaurants={userRestaurants}/>} />
           <Route path="/AboutUs" component={AboutUs} />
           <Route path="/restaurantindex" render={props => <RestaurantIndex restaurants={this.state.restaurants}/>} />
           <Route path="/myrestaurants" render={props => <RestaurantIndexProtected restaurants={this.state.restaurants} {...this.props}/>} />
@@ -85,7 +88,7 @@ class App extends React.Component {
           <Route path="/restaurantnew" render={(props) => <RestaurantNew {...this.props} createRestaurant={this.createRestaurant} />} />
           <Route component={NotFound}/>       
         </Switch>
-        <Footer/>
+        {/* <Footer/> */}
       </Router>
     );
   }
