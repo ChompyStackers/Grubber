@@ -49,7 +49,7 @@ export default class Home extends Component {
     } = this.props
   
     const {userRestaurants}= this.props
-    console.log("foodtypes:",foodTypes);
+    // console.log("foodtypes:",foodTypes);
     return (
       <>
       <div className='homeColorContainer'>

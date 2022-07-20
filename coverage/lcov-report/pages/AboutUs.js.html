@@ -129,7 +129,9 @@
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,6 +145,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -209,54 +213,56 @@ import { Card,
 export default class AboutUs extends Component {
     render() {
         return (
-            &lt;div&gt;AboutUs
-                &lt;CardGroup&gt;
-{/* Jorge about me */}
-                &lt;Card&gt;
-                    &lt;CardImg top width="100%" src="https://avatars.githubusercontent.com/u/101531326?v=4" alt="two dogs" /&gt;
-                    &lt;CardBody&gt;
-                    &lt;CardTitle&gt;Jorge Linares&lt;/CardTitle&gt;
-                    &lt;CardSubtitle&gt;Grub Project Manager&lt;/CardSubtitle&gt;
-                    &lt;CardText&gt;Add your about me in this section.&lt;/CardText&gt;
-                    &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target ="_blank"&gt;LinkedIn&lt;/NavLink&gt;
-                    &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank"&gt;GitHub&lt;/NavLink&gt;
-                    &lt;/CardBody&gt;
-                &lt;/Card&gt;
-{/* Frank about me */}
-                &lt;Card&gt;
-                    &lt;CardImg top width="100%" src="https://avatars.githubusercontent.com/u/98143232?v=4" alt="frank the tank" /&gt;
-                    &lt;CardBody&gt;
-                    &lt;CardTitle&gt;Francisco Rivera&lt;/CardTitle&gt;
-                    &lt;CardSubtitle&gt;Grub Tech Lead&lt;/CardSubtitle&gt;
-                    &lt;CardText&gt;Add your about me in this section.&lt;/CardText&gt;
-                    &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank"&gt;LinkedIn&lt;/NavLink&gt;
-                    &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target='_blank'&gt;GitHub&lt;/NavLink&gt;
-                    &lt;/CardBody&gt;
-                &lt;/Card&gt;
-{/* JB about me */}
-                &lt;Card&gt;
-                    &lt;CardImg top width="100%" src="https://avatars.githubusercontent.com/u/101531299?s=120&amp;v=4" alt="github picture" /&gt;
-                    &lt;CardBody&gt;
-                    &lt;CardTitle&gt;JB&lt;/CardTitle&gt;
-                    &lt;CardSubtitle&gt;Grub Product Manager&lt;/CardSubtitle&gt;
-                    &lt;CardText&gt;Add your about me in this section.&lt;/CardText&gt;
-                    &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank"&gt;LinkedIn&lt;/NavLink&gt;
-                    &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank"&gt;GitHub&lt;/NavLink&gt;
-                    &lt;/CardBody&gt;
-                &lt;/Card&gt;
-{/* Stephen about me */}
-                &lt;Card&gt;
-                    &lt;CardImg top width="100%" src="https://avatars.githubusercontent.com/u/101531285?v=4" alt="designigator" /&gt;
-                    &lt;CardBody&gt;
-                    &lt;CardTitle&gt;Stephen O'Marrah&lt;/CardTitle&gt;
-                    &lt;CardSubtitle&gt;Grub Design Lead&lt;/CardSubtitle&gt;
-                    &lt;CardText&gt;Grub Design Lead&lt;/CardText&gt;
-                    &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank"&gt;LinkedIn&lt;/NavLink&gt;
-                    &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank"&gt;GitHub&lt;/NavLink&gt;
-                    &lt;/CardBody&gt;
-                &lt;/Card&gt;
+            &lt;div className='aboutUsColorContainer'&gt;
+                &lt;div className='aboutUsCardContainer'&gt;
+                    &lt;CardGroup&gt;
+    {/* Jorge about me */}
+                    &lt;Card className='aboutUsCard'&gt;
+                        &lt;CardImg top src="https://avatars.githubusercontent.com/u/101531326?v=4" alt="two dogs" /&gt;
+                        &lt;CardBody&gt;
+                        &lt;CardTitle&gt;Jorge Linares&lt;/CardTitle&gt;
+                        &lt;CardSubtitle&gt;Grub Project Manager&lt;/CardSubtitle&gt;
+                        &lt;CardText&gt;Add your about me in this section.&lt;/CardText&gt;
+                        &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target ="_blank"&gt;LinkedIn&lt;/NavLink&gt;
+                        &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank"&gt;GitHub&lt;/NavLink&gt;
+                        &lt;/CardBody&gt;
+                    &lt;/Card&gt;
+    {/* Frank about me */}
+                    &lt;Card className='aboutUsCard'&gt;
+                        &lt;CardImg top src="https://avatars.githubusercontent.com/u/98143232?v=4" alt="frank the tank" /&gt;
+                        &lt;CardBody&gt;
+                        &lt;CardTitle&gt;Francisco Rivera&lt;/CardTitle&gt;
+                        &lt;CardSubtitle&gt;Grub Tech Lead&lt;/CardSubtitle&gt;
+                        &lt;CardText&gt;Add your about me in this section.&lt;/CardText&gt;
+                        &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank"&gt;LinkedIn&lt;/NavLink&gt;
+                        &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target='_blank'&gt;GitHub&lt;/NavLink&gt;
+                        &lt;/CardBody&gt;
+                    &lt;/Card&gt;
+    {/* JB about me */}
+                    &lt;Card className='aboutUsCard'&gt;
+                        &lt;CardImg top src="https://avatars.githubusercontent.com/u/101531299?s=120&amp;v=4" alt="github picture" /&gt;
+                        &lt;CardBody&gt;
+                        &lt;CardTitle&gt;JB&lt;/CardTitle&gt;
+                        &lt;CardSubtitle&gt;Grub Product Manager&lt;/CardSubtitle&gt;
+                        &lt;CardText&gt;Add your about me in this section.&lt;/CardText&gt;
+                        &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank"&gt;LinkedIn&lt;/NavLink&gt;
+                        &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank"&gt;GitHub&lt;/NavLink&gt;
+                        &lt;/CardBody&gt;
+                    &lt;/Card&gt;
+    {/* Stephen about me */}
+                    &lt;Card className='aboutUsCard'&gt;
+                        &lt;CardImg top src="https://avatars.githubusercontent.com/u/101531285?v=4" alt="designigator" /&gt;
+                        &lt;CardBody&gt;
+                        &lt;CardTitle&gt;Stephen OMarrah&lt;/CardTitle&gt;
+                        &lt;CardSubtitle&gt;Grub Design Lead&lt;/CardSubtitle&gt;
+                        &lt;CardText&gt;Grub Design Lead&lt;/CardText&gt;
+                        &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank"&gt;LinkedIn&lt;/NavLink&gt;
+                        &lt;NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank"&gt;GitHub&lt;/NavLink&gt;
+                        &lt;/CardBody&gt;
+                    &lt;/Card&gt;
 &nbsp;
-                &lt;/CardGroup&gt;
+                    &lt;/CardGroup&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         )
     }
@@ -268,7 +274,7 @@ export default class AboutUs extends Component {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Jul 19 2022 18:26:13 GMT-0700 (Pacific Daylight Time)
+                at Tue Jul 19 2022 20:00:03 GMT-0700 (Pacific Daylight Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

@@ -150,11 +150,8 @@
 <a name='L85'></a><a href='#L85'>85</a>
 <a name='L86'></a><a href='#L86'>86</a>
 <a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L88'></a><a href='#L88'>88</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -190,12 +187,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -246,7 +238,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react'
-import Hamburgericon from "../assets/Hamburger icon.png"
+import Hamburgericon from "../assets/hamburgerIcon.png"
+import TitleImage from "../assets/Title image.png"
 import {
     Collapse,
     Navbar,
@@ -261,18 +254,18 @@ import {
     DropdownItem } from 'reactstrap';
   
 export default class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-          isOpen: false
-        };
-      }
-<span class="fstat-no" title="function not covered" >      to</span>ggle() {
-<span class="cstat-no" title="statement not covered" >        this.setState({</span>
-          isOpen: !this.state.isOpen
-        });
-      }  
+  constructor(props) {
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+<span class="fstat-no" title="function not covered" >  to</span>ggle() {
+<span class="cstat-no" title="statement not covered" >    this.setState({</span>
+      isOpen: !this.state.isOpen
+    });
+  }  
   render() {
     const {
       logged_in,
@@ -281,69 +274,64 @@ export default class Header extends Component {
       sign_in_route,
       sign_out_route
     } = this.props
-    // console.log("this is the current user", current_user)
-    return (
-        &lt;div&gt;
-        &lt;Navbar color="dark" light expand="md"&gt;
-          &lt;NavbarBrand href="/"&gt;Grubber&lt;/NavbarBrand&gt;
-          &lt;NavbarToggler onClick={this.toggle} /&gt;
-          &lt;Collapse isOpen={this.state.isOpen} navbar&gt;
-            &lt;Nav className="ml-auto" navbar&gt;
-              &lt;UncontrolledDropdown nav inNavbar&gt;
-                &lt;DropdownToggle nav caret&gt;
-                &lt;img src={Hamburgericon} /&gt;
-                &lt;/DropdownToggle&gt;
-                &lt;DropdownMenu end&gt;
-                &lt;DropdownItem id="All restaurants" href='/restaurantindex'&gt;
-                   All Restaurants
-                &lt;/DropdownItem&gt;
-                &lt;DropdownItem id="About Us" href='/AboutUs'&gt;
-                  About Us
-                &lt;/DropdownItem&gt;
-                &lt;DropdownItem divider /&gt;
-                {logged_in &amp;&amp;  
-<span class="branch-1 cbranch-no" title="branch not covered" >                &lt;&gt;</span>
-                &lt;DropdownItem href='/myrestaurants'&gt;
-                  My Restaurants
-                &lt;/DropdownItem&gt;
-                &lt;DropdownItem href='/restaurantnew'&gt;
-                  New Restaurant
-                &lt;/DropdownItem&gt;
-&nbsp;
-                &lt;DropdownItem href='/users/sign_out'&gt;
-                  Sign Out
-                &lt;/DropdownItem&gt;
-                &lt;/&gt;
-                }
-                {!logged_in &amp;&amp; 
-                &lt;&gt;
-                &lt;DropdownItem href='/users/sign_in'&gt;
-                  Sign In
-                &lt;/DropdownItem&gt;
-                &lt;DropdownItem href='/users/sign_up'&gt;
-                Sign Up
-                &lt;/DropdownItem&gt;
-                &lt;/&gt;
-                }
-                &lt;/DropdownMenu&gt;
-              &lt;/UncontrolledDropdown&gt;
-            &lt;/Nav&gt;
-          &lt;/Collapse&gt;
-        &lt;/Navbar&gt;
-      &lt;/div&gt;
-    )
+  return (
+    &lt;Navbar className="grubNavBar" expand="md"&gt;
+      &lt;NavbarBrand href="/"&gt;
+        &lt;div id="headerContainterTitle"&gt;
+          &lt;img className='titleImage' src={TitleImage}/&gt;
+          &lt;div id='titleText'&gt;Grubber&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/NavbarBrand&gt;
+        &lt;Nav className="ml-auto" navbar&gt;
+          &lt;UncontrolledDropdown nav inNavbar className='dropdownBurger'&gt;
+            &lt;DropdownToggle nav caret&gt;
+              &lt;img className="hamburgerIcon" src={Hamburgericon} /&gt;
+            &lt;/DropdownToggle&gt;
+            &lt;DropdownMenu &gt;
+              &lt;DropdownItem id="All restaurants" href='/restaurantindex'&gt;
+                All Restaurants
+              &lt;/DropdownItem&gt;
+              &lt;DropdownItem id="About Us" href='/AboutUs'&gt;
+                About Us
+              &lt;/DropdownItem&gt;
+              &lt;DropdownItem divider /&gt;
+              {logged_in &amp;&amp;  
+<span class="branch-1 cbranch-no" title="branch not covered" >              &lt;&gt;</span>
+              &lt;DropdownItem href='/myrestaurants'&gt;
+                My Restaurants
+              &lt;/DropdownItem&gt;
+              &lt;DropdownItem href='/restaurantnew'&gt;
+                New Restaurant
+              &lt;/DropdownItem&gt;
+              &lt;DropdownItem href='/users/sign_out'&gt;
+                Sign Out
+              &lt;/DropdownItem&gt;
+              &lt;/&gt;
+              }
+              {!logged_in &amp;&amp; 
+              &lt;&gt;
+              &lt;DropdownItem href='/users/sign_in'&gt;
+              Sign In
+              &lt;/DropdownItem&gt;
+              &lt;DropdownItem href='/users/sign_up'&gt;
+              Sign Up
+              &lt;/DropdownItem&gt;
+              &lt;/&gt;
+              }
+            &lt;/DropdownMenu&gt;
+          &lt;/UncontrolledDropdown&gt;
+        &lt;/Nav&gt;
+    &lt;/Navbar&gt;
+  )
   }
-}
-&nbsp;
-&nbsp;
-&nbsp;</pre></td></tr></table></pre>
+}</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Jul 19 2022 18:26:13 GMT-0700 (Pacific Daylight Time)
+                at Tue Jul 19 2022 20:00:03 GMT-0700 (Pacific Daylight Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

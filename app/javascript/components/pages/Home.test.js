@@ -20,15 +20,13 @@ describe("When Home renders", () => {
     expect(homeHeading.length).toEqual(2)
   })    
   it("renders a button", () => {
-    const home = shallow(<Home />)
-    const homeHeading = home.find("button")
-    expect(homeHeading.length).toEqual(3)
+    const homebutton = shallow(<Home />)
+    const homeButtonHeading = homebutton.find("button")
+    expect(homeButtonHeading.length).toEqual(3)
+  })
+  it("handles clicks in methods", () => {
+    const hClicks = shallow(<Home />)
+    const hClicksMethods = hClicks.find("handleClickLoggedIn")
+    expect (hClicksMethods.length).toEqual(6)
   })
 })
-
-
-
-
-
- 
-
