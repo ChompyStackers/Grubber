@@ -375,59 +375,204 @@ RSpec.describe "Restaurants", type: :request do
 
       expect(response).to have_http_status(422)
       restaurant = JSON.parse(response.body)
-      expect(restaurant['name']).to include "can't be blank", "is too short (minimum is 2 characters)"
+      expect(restaurant['name']).to include "can't be blank", "is too short (minimum is 3 characters)"
     end
     
-    it 'does not update a Restaurant without a age and minimum length' do 
+    it 'does not update a Restaurant without a street and minimum length' do 
       Restaurant.create(
-          name:'Pennywise',
-          age: 40,
-          specialty:'Trans-dimensional Demonic Alien',
-          quote:'Time to float.',
-          image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
+        street: '123 street',
+        city: 'Chicago',
+        state: 'illinois',
+        foodtype: 'FastFood',
+        comment: 'ok 2/5',
+        image: 'https://mcdonalds.com',
+        name:"joe's",
+        user_id: user.id
       )
       restaurant = Restaurant.first 
 
       updated_restaurant_params = {
         restaurant: {
-            name:'Pennywise',
-            age: '',
-            specialty:'Trans-dimensional Demonic Alien',
-            quote:'Time to float.',
-            image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
+          street: '',
+          city: 'Chicago',
+          state: 'illinois',
+          foodtype: 'FastFood',
+          comment: 'ok 2/5',
+          image: 'https://mcdonalds.com',
+          name:"joe's",
+          user_id: user.id
         }
         }
         patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
 
         expect(response).to have_http_status(422)
         restaurant = JSON.parse(response.body)
-        expect(restaurant['age']).to include "can't be blank", "is too short (minimum is 1 character)"
+        p restaurant['street']
+        expect(restaurant['street']).to include "can't be blank", "is too short (minimum is 3 characters)"
     end
-    it 'does not update a Restaurant without a specialty and minimum length' do 
+
+    it 'does not update a Restaurant without a city and minimum length' do 
       Restaurant.create(
-          name:'Pennywise',
-          age: 40,
-          specialty:'Trans-dimensional Demonic Alien',
-          quote:'Time to float.',
-          image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
+        street: '123 street',
+        city: 'Chicago',
+        state: 'illinois',
+        foodtype: 'FastFood',
+        comment: 'ok 2/5',
+        image: 'https://mcdonalds.com',
+        name:"joe's",
+        user_id: user.id
       )
       restaurant = Restaurant.first 
 
       updated_restaurant_params = {
         restaurant: {
-            name:'Pennywise',
-            age: 40,
-            specialty:'',
-            quote:'Time to float.',
-            image:'https://images.app.goo.gl/Qaxt9KuSWEJcigM2A',
+          street: '123 street',
+          city: '',
+          state: 'illinois',
+          foodtype: 'FastFood',
+          comment: 'ok 2/5',
+          image: 'https://mcdonalds.com',
+          name:"joe's",
+          user_id: user.id
         }
         }
         patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
 
         expect(response).to have_http_status(422)
         restaurant = JSON.parse(response.body)
-        expect(restaurant['specialty']).to include "can't be blank", "is too short (minimum is 5 characters)"
+        p restaurant['city']
+        expect(restaurant['city']).to include "can't be blank", "is too short (minimum is 3 characters)"
     end
+
+    it 'does not update a Restaurant without a state and minimum length' do 
+      Restaurant.create(
+        street: '123 street',
+        city: 'Chicago',
+        state: 'illinois',
+        foodtype: 'FastFood',
+        comment: 'ok 2/5',
+        image: 'https://mcdonalds.com',
+        name:"joe's",
+        user_id: user.id
+      )
+      restaurant = Restaurant.first 
+
+      updated_restaurant_params = {
+        restaurant: {
+          street: '123 street',
+          city: 'Chicago',
+          state: '',
+          foodtype: 'FastFood',
+          comment: 'ok 2/5',
+          image: 'https://mcdonalds.com',
+          name:"joe's",
+          user_id: user.id
+        }
+        }
+        patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
+
+        expect(response).to have_http_status(422)
+        restaurant = JSON.parse(response.body)
+        p restaurant['state']
+        expect(restaurant['state']).to include "can't be blank", "is too short (minimum is 2 characters)"
+    end
+    it 'does not update a Restaurant without a comment and minimum length' do 
+      Restaurant.create(
+        street: '123 street',
+        city: 'Chicago',
+        state: 'illinois',
+        foodtype: 'FastFood',
+        comment: 'ok 2/5',
+        image: 'https://mcdonalds.com',
+        name:"joe's",
+        user_id: user.id
+      )
+      restaurant = Restaurant.first 
+
+      updated_restaurant_params = {
+        restaurant: {
+          street: '123 street',
+          city: 'Chicago',
+          state: 'illinois',
+          foodtype: 'FastFood',
+          comment: '',
+          image: 'https://mcdonalds.com',
+          name:"joe's",
+          user_id: user.id
+        }
+        }
+        patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
+
+        expect(response).to have_http_status(422)
+        restaurant = JSON.parse(response.body)
+        p restaurant['comment']
+        expect(restaurant['comment']).to include "can't be blank", "is too short (minimum is 3 characters)"
+    end
+    it 'does not update a Restaurant without a foodtype and minimum length' do 
+      Restaurant.create(
+        street: '123 street',
+        city: 'Chicago',
+        state: 'illinois',
+        foodtype: 'FastFood',
+        comment: 'ok 2/5',
+        image: 'https://mcdonalds.com',
+        name:"joe's",
+        user_id: user.id
+      )
+      restaurant = Restaurant.first 
+
+      updated_restaurant_params = {
+        restaurant: {
+          street: '123 street',
+          city: 'Chicago',
+          state: 'illinois',
+          foodtype: '',
+          comment: 'ok 2/5',
+          image: 'https://mcdonalds.com',
+          name:"joe's",
+          user_id: user.id
+        }
+        }
+        patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
+
+        expect(response).to have_http_status(422)
+        restaurant = JSON.parse(response.body)
+        p restaurant['foodtype']
+        expect(restaurant['foodtype']).to include "can't be blank", "is too short (minimum is 3 characters)"
+    end
+    it 'does not update a Restaurant without an image and minimum length' do 
+      Restaurant.create(
+        street: '123 street',
+        city: 'Chicago',
+        state: 'illinois',
+        foodtype: 'FastFood',
+        comment: 'ok 2/5',
+        image: 'https://mcdonalds.com',
+        name:"joe's",
+        user_id: user.id
+      )
+      restaurant = Restaurant.first 
+
+      updated_restaurant_params = {
+        restaurant: {
+          street: '123 street',
+          city: 'Chicago',
+          state: 'illinois',
+          foodtype: 'FastFood',
+          comment: 'ok 2/5',
+          image: '',
+          name:"joe's",
+          user_id: user.id
+        }
+        }
+        patch "/restaurants/#{restaurant.id}", params: updated_restaurant_params
+
+        expect(response).to have_http_status(422)
+        restaurant = JSON.parse(response.body)
+        p restaurant['image']
+        expect(restaurant['image']).to include "can't be blank", "is too short (minimum is 8 characters)"
+    end
+    
 
   end
   

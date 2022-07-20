@@ -24,9 +24,9 @@ describe("When Home renders", () => {
     const homeButtonHeading = homebutton.find("button")
     expect(homeButtonHeading.length).toEqual(3)
   })
-  it("handles clicks in methods", () => {
-    const hClicks = shallow(<Home />)
-    const hClicksMethods = hClicks.find("handleClickLoggedIn")
-    expect (hClicksMethods.length).toEqual(6)
+  it("renders an image", () => {
+    const rImage = shallow(<Home />)
+    const renderImage = rImage.find("CardImg")
+    expect (renderImage.length).toEqual(1)
   })
 })
