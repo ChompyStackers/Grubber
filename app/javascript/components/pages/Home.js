@@ -51,7 +51,7 @@ export default class Home extends Component {
     const {userRestaurants}= this.props
     console.log("foodtypes:",foodTypes);
     return (
-
+      <>
       <div className='homeColorContainer'>
         <div className='homeCardContainer'>
           <Card>
@@ -69,7 +69,7 @@ export default class Home extends Component {
           </Card>
         </div>
       </div>
-      <div>
+      
         {this.state.renderCardNotLoggedIn && foodTypes.filter((value, index)=> index === this.state.noUserNumber).map((type, index)=>{
           return(
             <Card key={index}>
@@ -99,7 +99,7 @@ export default class Home extends Component {
       {logged_in && <button onClick={this.handleClickLoggedIn}>
         Randomize your Grub
       </button>}
-    </div>
+      </>
     )
   }
 }
