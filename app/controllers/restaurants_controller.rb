@@ -3,7 +3,6 @@ class RestaurantsController < ApplicationController
         restaurants = Restaurant.all
         render json: restaurants
     end
-
     def create
         restaurant = Restaurant.create(restaurant_params)
         if restaurant.valid?

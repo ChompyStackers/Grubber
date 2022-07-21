@@ -9,6 +9,7 @@ import RestaurantIndex from "./pages/RestaurantIndex"
 import RestaurantNew from "./pages/RestaurantNew"
 import RestaurantShow from './pages/RestaurantShow'
 import RestaurantIndexProtected from './pages/RestaurantIndexProtected'
+import YelpIndex from "./pages/YelpIndex"
 import {
   BrowserRouter as  Router,
   Route,
@@ -21,7 +22,7 @@ class App extends React.Component {
       super(props)
       this.state = {
         restaurants: [],
-        yelpRestaurant: [],
+        yelpRestaurant: {},
         ip: {},
         yelpApi: this.props.yelp_api
       }
@@ -42,16 +43,19 @@ class App extends React.Component {
     .then(payload => this.setState({ip: payload}))
     .catch(error => console.log(error)) 
     }
-    readYelpRestaurant = () => {
-      fetch(`/home/yelp/41.7402/-87.7723/tacobell`)
+    readYelpRestaurant = (location, restaurant) => {
+      fetch(`home/${location},${restaurant}`,{
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
       .then(response => response.json())
-      .then(payload => console.log(payload))
+      .then(payload=> this.setState({yelpRestaurant: payload}))
       .catch(errors => console.log("Yelp Restaurant read:", errors))
     }
     //${latitude}${longitude}${restaurant}
     sendYelp = () =>{
-      this.readYelpRestaurant(this.state.ip.latitude,this.state.ip.longitude,"tacobell")
-      console.log(this.state.yelpRestaurant)
+      this.readYelpRestaurant("chicago")
     } 
     createRestaurant = (newRestaurant) => {
       fetch("/restaurants", {
@@ -91,18 +95,17 @@ class App extends React.Component {
     }
 
   render () {
-    console.log(this.state.ip.latitude)
-    console.log(this.props.yelp_api)
+    console.log("thisisthestateofyelprest:",this.state.yelpRestaurant);
     let userRestaurants = []
+    console.log(this.state.ip);
     if(this.props.logged_in){userRestaurants= this.state.restaurants.filter(restaurant => restaurant.user_id === this.props.current_user.id)}
-    // console.log("userrestaurants:", userRestaurants);
-    console.log(this.state.ip)
+
     return (
       <Router>
         <Header {...this.props}/>
         
         <Switch>
-          <Route exact path="/" render={props => <Home restaurants={this.state.restaurants} {...this.props} userRestaurants={userRestaurants}/>} />
+          <Route exact path="/" render={props => <Home restaurants={this.state.restaurants} ip={this.state.ip} {...this.props} userRestaurants={userRestaurants}/>} />
           <Route path="/AboutUs" component={AboutUs} />
           <Route path="/restaurantindex" render={props => <RestaurantIndex restaurants={this.state.restaurants}/>} />
           <Route path="/myrestaurants" render={props => <RestaurantIndexProtected restaurants={this.state.restaurants} {...this.props}/>} />
@@ -112,11 +115,12 @@ class App extends React.Component {
             return <RestaurantShow restaurant={restaurant} id={id} updateRestaurant={this.updateRestaurant} deleteRestaurant={this.deleteRestaurant}
             />
           }}/>
+          <Route path="/home/:lat/:long/:biz" render={(props) => <YelpIndex yelpRestaurants={this.state.yelpRestaurant} {...this.props}/>}/>
           <Route path="/restaurantnew" render={(props) => <RestaurantNew {...this.props} createRestaurant={this.createRestaurant} />} />
           <Route component={NotFound}/>       
         </Switch>
         {/* <Footer/> */}
-        <button onClick={this.sendYelp}>ReadYelpRestaurant</button>
+        <button  onClick={(e)=>this.readYelpRestaurant(`${this.state.ip.postal}`, 'tacobell')}>Click</button>
       </Router>
     );
   }
