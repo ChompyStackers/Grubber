@@ -93,7 +93,7 @@ export default class Home extends Component {
           Randomize your Grub
           </button>}
           <NavLink to={`/home/${ip.latitude}/${ip.longitude}/mcdonalds`}>
-                      <Button onClick={console.log(this.props.yelp_api)}>YELP?</Button>
+            
           </NavLink>
         </div>
       </div>

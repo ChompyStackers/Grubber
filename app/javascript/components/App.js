@@ -1,5 +1,4 @@
 import React from "react"
-import 'dotenv/config'
 import AboutUs from "./pages/AboutUs"
 import NotFound from "./pages/NotFound"
 import Home from "./pages/Home"
@@ -24,7 +23,6 @@ class App extends React.Component {
         restaurants: [],
         yelpRestaurant: {},
         ip: {},
-        yelpApi: this.props.yelp_api
       }
     }
     componentDidMount(){
@@ -53,10 +51,6 @@ class App extends React.Component {
       .then(payload=> this.setState({yelpRestaurant: payload}))
       .catch(errors => console.log("Yelp Restaurant read:", errors))
     }
-    //${latitude}${longitude}${restaurant}
-    sendYelp = () =>{
-      this.readYelpRestaurant("chicago")
-    } 
     createRestaurant = (newRestaurant) => {
       fetch("/restaurants", {
         body: JSON.stringify(newRestaurant),
@@ -115,7 +109,7 @@ class App extends React.Component {
             return <RestaurantShow restaurant={restaurant} id={id} updateRestaurant={this.updateRestaurant} deleteRestaurant={this.deleteRestaurant}
             />
           }}/>
-          <Route path="/home/:lat/:long/:biz" render={(props) => <YelpIndex yelpRestaurants={this.state.yelpRestaurant} {...this.props}/>}/>
+          <Route path="/yelpsearch" render={(props) => <YelpIndex yelpRestaurants={this.state.yelpRestaurant} ip={this.state.ip} readYelp={this.readYelpRestaurant}{...this.props}/>}/>
           <Route path="/restaurantnew" render={(props) => <RestaurantNew {...this.props} createRestaurant={this.createRestaurant} />} />
           <Route component={NotFound}/>       
         </Switch>
