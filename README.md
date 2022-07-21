@@ -26,6 +26,7 @@ $ rails generate controller Home
 ## 🛠 Configurations
 
 ### 🛠 Devise Config
+
 **config/environments/development.rb**
 ```ruby
 # This line added:
@@ -160,23 +161,38 @@ $ bash
 $ yarn jest
 $ rspec spec/
 ```
+- the syntax for the testing pages will look as such: 
+
+```ruby
+import React from 'react'
+import { shallow, configure } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+import FileName from './FileName'
+configure({adapter: new Adapter()})
+describe("When FileName does something", () => {
+    it("does something", () => {
+      const newfile = shallow(<AboutUs />)
+      const newfileRender = newfile.find("something on the file")
+      expect(newfileRender).toEqual("whatever the file contains")
+    })
+  })
+```
 
 ## ✈️Deploying Grubber to Heroku
 - In order to deploy to Heroku, the main change we need to make in our app is to add the pg gem because Heroku uses PostgreSQL as its database. We can’t use sqlite on Heroku.
-- So let’s change our Gemfile. Let’s move sqlite to the development and test group, and add the pg gem to a production group:
 
-## 💎Gemfile:
-```ruby
-group :development, :test do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-end
+### Heroku Errors and TroubleShooting: 
+Terminal Error: 
 ```
-
-## Install the 💎 Gem:
+Heroku Deployment Error: ModuleNotFoundError: Module not found: Error: Can’t resolve ‘enzyme’ in ‘/tmp/build/app/javascript/components/components’
+```
+In your package.json: move “enzyme” and “enzyme-adapter-react-16" from devDependencies to dependencies
+```
+Delete node_modules
+Delete yarn.lock
+$ yarn
+```
+### 👾Installing Heroku :
 ▶︎ Terminal command: 
 ```
 $ bundle install
@@ -213,7 +229,75 @@ $ heroku run rake db:seed
 ```
 - Now let’s refresh and there’s our Eventlite app running on Heroku!
 
+## Adding Yelp API 
 
+1- We need to add a gem to handle the http request from our server to the target server (in this example we are using Yelp API)
+
+```ruby
+# In your gemfile add: 
+gem 'httparty'
+```
+Documentation: https://github.com/jnunemaker/httparty
+
+2- We need to add your API key in your credentials.
+
+  - In your terminal run:
+```
+$ EDITOR="nano --wait" rails credentials:edit
+```
+It should open a new editor.
+ - Using the arrow keys move down to a new line. 
+ - Hit return to make a gap between lines. 
+ - Type the name of your API key and the key associated with it:. (in this case we are using yelp)
+* EXAMPLE: 
+ ```ruby
+ yelp:
+ Access_key_id: <yourkeyhere>
+```
+ - Hit control+o then return to save (you should seen x lines written)
+ - Control+x to exit
+* Terminal Commands:
+```
+$ rails c
+$ Rails.application.credentials.dig(:yelp,:access_key_id)
+```
+ - This should return your api key - _If_ it did not you might have had syntax errors in the nano editor so run those again (Step 2)
+ - In our __home_controller.rb__ file we make a new method that __has__ to have a _unique name_
+ - (not index - it will run on mount which will break)
+ ```
+def yelp
+       api_key = Rails.application.credentials.dig(:yelp,:access_key_id)
+ 
+       restaurant = HTTParty.get("https://api.yelp.com/v3/businesses/search?location=#{params[:location]}&term=#{params[:restaurant]}",headers: {Authorization: "Bearer #{api_key}"})
+      
+       if restaurant
+           render json: restaurant
+       else
+           render json: restaurant.errors , status:422
+       end
+   end
+```
+ - Next we need to make a new route:
+```
+get 'home/:location/:restaurant', to: 'home#yelp'
+```
+ - Finally we can connect our backend request with an api endpoint in our front end:
+```
+readYelpRestaurant = (location, restaurant) => {
+     fetch(`home/${location}/${restaurant}`,{
+       headers: {
+         "Content-Type": "application/json"
+       }
+     })
+     .then(response => response.json())
+     .then(payload=> this.setState({yelpRestaurant: payload}))
+     .catch(errors => console.log("Yelp Restaurant read:", errors))
+   }
+```
+An example of running the method with params looks like below:
+```
+<button onClick={(e)=>this.readYelpRestaurant(`${this.state.ip.postal}`, 'tacobell')}>Click</button>
+```
 
 # Capstone Requirements
 
@@ -407,4 +491,4 @@ Everyone on the team is a developer on the application. To help divide responsib
 Everyone on the team is a developer on the project. To help divide responsibilities each member of the team will take ownership over one of the following areas.
 
 ---
-[Back to Syllabus](../README.md#unit-ten-capstone-project-mvp)
+[Capstone Syllabus](../README.md#unit-ten-capstone-project-mvp)
