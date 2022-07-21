@@ -35,7 +35,7 @@ body{
   align-items: center;
 }
 .card-group{
-  margin-top: 5em;
+
   width: 95%;
   height:100%;
 }
@@ -167,16 +167,17 @@ body{
   border: #132b4700;
   margin-top: 10px;
 }
-.aboutUsColorContainer{
-  width: 100%;
-  background-color: #E9EADC;
-  height: fit-content;
-  height: 80%;
-}
-.aboutUsCardContainer{
+#projectNavLinkContainer{
   display: flex;
+  width: 100%;
   justify-content: center;
-  height: 80%;
+}
+#projectNavlink{
+  color: #E9EADC;
+  background-color: #F94912;
+  width: fit-content;
+  border-radius: .5rem;
+  margin-top: 10px;
 }
 
 .card{
