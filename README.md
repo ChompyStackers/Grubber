@@ -1,6 +1,6 @@
 # Capstone requirements/Project details at the bottom
 
-# Terminal Commands
+## ▶︎Terminal Commands
 ```
 $ rails new grubber-app -d postgresql -T
 $ cd grubber-app
@@ -28,7 +28,7 @@ $ rails generate controller Home
 ### Devise Config
 **config/environments/development.rb**
 ```ruby
-This line added:
+# This line added:
 config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 ```
 
@@ -70,8 +70,10 @@ root 'home#index'
 ```
 
 ### React Routing Config
-```bash
-yarn add react-router-dom@5.3.3
+▶︎ terminal commands
+```
+$ bash
+$ yarn add react-router-dom@5.3.3
 ```
 
 **app/javascript/components/App.js**
@@ -84,10 +86,12 @@ import {
 ```
 
 ### Reactstrap Config
-```bash
-bundle add bootstrap
-mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
-yarn add reactstrap
+▶︎ terminal commands
+```
+$ bash
+$ bundle add bootstrap
+$ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
+$ yarn add reactstrap
 ```
 
 **app/assets/stylesheets/application.scss**
@@ -96,27 +100,33 @@ yarn add reactstrap
 ```
 
 
-## ⚡️ Getting Started
-Once you're able to clone the repository, within the root of the project directory, run:
+## 👯‍♀️ Clone the Repo 
+Clone the repo from the Chompy Stackers Github organization:
 
-```bash
-bundle 
-yarn
-rails db:setup
+▶︎ terminal commands
+```
+$ bash
+$ bundle 
+$ yarn
+$ rails db:setup
 ```
 
-## 🏁 Start the App
-```bash
-rails s
+## 🏁 Start the Server
+▶︎ terminal commands
+```
+$ bash
+$ rails s
 ```
 
 
 ## 🏡 Restaurant Resource    
 The Devise User model is going to have an association with the Restaurant model. In this situation, the User will have many Restaurants and the Restaurants will belong to a User.
-          
-```bash
-rails generate resource Restaurant street:text city:text state:text foodtype:text comment:text image:text user_id:integer
-rails db:migrate
+
+▶︎ terminal commands          
+```
+$ bash
+$ rails generate resource Restaurant street:text city:text state:text foodtype:text comment:text image:text user_id:integer
+$ rails db:migrate
 ```
 
 ### User and Restaurant Associations
@@ -141,53 +151,68 @@ end
 ```
 
 ## 🚗 Testing
-To run the existing testing suite, run:
+rspec will run all tests, to specify, add the file name after the command
 
-```bash
-yarn jest
-rspec spec/
+▶︎ terminal commands
+
 ```
-
-
+$ bash
+$ yarn jest
+$ rspec spec/
+```
 
 # Deploying Grubber to Heroku
 - In order to deploy to Heroku, the main change we need to make in our app is to add the pg gem because Heroku uses PostgreSQL as its database. We can’t use sqlite on Heroku.
 - So let’s change our Gemfile. Let’s move sqlite to the development and test group, and add the pg gem to a production group:
 
-# Gemfile:
-```
+# 💎Gemfile:
+```ruby
 group :development, :test do
   gem 'sqlite3'
 end
 
-$ group :production do
-  $ gem 'pg'
-$ end
+group :production do
+  gem 'pg'
+end
 ```
 
-# And then install the gem:
+# Install the 💎 Gem:
+Terminal command: 
+```
 $ bundle install
+```
 - You also need to make sure you have set up a git repo in your code directory and commit all the changes we made to the code.
-- Now let’s create a Heroku app. We just need to run:
+- Now let’s create a Heroku app. We just need to run the terminal command: 
+```
 $ heroku create my-events-app
+```
 - where my-events-app is the name of the app on Heroku.
 
 
 - If we don’t pass a name to heroku create, Heroku automatically generates a random name for the app.
 
-- Then let’s push our code to the git repo on Heroku:
+- Then let’s push our code to the git repo on Heroku,
 
+terminal command: 
+```
 $ git push heroku master
+```
 - That’ll take a couple of minutes to deploy. It can take a bit longer the first time because it needs to install all the gems and setup the app.
 
-- Once that’s done, we can open the app in a browser either by typing in the app url or by running:
-$ heroku open
-- But it won’t work yet because we need to migrate the database first. So let’s run:
-$ heroku run rake db:migrate
-- Let’s also seed the database with some events:
-$ heroku run rake db:seed
-- Now let’s refresh and there’s our Eventlite app running on Heroku!
+- Once that’s done, we can open the app in a browser either by typing in the app url or by running the terminal command:
 ```
+$ heroku open
+```
+- But it won’t work yet because we need to migrate the database first. So let’s run the terminal command:
+```
+$ heroku run rake db:migrate
+```
+- Let’s also seed the database with some events, run the terminal command:
+```
+$ heroku run rake db:seed
+```
+- Now let’s refresh and there’s our Eventlite app running on Heroku!
+
 
 
 # Capstone Requirements
