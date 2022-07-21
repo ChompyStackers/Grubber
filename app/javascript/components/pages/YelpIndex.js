@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input,Card, 
+  CardImg, 
+  CardText, 
+  CardBody,
+  CardTitle, 
+  CardSubtitle, 
+  } from 'reactstrap'
 
 export default class YelpIndex extends Component {
 
@@ -18,10 +24,11 @@ export default class YelpIndex extends Component {
   }
   handleSubmit = () => {
     console.log("restaurant object:", this.state.restaurant)
-    this.props.readYelp(`${this.props.ip.postal}`, `${this.state.restaurant}`)
-    // this.setState({submitted: true})
+    this.props.readYelp(`${this.props.ip.postal}`, `${this.state.restaurant}`).then(response=> this.setState({submitted:true}))
+    
+    
   }
-
+  
   render() {
     console.log(this.state.restaurant)
     return (
@@ -36,6 +43,19 @@ export default class YelpIndex extends Component {
         </FormGroup>
         <Button onClick={this.handleSubmit} >Search Grub</Button>
       </Form>
+      {this.state.submitted && this.props.yelpRestaurants.businesses.map((restaurant, index)=> {
+        return (
+          <Card key={index}>
+          <CardImg top id="cardimage"src={restaurant.image_url} alt="Card image cap" />
+          <CardBody>
+            <CardTitle>{restaurant.name}</CardTitle>
+            <CardSubtitle>Location: {restaurant.location.address1},{restaurant.location.city},{restaurant.location.state},{restaurant.location.zip_code}</CardSubtitle>
+            <CardText>Type: {restaurant.categories}</CardText>
+            <CardText>{restaurant.price}</CardText>  
+          </CardBody>
+        </Card>  
+        )
+      })}
     </>
 
     )
