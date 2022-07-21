@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/20</span>
+                <span class='fraction'>12/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">57.14% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/7</span>
+                <span class='fraction'>8/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/8</span>
+                <span class='fraction'>6/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/20</span>
+                <span class='fraction'>12/24</span>
             </div>
         
             
@@ -167,8 +167,29 @@
 <a name='L102'></a><a href='#L102'>102</a>
 <a name='L103'></a><a href='#L103'>103</a>
 <a name='L104'></a><a href='#L104'>104</a>
-<a name='L105'></a><a href='#L105'>105</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -218,8 +239,31 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -286,7 +330,6 @@ import foodTypes from '../assets/FoodTypes';
 &nbsp;
 &nbsp;
 export default class Home extends Component {
-  
   constructor(props){
     super(props)
     this.state = {
@@ -322,24 +365,47 @@ export default class Home extends Component {
     } = this.props
   
     const {userRestaurants}= this.props
-    // console.log("foodtypes:",foodTypes);
     return (
       &lt;&gt;
       &lt;div className='homeColorContainer'&gt;
         &lt;div className='homeCardContainer'&gt;
-          &lt;Card&gt;
-            &lt;CardBody&gt;
-              &lt;CardTitle&gt;Grubber&lt;/CardTitle&gt;
-              &lt;CardSubtitle&gt;A perfect place for your perfect plate -A PP for your PP&lt;/CardSubtitle&gt;
-            &lt;/CardBody&gt;
-            &lt;CardImg top src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hlZXNlYnVyZ2VyfGVufDB8fDB8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=60" alt="Card image cap"/&gt;
-            &lt;CardBody&gt;
-              &lt;CardText&gt;What's for dinner&lt;/CardText&gt;
-              &lt;CardLink href="#"&gt;&lt;button&gt;Randomize your Grub&lt;/button&gt;&lt;/CardLink&gt;
-              &lt;CardLink href="#"&gt;&lt;button&gt;Randomize all Grub&lt;/button&gt;&lt;/CardLink&gt;
-            &lt;/CardBody&gt;
-            &lt;img id='homeplanetImage'src={HomePlanet}/&gt;
-          &lt;/Card&gt;
+          {this.state.renderCardNotLoggedIn &amp;&amp; foodTypes.filter((value, index)=&gt; index === this.state.noUserNumber).map((type, index)=&gt;{
+          return(
+            &lt;Card key={index}&gt;
+              &lt;CardBody&gt;
+                &lt;CardTitle&gt;{type.foodtype}&lt;/CardTitle&gt;
+                &lt;CardSubtitle&gt;A perfect place for your perfect plate.&lt;/CardSubtitle&gt;
+              &lt;/CardBody&gt;  
+              &lt;CardBody&gt;
+                &lt;CardText id='emojiText'&gt;{type.image}&lt;/CardText&gt;
+              &lt;/CardBody&gt;
+              &lt;img id='homeplanetImage'src={HomePlanet}/&gt;
+            &lt;/Card&gt;
+          )
+          })}
+          {logged_in &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.state.renderCardLoggedIn </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >userRestaurants.filter(<span class="fstat-no" title="function not covered" >(r</span>estaurant, index) =&gt; <span class="cstat-no" title="statement not covered" >index === this.state.randomNum)</span>.map(<span class="fstat-no" title="function not covered" >(r</span>estaurant, index) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          return(</span>
+            &lt;Card key={index}&gt;
+              &lt;CardBody&gt;
+                &lt;CardTitle&gt;{restaurant.name}&lt;/CardTitle&gt;
+                &lt;CardSubtitle&gt;A perfect place for your perfect plate.&lt;/CardSubtitle&gt;
+              &lt;/CardBody&gt;
+              &lt;CardImg top src={restaurant.image} alt="Card image cap"/&gt;
+              &lt;CardBody&gt;
+                &lt;CardText&gt;{restaurant.street},{restaurant.city}, {restaurant.state}&lt;/CardText&gt; 
+              &lt;/CardBody&gt;
+              &lt;img id='homeplanetImage'src={HomePlanet}/&gt;
+            &lt;/Card&gt; 
+          )
+          })}
+        &lt;/div&gt;
+        &lt;div className='homeButtonsContainer'&gt;
+          {&lt;button className='homeButtons' onClick={this.handleClick}&gt;
+          Randomize Grub type
+          &lt;/button&gt;}
+          {logged_in &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;button className='homeButtons' onClick={this.handleClickLoggedIn}&gt;</span>
+          Randomize your Grub
+          &lt;/button&gt;}
         &lt;/div&gt;
       &lt;/div&gt;
       
@@ -347,10 +413,10 @@ export default class Home extends Component {
         return(
           &lt;Card key={index}&gt;
           &lt;CardBody&gt;
-            &lt;CardTitle&gt;{type.foodtype}&lt;/CardTitle&gt;
+          &lt;CardTitle&gt;{type.foodtype}&lt;/CardTitle&gt;
           &lt;/CardBody&gt;
           &lt;CardSubtitle&gt;{type.image}&lt;/CardSubtitle&gt;
-        &lt;/Card&gt; 
+          &lt;/Card&gt; 
         )
       })}
       {logged_in &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.state.renderCardLoggedIn </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >userRestaurants.filter(<span class="fstat-no" title="function not covered" >(r</span>estaurant, index) =&gt; <span class="cstat-no" title="statement not covered" >index === this.state.randomNum)</span>.map(<span class="fstat-no" title="function not covered" >(r</span>estaurant, index) =&gt; {</span>
@@ -361,7 +427,7 @@ export default class Home extends Component {
           &lt;CardSubtitle&gt;{restaurant.street},{restaurant.city}, {restaurant.state}&lt;/CardSubtitle&gt;
         &lt;/CardBody&gt;
         &lt;img width="100%" src={restaurant.image} alt="Card image cap" /&gt;     
-      &lt;/Card&gt; 
+        &lt;/Card&gt; 
       )
       })}
         
@@ -382,7 +448,7 @@ export default class Home extends Component {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Jul 21 2022 09:40:06 GMT-0700 (Pacific Daylight Time)
+                at Thu Jul 21 2022 15:41:30 GMT-0700 (Pacific Daylight Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

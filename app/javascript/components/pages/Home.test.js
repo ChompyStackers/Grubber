@@ -21,12 +21,12 @@ describe("When Home renders", () => {
   })    
   it("renders a button", () => {
     const homebutton = shallow(<Home />)
-    const homeButtonHeading = homebutton.find("button")
-    expect(homeButtonHeading.length).toEqual(3)
+    const homeButton = homebutton.find("button")
+    expect(homeButton.length).toEqual(2)
   })
-  it("renders an image", () => {
+  it("renders an div for the cards", () => {
     const rImage = shallow(<Home />)
-    const renderImage = rImage.find("CardImg")
-    expect (renderImage.length).toEqual(1)
+    const renderImage = rImage.find("div")
+    expect (renderImage.length).toEqual(3)
   })
 })
