@@ -1,6 +1,6 @@
 # Capstone requirements/Project details at the bottom
 
-## ▶︎Terminal Commands
+## ▶︎ Terminal Commands
 ```
 $ rails new grubber-app -d postgresql -T
 $ cd grubber-app
@@ -25,7 +25,7 @@ $ rails generate controller Home
 
 ## 🛠 Configurations
 
-### Devise Config
+### 🛠 Devise Config
 **config/environments/development.rb**
 ```ruby
 # This line added:
@@ -52,7 +52,7 @@ File added in app/views/home called index.html.erb
 } %>
 ```
 
-### React in Rails Config
+### 🛠 React in Rails Config
 
 **app/views/layouts/application.html.erb**
 ```ruby
@@ -69,7 +69,7 @@ get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
 root 'home#index'
 ```
 
-### React Routing Config
+### 🛠 React Routing Config
 ▶︎ terminal commands
 ```
 $ bash
@@ -85,7 +85,7 @@ import {
 } from 'react-router-dom'
 ```
 
-### Reactstrap Config
+### 🛠 Reactstrap Config
 ▶︎ terminal commands
 ```
 $ bash
@@ -119,7 +119,7 @@ $ rails s
 ```
 
 
-## 🏡 Restaurant Resource    
+## 👩🏽‍🍳 Restaurant Resource    
 The Devise User model is going to have an association with the Restaurant model. In this situation, the User will have many Restaurants and the Restaurants will belong to a User.
 
 ▶︎ terminal commands          
@@ -129,7 +129,7 @@ $ rails generate resource Restaurant street:text city:text state:text foodtype:t
 $ rails db:migrate
 ```
 
-### User and Restaurant Associations
+### 👩🏽‍🍳 User and Restaurant Associations
 The Restaurants will belong to a User and a User will have many Restaurants.
 
 **app/models/Restaurant.rb**
@@ -150,7 +150,7 @@ class User < ApplicationRecord
 end
 ```
 
-## 🚗 Testing
+## 📈 Testing
 rspec will run all tests, to specify, add the file name after the command
 
 ▶︎ terminal commands
@@ -161,11 +161,11 @@ $ yarn jest
 $ rspec spec/
 ```
 
-# Deploying Grubber to Heroku
+## ✈️Deploying Grubber to Heroku
 - In order to deploy to Heroku, the main change we need to make in our app is to add the pg gem because Heroku uses PostgreSQL as its database. We can’t use sqlite on Heroku.
 - So let’s change our Gemfile. Let’s move sqlite to the development and test group, and add the pg gem to a production group:
 
-# 💎Gemfile:
+## 💎Gemfile:
 ```ruby
 group :development, :test do
   gem 'sqlite3'
@@ -176,13 +176,13 @@ group :production do
 end
 ```
 
-# Install the 💎 Gem:
-Terminal command: 
+## Install the 💎 Gem:
+▶︎ Terminal command: 
 ```
 $ bundle install
 ```
 - You also need to make sure you have set up a git repo in your code directory and commit all the changes we made to the code.
-- Now let’s create a Heroku app. We just need to run the terminal command: 
+- Now let’s create a Heroku app. We just need to run the ▶︎ terminal command: 
 ```
 $ heroku create my-events-app
 ```
@@ -193,21 +193,21 @@ $ heroku create my-events-app
 
 - Then let’s push our code to the git repo on Heroku,
 
-terminal command: 
+▶︎ terminal command: 
 ```
 $ git push heroku master
 ```
 - That’ll take a couple of minutes to deploy. It can take a bit longer the first time because it needs to install all the gems and setup the app.
 
-- Once that’s done, we can open the app in a browser either by typing in the app url or by running the terminal command:
+- Once that’s done, we can open the app in a browser either by typing in the app url or by running the ▶︎ terminal command:
 ```
 $ heroku open
 ```
-- But it won’t work yet because we need to migrate the database first. So let’s run the terminal command:
+- But it won’t work yet because we need to migrate the database first. So let’s run the ▶︎ terminal command:
 ```
 $ heroku run rake db:migrate
 ```
-- Let’s also seed the database with some events, run the terminal command:
+- Let’s also seed the database with some events, run the ▶︎ terminal command:
 ```
 $ heroku run rake db:seed
 ```
@@ -298,7 +298,7 @@ Wrap-up (2 min)
 
 ### Green Light Meeting [X]
 - [X] Elevator pitch - 30 sec summary of the app [JB]
-- [X] Wireframes - visual representations of all the pages your user will see for your MVP [Designigator]
+- [X] Wireframes - visual representations of all the pages your user will see for your MVP [Stephen]
 - [X] DB schema drawn out with column names, data types, and table relationships
 - [X] CRUD actions [Frank]
 - [X] User stories for your MVP on Trello [Jorge]
