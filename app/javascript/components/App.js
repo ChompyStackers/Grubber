@@ -44,7 +44,7 @@ class App extends React.Component {
     .catch(error => console.log(error)) 
     }
     readYelpRestaurant = (location, restaurant) => {
-      fetch(`home/${location},${restaurant}`,{
+      fetch(`home/${location}/${restaurant}`,{
         headers: {
           "Content-Type": "application/json"
         }
