@@ -12,25 +12,39 @@ export default class YelpIndex extends Component {
   constructor(props){
     super(props)
     this.state = {
-      restaurant: "",     
-      submitted: false
+      search: "",     
+      submitted: false,
+      newRestaurant: {
+        name:"", 
+        street:"", 
+        city:"", 
+        state:"", 
+        foodtype:"", 
+        comment:"", 
+        image:"",
+        user_id: this.props.current_user.id
+      }
+      
     }
   }
 
   handleChange = (e) => {
-    let { restaurant } = this.state
-    restaurant = e.target.value
-    this.setState({restaurant: restaurant})
+    let { search } = this.state
+    search = e.target.value
+    this.setState({search: search})
   }
   handleSubmit = () => {
-    console.log("restaurant object:", this.state.restaurant)
-    this.props.readYelp(`${this.props.ip.postal}`, `${this.state.restaurant}`).then(response=> this.setState({submitted:true}))
-    
-    
+    console.log("restaurant object:", this.state.search)
+    this.props.readYelp(`${this.props.ip.postal}`, `${this.state.search}`) 
+    setTimeout(() => {  this.setState({submitted:true}) }, 1200);
+  }
+  handleCreate = () => {
+    const {newRestaurant} = this.state
+    this.props.createRestaurant(newRestaurant)
   }
   
   render() {
-    console.log(this.state.restaurant)
+   
     return (
     <>
       <Form inline>
@@ -39,7 +53,7 @@ export default class YelpIndex extends Component {
             className="mr-sm-2">restaurants</Label>
           <Input type="text" name="search" id="restaurant" placeholder="Restaurant name"
           onChange={this.handleChange}
-          value={this.state.restaurant} />
+          value={this.state.search} />
         </FormGroup>
         <Button onClick={this.handleSubmit} >Search Grub</Button>
       </Form>
@@ -50,8 +64,10 @@ export default class YelpIndex extends Component {
           <CardBody>
             <CardTitle>{restaurant.name}</CardTitle>
             <CardSubtitle>Location: {restaurant.location.address1},{restaurant.location.city},{restaurant.location.state},{restaurant.location.zip_code}</CardSubtitle>
-            <CardText>Type: {restaurant.categories}</CardText>
-            <CardText>{restaurant.price}</CardText>  
+            <CardText>Type: {restaurant.categories.map((value,index)=>`${value.title} `)}</CardText>
+            <CardText >{restaurant.price}</CardText>  
+            <Button onClick={this.handleCreate}>Add to my restaurants</Button>
+            {/* on click we need the index of that restaurant to pass it to our handleCreate method. We also need the values from that restaurant passed... We need a way to translate our values from a card into a restaurant object that matches our POST method to oour database */}
           </CardBody>
         </Card>  
         )

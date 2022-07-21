@@ -21,7 +21,7 @@ class App extends React.Component {
       super(props)
       this.state = {
         restaurants: [],
-        yelpRestaurant: {},
+        yelpRestaurant: null,
         ip: {},
       }
     }
@@ -109,11 +109,10 @@ class App extends React.Component {
             return <RestaurantShow restaurant={restaurant} id={id} updateRestaurant={this.updateRestaurant} deleteRestaurant={this.deleteRestaurant}
             />
           }}/>
-          <Route path="/yelpsearch" render={(props) => <YelpIndex yelpRestaurants={this.state.yelpRestaurant} ip={this.state.ip} readYelp={this.readYelpRestaurant}{...this.props}/>}/>
+          <Route path="/yelpsearch" render={(props) => <YelpIndex createRestaurant={this.createRestaurant} yelpRestaurants={this.state.yelpRestaurant} ip={this.state.ip} readYelp={this.readYelpRestaurant}{...this.props}/>}/>
           <Route path="/restaurantnew" render={(props) => <RestaurantNew {...this.props} createRestaurant={this.createRestaurant} />} />
           <Route component={NotFound}/>       
         </Switch>
-        {/* <Footer/> */}
         <button  onClick={(e)=>this.readYelpRestaurant(`${this.state.ip.postal}`, 'tacobell')}>Click</button>
       </Router>
     );
