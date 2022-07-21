@@ -12,8 +12,8 @@ import { Card,
 export default class AboutUs extends Component {
     render() {
         return (
-            <div className='aboutUsColorContainer'>
-                <div className='aboutUsCardContainer'>
+            <div className='homeColorContainer'>
+                <div className='homeCardContainer'>
                     <CardGroup>
     {/* Jorge about me */}
                     <Card className='aboutUsCard'>
@@ -22,8 +22,8 @@ export default class AboutUs extends Component {
                         <CardTitle>Jorge Linares</CardTitle>
                         <CardSubtitle>Grub Project Manager</CardSubtitle>
                         <CardText>Add your about me in this section.</CardText>
-                        <NavLink href="https://github.com/ChompyStackers/Grubber" target ="_blank">LinkedIn</NavLink>
-                        <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">GitHub</NavLink>
+                        <NavLink href="https://www.linkedin.com/in/jorgelinares/" target ="_blank">LinkedIn</NavLink>
+                        <NavLink href="https://github.com/LoneWanderer101" target="_blank">GitHub</NavLink>
                         </CardBody>
                     </Card>
     {/* Frank about me */}
@@ -33,8 +33,8 @@ export default class AboutUs extends Component {
                         <CardTitle>Francisco Rivera</CardTitle>
                         <CardSubtitle>Grub Tech Lead</CardSubtitle>
                         <CardText>Add your about me in this section.</CardText>
-                        <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">LinkedIn</NavLink>
-                        <NavLink href="https://github.com/ChompyStackers/Grubber" target='_blank'>GitHub</NavLink>
+                        <NavLink href="https://www.linkedin.com/in/rivera-francisco/" target="_blank">LinkedIn</NavLink>
+                        <NavLink href="https://github.com/F-Rivers" target='_blank'>GitHub</NavLink>
                         </CardBody>
                     </Card>
     {/* JB about me */}
@@ -44,8 +44,8 @@ export default class AboutUs extends Component {
                         <CardTitle>JB</CardTitle>
                         <CardSubtitle>Grub Product Manager</CardSubtitle>
                         <CardText>Add your about me in this section.</CardText>
-                        <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">LinkedIn</NavLink>
-                        <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">GitHub</NavLink>
+                        <NavLink href="https://www.linkedin.com/in/jb-agapay/" target="_blank">LinkedIn</NavLink>
+                        <NavLink href="https://github.com/JB-1063" target="_blank">GitHub</NavLink>
                         </CardBody>
                     </Card>
     {/* Stephen about me */}
@@ -54,13 +54,16 @@ export default class AboutUs extends Component {
                         <CardBody>
                         <CardTitle>Stephen OMarrah</CardTitle>
                         <CardSubtitle>Grub Design Lead</CardSubtitle>
-                        <CardText>Grub Design Lead</CardText>
-                        <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">LinkedIn</NavLink>
-                        <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">GitHub</NavLink>
+                        <CardText>A veteran for the United States Marine Corps. As the design lead Stephen was responsible for the overall theme and design for Grubber. Stephen has shown excellent technical abilities and a wealth of knowledge shared with the team. </CardText>
+                        <NavLink href="https://www.linkedin.com/in/somarrah/" target="_blank">LinkedIn</NavLink>
+                        <NavLink href="https://github.com/SOMarrah" target="_blank">GitHub</NavLink>
                         </CardBody>
                     </Card>
 
                     </CardGroup>
+                </div>
+                <div id='projectNavLinkContainer'>
+                    <NavLink id='projectNavlink' href="https://github.com/LoneWanderer101" target="_blank">Project GitHub</NavLink>
                 </div>
             </div>
         )
