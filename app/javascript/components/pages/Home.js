@@ -3,9 +3,10 @@ import { Card,
   CardImg,
   CardText,
   CardBody,
-  CardLink,
 CardTitle, 
+Button,
 CardSubtitle } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 
 import HomePlanet from '../assets/homePlanet.png'
 import foodTypes from '../assets/FoodTypes';
@@ -47,6 +48,7 @@ export default class Home extends Component {
       sign_in_route,
       sign_out_route
     } = this.props
+    const {ip} = this.props
   
     const {userRestaurants}= this.props
     return (
@@ -90,6 +92,9 @@ export default class Home extends Component {
           {logged_in && <button className='homeButtons' onClick={this.handleClickLoggedIn}>
           Randomize your Grub
           </button>}
+          <NavLink to={`/home/${ip.latitude}/${ip.longitude}/mcdonalds`}>
+            
+          </NavLink>
         </div>
       </div>
       </>
