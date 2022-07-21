@@ -14,17 +14,6 @@ export default class YelpIndex extends Component {
     this.state = {
       search: "",     
       submitted: false,
-      newRestaurant: {
-        name:"", 
-        street:"", 
-        city:"", 
-        state:"", 
-        foodtype:"", 
-        comment:"", 
-        image:"",
-        user_id: this.props.current_user.id
-      }
-      
     }
   }
 
