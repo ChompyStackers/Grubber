@@ -153,6 +153,20 @@ body{
   justify-content: center;
   height: 100%;
 }
+.homeButtonsContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+ 
+}
+.homeButtons{
+  background: #F94912;
+  color: #E9EADC;
+  border-radius: .5rem;
+  border: #132b4700;
+  margin-top: 10px;
+}
 .aboutUsColorContainer{
   width: 100%;
   background-color: #E9EADC;
@@ -179,7 +193,13 @@ body{
   overflow: hidden;
 }
 .card-body{
+  text-align: center;
   z-index: 1;
+  flex: 0 0 auto;
+  padding: 0 0;
+}
+#emojiText{
+  font-size: 100px;
 }
 .card-img-top{
   height: 200px;
