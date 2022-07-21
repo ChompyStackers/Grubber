@@ -38,10 +38,6 @@ export default class YelpIndex extends Component {
     this.props.readYelp(`${this.props.ip.postal}`, `${this.state.search}`) 
     setTimeout(() => {  this.setState({submitted:true}) }, 1200);
   }
-  handleCreate = () => {
-    const {newRestaurant} = this.state
-    this.props.createRestaurant(newRestaurant)
-  }
   
   render() {
    
@@ -66,8 +62,8 @@ export default class YelpIndex extends Component {
             <CardSubtitle>Location: {restaurant.location.address1},{restaurant.location.city},{restaurant.location.state},{restaurant.location.zip_code}</CardSubtitle>
             <CardText>Type: {restaurant.categories.map((value,index)=>`${value.title} `)}</CardText>
             <CardText >{restaurant.price}</CardText>  
-            <Button onClick={this.handleCreate}>Add to my restaurants</Button>
-            {/* on click we need the index of that restaurant to pass it to our handleCreate method. We also need the values from that restaurant passed... We need a way to translate our values from a card into a restaurant object that matches our POST method to oour database */}
+            <Button onClick={(restaurant)=>this.props.createRestaurant(restaurant)}>Add to my restaurants</Button>
+            {/* make a resource*/}
           </CardBody>
         </Card>  
         )

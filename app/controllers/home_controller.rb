@@ -9,6 +9,7 @@ class HomeController < ApplicationController
             render json: restaurant
         else
             render json: restaurant.errors , status:422
+            # status?
         end
     end
 end
