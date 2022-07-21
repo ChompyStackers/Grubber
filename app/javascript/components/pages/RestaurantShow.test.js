@@ -14,26 +14,60 @@ import RestaurantShow from './RestaurantShow'
 configure({ adapter: new Adapter() })
 
 describe("When restaurantShow renders", () => {
-    const props = {
-        restaurants: [
-          {name: "kimiko", 
-          street: "123 Ash St.",
-          city: "San Diego",
-          state: "CA",
-          foodType: "Japanese",
-          comment: "Decent, 2 out of 5 stars.",
-          image: "https://newdenizen.com/wp-content/uploads/2019/06/lasagna-coperta.jpg"
-          }
-        ]
-    }
-
-    let showRender
+  let showRender
     beforeEach(() => {
-      showRender = shallow(<RestaurantShow {...props}/>)
-      
+      showRender = shallow(<RestaurantShow/>)
     })
     it("displays a form", () => {
       const form = showRender.find("Form")
       expect(form).toBeTruthy()
+    })
+    it("should render a component", ()=>{
+      const button = showRender.find("Button")
+      expect(button).toBeTruthy()
+    })
+    it("should render a component", ()=>{
+      const button = showRender.find("Button")
+      expect(button).toBeTruthy()
+    })
+    it("should render a label", ()=>{
+      const formlabel = showRender.find("Form")
+      expect(formlabel).toBeTruthy()
+    })
+    it("should render a name", ()=>{
+      const formlabel = showRender.find("name")
+      expect(formlabel).toBeTruthy()
+    })
+    it("should render as street", ()=>{
+      const formlabel = showRender.find("street")
+      expect(formlabel).toBeTruthy()
+    })
+    it("should render as city", ()=>{
+      const formlabel = showRender.find("city")
+      expect(formlabel).toBeTruthy()
+    })
+    it("should render a foodtype", ()=>{
+      const formlabel = showRender.find("foodtype")
+      expect(formlabel).toBeTruthy()
+    })
+    it("should render a comment", ()=>{
+      const formlabel = showRender.find("comment")
+      expect(formlabel).toBeTruthy()
+    })
+    it("should render an image", ()=>{
+      const formlabel = showRender.find("image")
+      expect(formlabel).toBeTruthy()
+    })
+    it("has a handleChange method", ()=>{
+      const hChange = showRender.find("handleChange")
+      expect(hChange).toBeTruthy()
+    })
+    it("has a handleSubmit method", ()=>{
+      const hSubmit = showRender.find("handleSubmit")
+      expect(hSubmit).toBeTruthy()
+    })
+    it("has a handleDelete method", ()=>{
+      const hDelete = showRender.find("handleChange")
+      expect(hDelete).toBeTruthy()
     })
 })

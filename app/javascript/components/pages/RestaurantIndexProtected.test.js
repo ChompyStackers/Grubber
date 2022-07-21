@@ -8,18 +8,15 @@ import { shallow, configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 // Imports in the component we are going to be testing.
-import RestaurantNew from './RestaurantNew'
+import RestaurantIndexProtected from './RestaurantIndexProtected'
 
 //Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
 configure({adapter: new Adapter()})
 
-describe("When New renders", ()=>{
-    let newRender
-    beforeEach(() => {
-      newRender = shallow(<RestaurantNew />)
+describe("When restaurantProtectedIndex renders", () => {
+    it("displays the user restaurant card", () => {
+      const protecindex= shallow(<RestaurantIndexProtected/>)
+      const protecindexHeader = protecindex.find("div")
+      expect(protecindexHeader.length).toEqual(1)
     })
-    it("displays the new restaurant form", () => {
-      const newFormRender = newRender.find("Form")
-      expect(newFormRender.length).toEqual(1)
-    }) 
-  })
+})

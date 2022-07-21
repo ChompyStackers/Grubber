@@ -22,8 +22,8 @@ export default class AboutUs extends Component {
                         <CardTitle>Jorge Linares</CardTitle>
                         <CardSubtitle>Grub Project Manager</CardSubtitle>
                         <CardText>Add your about me in this section.</CardText>
-                        <NavLink href="https://github.com/ChompyStackers/Grubber" target ="_blank">LinkedIn</NavLink>
-                        <NavLink href="https://github.com/ChompyStackers/Grubber" target="_blank">GitHub</NavLink>
+                        <NavLink href="https://www.linkedin.com/in/jorgelinares/" target ="_blank">LinkedIn</NavLink>
+                        <NavLink href="https://github.com/LoneWanderer101" target="_blank">GitHub</NavLink>
                         </CardBody>
                     </Card>
     {/* Frank about me */}

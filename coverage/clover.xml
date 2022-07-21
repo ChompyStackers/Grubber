@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1658443290625" clover="3.2.0">
+  <project timestamp="1658443290625" name="All files">
+    <metrics statements="68" coveredstatements="40" conditionals="40" coveredconditionals="21" methods="32" coveredmethods="18" elements="140" coveredelements="79" complexity="0" loc="68" ncloc="68" packages="3" files="10" classes="10"/>
+    <package name="assets">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="FoodTypes.js" path="/Users/learnacademy/Desktop/grubber-app/app/javascript/components/assets/FoodTypes.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components">
+      <metrics statements="7" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="3"/>
+      <file name="Footer.js" path="/Users/learnacademy/Desktop/grubber-app/app/javascript/components/components/Footer.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+      <file name="Header.js" path="/Users/learnacademy/Desktop/grubber-app/app/javascript/components/components/Header.js">
+        <metrics statements="6" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="2"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages">
+      <metrics statements="60" coveredstatements="33" conditionals="36" coveredconditionals="18" methods="28" coveredmethods="15"/>
+      <file name="AboutUs.js" path="/Users/learnacademy/Desktop/grubber-app/app/javascript/components/pages/AboutUs.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="14" count="1" type="stmt"/>
+      </file>
+      <file name="Home.js" path="/Users/learnacademy/Desktop/grubber-app/app/javascript/components/pages/Home.js">
+        <metrics statements="24" coveredstatements="12" conditionals="14" coveredconditionals="8" methods="12" coveredmethods="6"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="51" count="3" type="stmt"/>
+        <line num="55" count="33" type="cond" truecount="2" falsecount="0"/>
+        <line num="56" count="3" type="stmt"/>
+        <line num="69" count="0" type="cond" truecount="1" falsecount="2"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="95" count="33" type="cond" truecount="2" falsecount="0"/>
+        <line num="96" count="3" type="stmt"/>
+        <line num="105" count="0" type="cond" truecount="1" falsecount="2"/>
+        <line num="106" count="0" type="stmt"/>
+      </file>
+      <file name="NotFound.js" path="/Users/learnacademy/Desktop/grubber-app/app/javascript/components/pages/NotFound.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+      <file name="RestaurantIndex.js" path="/Users/learnacademy/Desktop/grubber-app/app/javascript/components/pages/RestaurantIndex.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+      </file>
+      <file name="RestaurantIndexProtected.js" path="/Users/learnacademy/Desktop/grubber-app/app/javascript/components/pages/RestaurantIndexProtected.js">
+        <metrics statements="5" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="0" type="cond" truecount="1" falsecount="1"/>
+        <line num="19" count="0" type="stmt"/>
+      </file>
+      <file name="RestaurantNew.js" path="/Users/learnacademy/Desktop/grubber-app/app/javascript/components/pages/RestaurantNew.js">
+        <metrics statements="12" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="2"/>
+        <line num="13" count="9" type="stmt"/>
+        <line num="14" count="9" type="stmt"/>
+        <line num="29" count="9" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="9" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="46" count="9" type="stmt"/>
+        <line num="47" count="9" type="stmt"/>
+      </file>
+      <file name="RestaurantShow.js" path="/Users/learnacademy/Desktop/grubber-app/app/javascript/components/pages/RestaurantShow.js">
+        <metrics statements="14" coveredstatements="7" conditionals="18" coveredconditionals="8" methods="5" coveredmethods="2"/>
+        <line num="13" count="13" type="stmt"/>
+        <line num="14" count="13" type="stmt"/>
+        <line num="27" count="13" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="13" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="13" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="42" count="13" type="stmt"/>
+        <line num="43" count="13" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

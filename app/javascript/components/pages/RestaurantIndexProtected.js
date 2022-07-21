@@ -29,7 +29,7 @@ export default class RestaurantIndexProtected extends Component {
                     </NavLink>
                   </CardBody>
                 </Card>
-            )
+              )
         })}
        </div>
     )

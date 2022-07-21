@@ -14,7 +14,6 @@ import foodTypes from '../assets/FoodTypes';
 
 
 export default class Home extends Component {
-  
   constructor(props){
     super(props)
     this.state = {
@@ -56,7 +55,7 @@ export default class Home extends Component {
       <div className='homeColorContainer'>
         <div className='homeCardContainer'>
           {this.state.renderCardNotLoggedIn && foodTypes.filter((value, index)=> index === this.state.noUserNumber).map((type, index)=>{
-            return(
+          return(
             <Card key={index}>
               <CardBody>
                 <CardTitle>{type.foodtype}</CardTitle>
@@ -67,21 +66,21 @@ export default class Home extends Component {
               </CardBody>
               <img id='homeplanetImage'src={HomePlanet}/>
             </Card>
-              )
+          )
           })}
           {logged_in && this.state.renderCardLoggedIn && userRestaurants.filter((restaurant, index) => index === this.state.randomNum).map((restaurant, index) => {
-            return(
-              <Card key={index}>
-                <CardBody>
-                  <CardTitle>{restaurant.name}</CardTitle>
-                  <CardSubtitle>A perfect place for your perfect plate.</CardSubtitle>
-                </CardBody>
-                <CardImg top src={restaurant.image} alt="Card image cap"/>
-                <CardBody>
-                    <CardText>{restaurant.street},{restaurant.city}, {restaurant.state}</CardText> 
-                </CardBody>
-                <img id='homeplanetImage'src={HomePlanet}/>
-              </Card> 
+          return(
+            <Card key={index}>
+              <CardBody>
+                <CardTitle>{restaurant.name}</CardTitle>
+                <CardSubtitle>A perfect place for your perfect plate.</CardSubtitle>
+              </CardBody>
+              <CardImg top src={restaurant.image} alt="Card image cap"/>
+              <CardBody>
+                <CardText>{restaurant.street},{restaurant.city}, {restaurant.state}</CardText> 
+              </CardBody>
+              <img id='homeplanetImage'src={HomePlanet}/>
+            </Card> 
           )
           })}
         </div>
@@ -97,6 +96,36 @@ export default class Home extends Component {
           </NavLink>
         </div>
       </div>
+      
+      {this.state.renderCardNotLoggedIn && foodTypes.filter((value, index)=> index === this.state.noUserNumber).map((type, index)=>{
+        return(
+          <Card key={index}>
+          <CardBody>
+          <CardTitle>{type.foodtype}</CardTitle>
+          </CardBody>
+          <CardSubtitle>{type.image}</CardSubtitle>
+          </Card> 
+        )
+      })}
+      {logged_in && this.state.renderCardLoggedIn && userRestaurants.filter((restaurant, index) => index === this.state.randomNum).map((restaurant, index) => {
+      return(
+        <Card key={index}>
+        <CardBody>
+          <CardTitle>{restaurant.name}</CardTitle>
+          <CardSubtitle>{restaurant.street},{restaurant.city}, {restaurant.state}</CardSubtitle>
+        </CardBody>
+        <img width="100%" src={restaurant.image} alt="Card image cap" />     
+        </Card> 
+      )
+      })}
+        
+      {<button onClick={this.handleClick}>
+        Randomize Grub type
+      </button>}
+
+      {logged_in && <button onClick={this.handleClickLoggedIn}>
+        Randomize your Grub
+      </button>}
       </>
     )
   }
