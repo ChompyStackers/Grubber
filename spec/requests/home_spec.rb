@@ -5,3 +5,4 @@ RSpec.describe "Homes", type: :request do
     pending "add some examples (or delete) #{__FILE__}"
   end
 end
+# test yelp controller method

@@ -572,8 +572,6 @@ RSpec.describe "Restaurants", type: :request do
         p restaurant['image']
         expect(restaurant['image']).to include "can't be blank", "is too short (minimum is 8 characters)"
     end
-    
-
   end
   
   describe "DELETE /destroy" do
