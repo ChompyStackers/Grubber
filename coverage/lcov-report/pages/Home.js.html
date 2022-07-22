@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44% </span>
+                <span class="strong">52% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/25</span>
+                <span class='fraction'>13/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">57.14% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/14</span>
+                <span class='fraction'>8/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/12</span>
+                <span class='fraction'>6/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44% </span>
+                <span class="strong">52% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/25</span>
+                <span class='fraction'>13/25</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -191,10 +191,7 @@
 <a name='L126'></a><a href='#L126'>126</a>
 <a name='L127'></a><a href='#L127'>127</a>
 <a name='L128'></a><a href='#L128'>128</a>
-<a name='L129'></a><a href='#L129'>129</a>
-<a name='L130'></a><a href='#L130'>130</a>
-<a name='L131'></a><a href='#L131'>131</a>
-<a name='L132'></a><a href='#L132'>132</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L129'></a><a href='#L129'>129</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -290,11 +287,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -418,14 +412,11 @@ export default class Home extends Component {
           {logged_in &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;button className='homeButtons' onClick={this.handleClickLoggedIn}&gt;</span>
           Randomize your Grub
           &lt;/button&gt;}
-          &lt;NavLink to={`/home/${ip.latitude}/${ip.longitude}/mcdonalds`}&gt;
-            
-          &lt;/NavLink&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       
-      {this.state.renderCardNotLoggedIn &amp;&amp; foodTypes.filter(<span class="fstat-no" title="function not covered" >(v</span>alue, index)=&gt; <span class="cstat-no" title="statement not covered" >index === this.state.noUserNumber)</span>.map(<span class="fstat-no" title="function not covered" >(t</span>ype, index)=&gt;{
-<span class="cstat-no" title="statement not covered" >        return(</span>
+      {this.state.renderCardNotLoggedIn &amp;&amp; foodTypes.filter((value, index)=&gt; index === this.state.noUserNumber).map((type, index)=&gt;{
+        return(
           &lt;Card key={index}&gt;
           &lt;CardBody&gt;
           &lt;CardTitle&gt;{type.foodtype}&lt;/CardTitle&gt;
@@ -434,7 +425,7 @@ export default class Home extends Component {
           &lt;/Card&gt; 
         )
       })}
-      {logged_in &amp;&amp; this.state.renderCardLoggedIn &amp;&amp; userRestaurants.filter(<span class="fstat-no" title="function not covered" >(r</span>estaurant, index) =&gt; <span class="cstat-no" title="statement not covered" >index === this.state.randomNum)</span>.map(<span class="fstat-no" title="function not covered" >(r</span>estaurant, index) =&gt; {
+      {logged_in &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.state.renderCardLoggedIn </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >userRestaurants.filter(<span class="fstat-no" title="function not covered" >(r</span>estaurant, index) =&gt; <span class="cstat-no" title="statement not covered" >index === this.state.randomNum)</span>.map(<span class="fstat-no" title="function not covered" >(r</span>estaurant, index) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      return(</span>
         &lt;Card key={index}&gt;
         &lt;CardBody&gt;
@@ -450,7 +441,7 @@ export default class Home extends Component {
         Randomize Grub type
       &lt;/button&gt;}
 &nbsp;
-      {logged_in &amp;&amp; &lt;button onClick={this.handleClickLoggedIn}&gt;
+      {logged_in &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;button onClick={this.handleClickLoggedIn}&gt;</span>
         Randomize your Grub
       &lt;/button&gt;}
       &lt;/&gt;
@@ -463,7 +454,7 @@ export default class Home extends Component {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Jul 22 2022 11:45:33 GMT-0700 (Pacific Daylight Time)
+                at Fri Jul 22 2022 14:56:03 GMT-0700 (Pacific Daylight Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

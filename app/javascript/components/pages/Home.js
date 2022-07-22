@@ -91,9 +91,6 @@ export default class Home extends Component {
           {logged_in && <button className='homeButtons' onClick={this.handleClickLoggedIn}>
           Randomize your Grub
           </button>}
-          <NavLink to={`/home/${ip.latitude}/${ip.longitude}/mcdonalds`}>
-            
-          </NavLink>
         </div>
       </div>
       

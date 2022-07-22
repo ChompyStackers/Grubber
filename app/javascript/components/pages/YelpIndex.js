@@ -24,7 +24,6 @@ export default class YelpIndex extends Component {
         image:"",
         user_id: this.props.current_user.id
       }
-      
     }
   }
 

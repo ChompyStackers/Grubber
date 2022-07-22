@@ -14,12 +14,17 @@ import YelpIndex from './YelpIndex'
 configure({ adapter: new Adapter() })
 
 describe("When yelpIndex renders", () => {
+  let props = {current_user:{id:1}}
     let yelpRender
     beforeEach(() => {
-      yelpRender = shallow(<YelpIndex />)
+      yelpRender = shallow(<YelpIndex {...props} />)
     })
     it("displays a card", () => {
-      const card = yelpRender.find("Card")
-      expect(card.length).toEqual(1)
+      const yelpForm = yelpRender.find("Form")
+      expect(yelpForm.length).toEqual(1)
+    })
+    it("displays a button", () => {
+      const yelpButton = yelpRender.find("Button")
+      expect(yelpButton.length).toEqual(1)
     })
 })
