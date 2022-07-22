@@ -54,7 +54,7 @@ export default class Home extends Component {
     return (
       <>
       <div className='homeColorContainer'>
-        <div className='homeCardContainer'>
+        <div className='homeCardContainer' id='homeCard'>
           {this.state.renderCardNotLoggedIn && foodTypes.filter((value, index)=> index === this.state.noUserNumber).map((type, index)=>{
             return(
             <Card key={index}>

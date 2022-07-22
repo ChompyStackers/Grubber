@@ -17,13 +17,13 @@ import {
 
 
 class App extends React.Component {
-  // status?
     constructor(props){
       super(props)
       this.state = {
         restaurants: [],
         yelpRestaurant: {},
         ip: {},
+        submitted: false
       }
     }
     componentDidMount(){
@@ -43,16 +43,16 @@ class App extends React.Component {
     .then(payload => this.setState({ip: payload}))
     .catch(error => console.log(error)) 
     }
-    readYelpRestaurant = (location, restaurant) => {
-      fetch(`home/${location}/${restaurant}`,{
+    readYelpRestaurant = async (location, restaurant) => {
+      await fetch(`home/${location}/${restaurant}`,{
         headers: {
           "Content-Type": "application/json"
         }
       })
       .then(response => response.json())
       .then(payload=> this.setState({yelpRestaurant: payload}))
+      .then(response=> this.setState({submitted:true}))
       .catch(errors => console.log("Yelp Restaurant read:", errors))
-      .then(this.setState({submitted:true}))
     }
     createRestaurant = (newRestaurant) => {
       fetch("/restaurants", {
@@ -112,11 +112,10 @@ class App extends React.Component {
             return <RestaurantShow restaurant={restaurant} id={id} updateRestaurant={this.updateRestaurant} deleteRestaurant={this.deleteRestaurant}
             />
           }}/>
-          <Route path="/yelpsearch" render={(props) => <YelpIndex {...this.props} createRestaurant={this.createRestaurant} yelpRestaurants={this.state.yelpRestaurant} ip={this.state.ip} readYelp={this.readYelpRestaurant}{...this.props}/>}/>
+          <Route path="/yelpsearch" render={(props) => <YelpIndex {...this.props} submitted={this.state.submitted}createRestaurant={this.createRestaurant} yelpRestaurants={this.state.yelpRestaurant} ip={this.state.ip} readYelp={this.readYelpRestaurant}{...this.props}/>}/>
           <Route path="/restaurantnew" render={(props) => <RestaurantNew {...this.props} createRestaurant={this.createRestaurant} />} />
           <Route component={NotFound}/>       
         </Switch>
-        <button  onClick={(e)=>this.readYelpRestaurant(`${this.state.ip.postal}`, 'tacobell')}>Click</button>
       </Router>
     );
   }
