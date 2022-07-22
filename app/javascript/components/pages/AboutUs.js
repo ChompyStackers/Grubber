@@ -13,7 +13,7 @@ export default class AboutUs extends Component {
     render() {
         return (
             <div className='homeColorContainer'>
-                <div className='homeCardContainer'>
+                <div className='homeCardContainer' id='aboutUsCard'>
                     <CardGroup>
     {/* Jorge about me */}
                     <Card className='aboutUsCard'>
