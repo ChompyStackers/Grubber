@@ -31,12 +31,16 @@ export default class RestaurantIndex extends Component {
             Location: {restaurant.street}, {restaurant.city}, {restaurant.state}.
             Rating or comments: {restaurant.comment}
           </span>
+      
         </div>
             )})}
          
         </div>
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
         </div>
-      
+       
   </div>
 
         
