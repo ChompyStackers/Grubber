@@ -49,7 +49,6 @@ export default class RestaurantNew extends Component {
     } = this.props
    
     return (
-      <div className='homeColorContainer'>
           <div className='homeCardContainer'>
             <div className='container'>
               <Form id='newRestaurantForm'>
@@ -123,10 +122,13 @@ export default class RestaurantNew extends Component {
                   Create a New Restaurant
                 </Button>
                 {this.state.submitted && <Redirect to="/myrestaurants" />}
+                
             </Form>
+                <div id="stars"></div>
+                <div id="stars2"></div>
+                <div id="stars3"></div>
+                </div>
           </div>
-        </div>
-      </div>
     )
   }
 }

@@ -61,7 +61,6 @@ export default class YelpIndex extends Component {
   
   render() {
     return (
-      <div className='homeColorContainer'>
           <div className='homeCardContainer'>
             <Form inline>
               <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -87,7 +86,6 @@ export default class YelpIndex extends Component {
               </Card>  
             )})}
         </div>
-      </div>
     )
   }
 }

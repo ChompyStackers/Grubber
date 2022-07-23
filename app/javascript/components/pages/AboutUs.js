@@ -59,7 +59,9 @@ export default class AboutUs extends Component {
                         <NavLink href="https://github.com/SOMarrah" target="_blank">GitHub</NavLink>
                         </CardBody>
                     </Card>
-
+                    <div id="stars"></div>
+                    <div id="stars2"></div>
+                    <div id="stars3"></div>
                     </CardGroup>
                 </div>
                 <div id='projectNavLinkContainer'>

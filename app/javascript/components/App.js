@@ -116,6 +116,9 @@ class App extends React.Component {
           <Route path="/restaurantnew" render={(props) => <RestaurantNew {...this.props} createRestaurant={this.createRestaurant} />} />
           <Route component={NotFound}/>       
         </Switch>
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
       </Router>
     );
   }

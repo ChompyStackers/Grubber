@@ -13,22 +13,33 @@ export default class RestaurantIndex extends Component {
   render() {
     const {restaurants} = this.props
     return (
-      <div className='homeColorContainer'>
-        <div className='homeCardContainer'>
-          { restaurants.map((restaurant, index) => { 
+
+<div className='homeCardContainer'>
+
+      <div className="customCardContainer">
+      <div className="customCards">
+      { restaurants.map((restaurant, index) => { 
             return(
-              <Card key={index}>
-              <CardImg top id="cardimage"src={restaurant.image} alt="Card image cap" />
-              <CardBody>
-                <CardTitle>{restaurant.name}</CardTitle>
-                <CardSubtitle>Location: {restaurant.street}, {restaurant.city}, {restaurant.state}</CardSubtitle>
-                <CardText>Type: {restaurant.foodtype}</CardText>
-                <CardText>{restaurant.comment}</CardText>  
-              </CardBody>
-              </Card>
-          )})}
+        <div className="customCard" key={index}>
+          <span className="customCardHeader" src={restaurant.image}>
+            <span className="customCardTitle">
+              <h3>{restaurant.name}</h3>
+            </span>
+          </span>
+          <span className="customCardText">
+            Type of food: {restaurant.foodtype}
+            Location: {restaurant.street}, {restaurant.city}, {restaurant.state}.
+            Rating or comments: {restaurant.comment}
+          </span>
         </div>
-      </div>
+            )})}
+         
+        </div>
+        </div>
+      
+  </div>
+
+        
     )
   }
 }

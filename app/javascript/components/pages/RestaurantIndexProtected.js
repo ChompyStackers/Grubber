@@ -15,7 +15,6 @@ export default class RestaurantIndexProtected extends Component {
     const {restaurants} = this.props
     const {current_user} = this.props
     return (
-        <div className='homeColorContainer'>
           <div className='homeCardContainer'>
             {restaurants && restaurants.filter(restaurant => restaurant.user_id === current_user.id).map((value,index)=>{
                 return(
@@ -30,11 +29,13 @@ export default class RestaurantIndexProtected extends Component {
                         <Button>Update Info</Button>
                       </NavLink>
                     </CardBody>
+                    <div id="stars"></div>
+                    <div id="stars2"></div>
+                    <div id="stars3"></div>
                   </Card>
                 )
             })}
           </div>
-        </div>
     )
   }
 }
