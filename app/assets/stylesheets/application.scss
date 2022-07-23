@@ -244,6 +244,20 @@ body{
   padding: 6px 6px 6px 6px;
 }
 
+.viceContainer{
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #132B47
+  
+}
+
+.deviceForm{
+  color:  white;
+  background-color: #F94912
+}
+
 // this was imported from our node modules...it ensures that I have more control over styling...
 @media (min-width: 0px) {
   /* line 166, ../../.rvm/gems/ruby-3.0.0/gems/bootstrap-5.1.3/assets/stylesheets/bootstrap/_navbar.scss */
