@@ -7,7 +7,7 @@ CardTitle,
 Button,
 CardSubtitle } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-import cardbackground from '../assets/cardbackground.png'
+import Cardbackground from '../assets/cardbackground.png'
 import HomePlanet from '../assets/homePlanet.png'
 import foodTypes from '../assets/FoodTypes';
 
@@ -53,7 +53,6 @@ export default class Home extends Component {
     const {userRestaurants}= this.props
     return (
       <>
-      {/* <div className='homeColorContainer'> */}
         <div className='homeCardContainer' id='homeCard'>
           {this.state.renderCardNotLoggedIn && foodTypes.filter((value, index)=> index === this.state.noUserNumber).map((type, index)=>{
             return(
@@ -62,7 +61,7 @@ export default class Home extends Component {
               <div id='imagesContainer'>
               <CardBody>
                 <CardText id='emojiText'>{type.image}</CardText>
-                <img className='cardBackground'src={cardbackground}/>
+                <img className='cardBackground'src={Cardbackground}/>
               </CardBody>
               </div>
               <CardBody>
@@ -88,7 +87,7 @@ export default class Home extends Component {
               <Card key={index}>
                 <div id='imagesContainer'>
                   <CardBody>
-                    <img className='cardBackground'src={cardbackground}/>
+                    <img className='cardBackground'src={Cardbackground}/>
                     <CardImg id='homeCardImage'src={restaurant.image} alt="Card image cap"/>
                    </CardBody>
                 </div>
@@ -113,8 +112,6 @@ export default class Home extends Component {
           })}
          
         </div>
-        
-      {/* </div> */}
       </>
     )
   }
