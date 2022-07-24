@@ -85,6 +85,7 @@ export default class Home extends Component {
           {logged_in && this.state.renderCardLoggedIn && userRestaurants.filter((restaurant, index) => index === this.state.randomNum).map((restaurant, index) => {
             return(
               <Card key={index}>
+                <img id='homeplanetImage'src={HomePlanet}/>
                 <div id='imagesContainer'>
                   <CardBody>
                     <img className='cardBackground'src={Cardbackground}/>
@@ -95,7 +96,7 @@ export default class Home extends Component {
                   <CardTitle>{restaurant.name}</CardTitle>
                   <CardText>{restaurant.street}, {restaurant.city}, {restaurant.state}</CardText> 
                 </CardBody>
-                <img id='homeplanetImage'src={HomePlanet}/>
+                
                 <div id="stars"></div>
                 <div id="stars2"></div>
                 <div id="stars3"></div>

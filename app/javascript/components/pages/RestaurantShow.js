@@ -42,11 +42,13 @@ export default class RestaurantShow extends Component {
     const { restaurant } = this.props
 
     return (
-      <>
-      <div>
-        
+      <div className='homeCardContainer'>
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+      <div className='container'>
       { restaurant && 
-        <Form>
+        <Form id='newRestaurantForm'>
           <FormGroup>
               <Label>Name</Label>
               <Input
@@ -138,7 +140,7 @@ export default class RestaurantShow extends Component {
         </Form>
       }
       </div>
-      </>
+      </div>
     )
   } 
 }

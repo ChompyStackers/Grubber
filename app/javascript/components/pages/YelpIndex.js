@@ -32,7 +32,8 @@ export default class YelpIndex extends Component {
     search = e.target.value
     this.setState({search: search})
   }
-  handleClick = () =>{
+  handleSubmit = (e) =>{
+    e.preventDefault()
     this.props.readYelp(`${this.props.ip.postal}`, `${this.state.search}`)
   }
   handleState = (yelpRestaurant) =>{
@@ -50,41 +51,51 @@ export default class YelpIndex extends Component {
   }
   handleCreate(restaurant){
     this.handleState(restaurant)
-    // setTimeout(() => { this.props.createRestaurant(this.state.newRestaurant) }, 500);
   }
   componentDidUpdate(prevProps, prevState){
     if(prevState.newRestaurant !== this.state.newRestaurant){
       this.props.createRestaurant(this.state.newRestaurant)
-      console.log("this is being posted?:",this.state.newRestaurant)
     }
   }
   
   render() {
     return (
-          <div className='homeCardContainer'>
-            <Form inline>
-              <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                <Label for="search" 
-                  className="mr-sm-2">restaurants</Label>
-                <Input type="text" name="search" id="restaurant" placeholder="Restaurant name"
-                onChange={this.handleChange}
-                value={this.state.search} />
-              </FormGroup>
-              <Button onClick={this.handleClick} >Search Grub</Button>
-            </Form>
-            {this.props.submitted && this.props.yelpRestaurants.businesses.map((restaurant, index)=> {
-              return (
-                <Card key={index}>
-                  <CardImg top id="cardimage"src={restaurant.image_url} alt="Card image cap" />
-                  <CardBody>
-                    <CardTitle>{restaurant.name}</CardTitle>
-                    <CardSubtitle>Location: {restaurant.location.address1},{restaurant.location.city},{restaurant.location.state},{restaurant.location.zip_code}</CardSubtitle>
-                    <CardText>Type: {restaurant.categories.map((value,index)=>`${value.title} `)}</CardText>
-                    <CardText >{restaurant.price}</CardText>  
-                    <Button onClick={()=>this.handleCreate(restaurant)}>Add to my restaurants</Button>
-                  </CardBody>
-              </Card>  
-            )})}
+      
+          <div id='yelpSearchContainer'>
+            <div id="stars"></div>
+            <div id="stars2"></div>
+            <div id="stars3"></div>
+            <div className="customCardContainer">
+              <Form id='yelpSearch' inline onSubmit={this.handleSubmit}>
+                <FormGroup className="mb-2 mr-sm-2 mb-sm-0" id='searchBar'>
+                  <Input type="text" name="search" id="restaurant" placeholder="Search for Grub"
+                  onChange={this.handleChange}
+                  value={this.state.search} />
+                </FormGroup>
+                <Button type='submit' >Search Grub</Button>
+              </Form>
+              <div className="customCards">
+              {this.props.submitted && this.props.yelpRestaurants.businesses.map((restaurant, index)=> {
+                return (
+                <div className="customCard" key={index}>
+                <span className="customCardHeader" >
+                  <img src={restaurant.image_url}/>
+                  <span className="customCardTitle">
+                    <h3>{restaurant.name}</h3>
+                  </span>
+                </span>
+                <span className="customCardText">
+                  Type of food:  {restaurant.categories.map((value,index)=>`${value.title} `)}<br/>
+                  Location: {restaurant.location.address1},{restaurant.location.city},{restaurant.location.state}.<br/>
+                  Rating/Comments: {restaurant.rating}<br/>
+                  Price: {restaurant.price}<br/>
+                  <button onClick={()=>this.handleCreate(restaurant)}>Add to My Grub</button>
+                </span>
+            
+              </div>
+              )})}
+              </div>
+          </div>
         </div>
     )
   }
