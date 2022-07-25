@@ -246,6 +246,13 @@ body{
   height: 95%;
   color: #E9EADC;
 }
+.notFoundContainer{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
 #titleText{
   position: absolute;
   font-family: "Orbitron";
