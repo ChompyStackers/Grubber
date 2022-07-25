@@ -372,11 +372,19 @@ body{
   }
   .customCard:hover{
     filter: brightness(1);
-    max-height: 600px;
+    max-height: 700px;
     .customCardText{
       opacity: 1;
     }
   } 
+}
+button:hover{
+  color:#132B47;
+}
+a{
+  button:hover{
+    color:#132B47;
+  }
 }
 .card{
   background-color: #0b0c1000;
@@ -510,6 +518,9 @@ body{
       border-radius: .25rem;
       border: #132b4700;
     }
+    button:hover{
+      color: #132B47;
+    }
 	}
 	.customCardHeader {
 		position: relative;
@@ -581,6 +592,9 @@ body{
     background: #F94912;
     border: #132b4700;
     border-radius: .25rem;
+  }
+  input:hover{
+    color: #132B47;
   }
 }
 
