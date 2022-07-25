@@ -490,5 +490,22 @@ Everyone on the team is a developer on the application. To help divide responsib
 
 Everyone on the team is a developer on the project. To help divide responsibilities each member of the team will take ownership over one of the following areas.
 
----
-[Capstone Syllabus](../README.md#unit-ten-capstone-project-mvp)
+[Back to Syllabus](../README.md#unit-ten-capstone-project-mvp)
+
+restaurant:
+alias: string
+categories: array
+coordinates: object
+display_phone: string
+distance: decimal
+id: string
+image_url: string
+is_closed: boolean
+location: object
+name: string
+phone: string
+price: string
+rating: decimal
+review_count: integer
+transactions: array
+url: string

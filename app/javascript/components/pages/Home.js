@@ -3,17 +3,17 @@ import { Card,
   CardImg,
   CardText,
   CardBody,
-  CardLink,
 CardTitle, 
+Button,
 CardSubtitle } from 'reactstrap';
-
+import { NavLink } from 'react-router-dom';
+import Cardbackground from '../assets/cardbackground.png'
 import HomePlanet from '../assets/homePlanet.png'
 import foodTypes from '../assets/FoodTypes';
 
 
 
 export default class Home extends Component {
-  
   constructor(props){
     super(props)
     this.state = {
@@ -47,41 +47,70 @@ export default class Home extends Component {
       sign_in_route,
       sign_out_route
     } = this.props
+    const {ip} = this.props
   
     const {userRestaurants}= this.props
     return (
       <>
-      <div className='homeColorContainer'>
-        <div className='homeCardContainer'>
+        <div className='homeCardContainer' id='homeCard'>
           {this.state.renderCardNotLoggedIn && foodTypes.filter((value, index)=> index === this.state.noUserNumber).map((type, index)=>{
-            return(
+          return(
             <Card key={index}>
-              <CardBody>
-                <CardTitle>{type.foodtype}</CardTitle>
-                <CardSubtitle>A perfect place for your perfect plate.</CardSubtitle>
-              </CardBody>  
+              <img id='homeplanetImage'src={HomePlanet}/>
+              <div id='imagesContainer'>
               <CardBody>
                 <CardText id='emojiText'>{type.image}</CardText>
+                <img className='cardBackground'src={Cardbackground}/>
               </CardBody>
-              <img id='homeplanetImage'src={HomePlanet}/>
+              </div>
+              <CardBody>
+                <CardTitle>{type.foodtype}</CardTitle>
+                <CardText></CardText>
+              </CardBody>   
+              <div id="stars"></div>
+              <div id="stars2"></div>
+              <div id="stars3"></div>
+              <div className='homeButtonsContainer'>
+                {<button className='homeButtons' onClick={this.handleClick}>
+                Randomize Grub type
+                </button>}
+                {logged_in && <button className='homeButtons' onClick={this.handleClickLoggedIn}>
+                Randomize your Grub
+                </button>}
+              </div>
             </Card>
-              )
+          )
           })}
           {logged_in && this.state.renderCardLoggedIn && userRestaurants.filter((restaurant, index) => index === this.state.randomNum).map((restaurant, index) => {
             return(
               <Card key={index}>
+                <img id='homeplanetImage'src={HomePlanet}/>
+                <div id='imagesContainer'>
+                  <CardBody>
+                    <img className='cardBackground'src={Cardbackground}/>
+                    <CardImg id='homeCardImage'src={restaurant.image} alt="Card image cap"/>
+                   </CardBody>
+                </div>
                 <CardBody>
                   <CardTitle>{restaurant.name}</CardTitle>
-                  <CardSubtitle>A perfect place for your perfect plate.</CardSubtitle>
+                  <CardText>{restaurant.street}, {restaurant.city}, {restaurant.state}</CardText> 
                 </CardBody>
-                <CardImg top src={restaurant.image} alt="Card image cap"/>
-                <CardBody>
-                    <CardText>{restaurant.street},{restaurant.city}, {restaurant.state}</CardText> 
-                </CardBody>
-                <img id='homeplanetImage'src={HomePlanet}/>
+                
+                <div id="stars"></div>
+                <div id="stars2"></div>
+                <div id="stars3"></div>
+                <div className='homeButtonsContainer'>
+                {<button className='homeButtons' onClick={this.handleClick}>
+                Randomize Grub type
+                </button>}
+                {logged_in && <button className='homeButtons' onClick={this.handleClickLoggedIn}>
+                Randomize your Grub
+                </button>}
+              </div>
               </Card> 
           )
           })}
+         
         </div>
         <div className='homeButtonsContainer'>
           {<button className='homeButtons' onClick={this.handleClick}>
@@ -92,6 +121,36 @@ export default class Home extends Component {
           </button>}
         </div>
       </div>
+      
+      {this.state.renderCardNotLoggedIn && foodTypes.filter((value, index)=> index === this.state.noUserNumber).map((type, index)=>{
+        return(
+          <Card key={index}>
+          <CardBody>
+          <CardTitle>{type.foodtype}</CardTitle>
+          </CardBody>
+          <CardSubtitle>{type.image}</CardSubtitle>
+          </Card> 
+        )
+      })}
+      {logged_in && this.state.renderCardLoggedIn && userRestaurants.filter((restaurant, index) => index === this.state.randomNum).map((restaurant, index) => {
+      return(
+        <Card key={index}>
+        <CardBody>
+          <CardTitle>{restaurant.name}</CardTitle>
+          <CardSubtitle>{restaurant.street},{restaurant.city}, {restaurant.state}</CardSubtitle>
+        </CardBody>
+        <img width="100%" src={restaurant.image} alt="Card image cap" />     
+        </Card> 
+      )
+      })}
+        
+      {<button onClick={this.handleClick}>
+        Randomize Grub type
+      </button>}
+
+      {logged_in && <button onClick={this.handleClickLoggedIn}>
+        Randomize your Grub
+      </button>}
       </>
     )
   }

@@ -15,18 +15,18 @@ import {
     DropdownItem } from 'reactstrap';
   
 export default class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-          isOpen: false
-        };
-      }
-      toggle() {
-        this.setState({
-          isOpen: !this.state.isOpen
-        });
-      }  
+  constructor(props) {
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }  
   render() {
     const {
       logged_in,
@@ -51,7 +51,7 @@ export default class Header extends Component {
                 </DropdownToggle>
                 <DropdownMenu >
                   <DropdownItem id="All restaurants" href='/restaurantindex'>
-                    All Restaurants
+                    All Grub
                   </DropdownItem>
                   <DropdownItem id="About Us" href='/AboutUs'>
                     About Us
@@ -60,10 +60,13 @@ export default class Header extends Component {
                   {logged_in &&  
                   <>
                   <DropdownItem href='/myrestaurants'>
-                    My Restaurants
+                    My Grub
+                  </DropdownItem>
+                  <DropdownItem href='/yelpsearch'>
+                    Search Grub
                   </DropdownItem>
                   <DropdownItem href='/restaurantnew'>
-                    New Restaurant
+                    New Grub
                   </DropdownItem>
                   <DropdownItem href='/users/sign_out'>
                     Sign Out
@@ -76,7 +79,7 @@ export default class Header extends Component {
                     Sign In
                   </DropdownItem>
                   <DropdownItem href='/users/sign_up'>
-                  Sign Up
+                    Sign Up
                   </DropdownItem>
                   </>
                   }
@@ -87,5 +90,3 @@ export default class Header extends Component {
     )
   }
 }
-
-

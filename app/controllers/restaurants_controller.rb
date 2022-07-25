@@ -3,7 +3,6 @@ class RestaurantsController < ApplicationController
         restaurants = Restaurant.all
         render json: restaurants
     end
-
     def create
         restaurant = Restaurant.create(restaurant_params)
         if restaurant.valid?
@@ -27,6 +26,7 @@ class RestaurantsController < ApplicationController
         restaurant.destroy
         render json: restaurant
     end    
+    
 
     private
     def restaurant_params

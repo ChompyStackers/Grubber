@@ -14,22 +14,19 @@ import Home from './Home'
 configure({adapter: new Adapter()})
 
 describe("When Home renders", () => {
-    it("displays a heading", () => {
-      const home = shallow(<Home />)
-      const homeHeading = home.find("div").text()
-      expect(homeHeading).toEqual("Home<Card />")
-       
-    })    
-    it("renders a button", () => {
-      const home = shallow(<Home />)
-      const homeHeading = home.find("button")
-      expect(homeHeading.length).toEqual(2)
-     })
+  it("displays a heading", () => {
+    const home = shallow(<Home />)
+    const homeHeading = home.find("Card")
+    expect(homeHeading.length).toEqual(2)
+  })    
+  it("renders a button", () => {
+    const homebutton = shallow(<Home />)
+    const homeButton = homebutton.find("button")
+    expect(homeButton.length).toEqual(2)
   })
-
-
-
-
-
- 
-
+  it("renders an div for the cards", () => {
+    const rImage = shallow(<Home />)
+    const renderImage = rImage.find("div")
+    expect (renderImage.length).toEqual(3)
+  })
+})
