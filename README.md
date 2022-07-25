@@ -1,6 +1,6 @@
 # Capstone requirements/Project details at the bottom
 
-# Terminal Commands
+## ▶︎ Terminal Commands
 ```
 $ rails new grubber-app -d postgresql -T
 $ cd grubber-app
@@ -25,10 +25,11 @@ $ rails generate controller Home
 
 ## 🛠 Configurations
 
-### Devise Config
+### 🛠 Devise Config
+
 **config/environments/development.rb**
 ```ruby
-This line added:
+# This line added:
 config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 ```
 
@@ -52,7 +53,7 @@ File added in app/views/home called index.html.erb
 } %>
 ```
 
-### React in Rails Config
+### 🛠 React in Rails Config
 
 **app/views/layouts/application.html.erb**
 ```ruby
@@ -69,9 +70,11 @@ get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
 root 'home#index'
 ```
 
-### React Routing Config
-```bash
-yarn add react-router-dom@5.3.3
+### 🛠 React Routing Config
+▶︎ terminal commands
+```
+$ bash
+$ yarn add react-router-dom@5.3.3
 ```
 
 **app/javascript/components/App.js**
@@ -83,11 +86,13 @@ import {
 } from 'react-router-dom'
 ```
 
-### Reactstrap Config
-```bash
-bundle add bootstrap
-mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
-yarn add reactstrap
+### 🛠 Reactstrap Config
+▶︎ terminal commands
+```
+$ bash
+$ bundle add bootstrap
+$ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
+$ yarn add reactstrap
 ```
 
 **app/assets/stylesheets/application.scss**
@@ -96,30 +101,36 @@ yarn add reactstrap
 ```
 
 
-## ⚡️ Getting Started
-Once you're able to clone the repository, within the root of the project directory, run:
+## 👯‍♀️ Clone the Repo 
+Clone the repo from the Chompy Stackers Github organization:
 
-```bash
-bundle 
-yarn
-rails db:setup
+▶︎ terminal commands
+```
+$ bash
+$ bundle 
+$ yarn
+$ rails db:setup
 ```
 
-## 🏁 Start the App
-```bash
-rails s
+## 🏁 Start the Server
+▶︎ terminal commands
+```
+$ bash
+$ rails s
 ```
 
 
-## 🏡 Restaurant Resource    
+## 👩🏽‍🍳 Restaurant Resource    
 The Devise User model is going to have an association with the Restaurant model. In this situation, the User will have many Restaurants and the Restaurants will belong to a User.
-          
-```bash
-rails generate resource Restaurant street:text city:text state:text foodtype:text comment:text image:text user_id:integer
-rails db:migrate
+
+▶︎ terminal commands          
+```
+$ bash
+$ rails generate resource Restaurant street:text city:text state:text foodtype:text comment:text image:text user_id:integer
+$ rails db:migrate
 ```
 
-### User and Restaurant Associations
+### 👩🏽‍🍳 User and Restaurant Associations
 The Restaurants will belong to a User and a User will have many Restaurants.
 
 **app/models/Restaurant.rb**
@@ -140,55 +151,153 @@ class User < ApplicationRecord
 end
 ```
 
-## 🚗 Testing
-To run the existing testing suite, run:
+## 📈 Testing
+rspec will run all tests, to specify, add the file name after the command
 
-```bash
-yarn jest
-rspec spec/
+▶︎ terminal commands
+
+```
+$ bash
+$ yarn jest
+$ rspec spec/
+```
+- the syntax for the testing pages will look as such: 
+
+```ruby
+import React from 'react'
+import { shallow, configure } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+import FileName from './FileName'
+configure({adapter: new Adapter()})
+describe("When FileName does something", () => {
+    it("does something", () => {
+      const newfile = shallow(<AboutUs />)
+      const newfileRender = newfile.find("something on the file")
+      expect(newfileRender).toEqual("whatever the file contains")
+    })
+  })
 ```
 
-
-
-# Deploying Grubber to Heroku
+## ✈️Deploying Grubber to Heroku
 - In order to deploy to Heroku, the main change we need to make in our app is to add the pg gem because Heroku uses PostgreSQL as its database. We can’t use sqlite on Heroku.
-- So let’s change our Gemfile. Let’s move sqlite to the development and test group, and add the pg gem to a production group:
 
-# Gemfile:
+### Heroku Errors and TroubleShooting: 
+Terminal Error: 
 ```
-group :development, :test do
-  gem 'sqlite3'
-end
-
-$ group :production do
-  $ gem 'pg'
-$ end
+Heroku Deployment Error: ModuleNotFoundError: Module not found: Error: Can’t resolve ‘enzyme’ in ‘/tmp/build/app/javascript/components/components’
 ```
-
-# And then install the gem:
+In your package.json: move “enzyme” and “enzyme-adapter-react-16" from devDependencies to dependencies
+```
+Delete node_modules
+Delete yarn.lock
+$ yarn
+```
+### 👾Installing Heroku :
+▶︎ Terminal command: 
+```
 $ bundle install
+```
 - You also need to make sure you have set up a git repo in your code directory and commit all the changes we made to the code.
-- Now let’s create a Heroku app. We just need to run:
+- Now let’s create a Heroku app. We just need to run the ▶︎ terminal command: 
+```
 $ heroku create my-events-app
+```
 - where my-events-app is the name of the app on Heroku.
 
 
 - If we don’t pass a name to heroku create, Heroku automatically generates a random name for the app.
 
-- Then let’s push our code to the git repo on Heroku:
+- Then let’s push our code to the git repo on Heroku,
 
+▶︎ terminal command: 
+```
 $ git push heroku master
+```
 - That’ll take a couple of minutes to deploy. It can take a bit longer the first time because it needs to install all the gems and setup the app.
 
-- Once that’s done, we can open the app in a browser either by typing in the app url or by running:
-$ heroku open
-- But it won’t work yet because we need to migrate the database first. So let’s run:
-$ heroku run rake db:migrate
-- Let’s also seed the database with some events:
-$ heroku run rake db:seed
-- Now let’s refresh and there’s our Eventlite app running on Heroku!
+- Once that’s done, we can open the app in a browser either by typing in the app url or by running the ▶︎ terminal command:
 ```
+$ heroku open
+```
+- But it won’t work yet because we need to migrate the database first. So let’s run the ▶︎ terminal command:
+```
+$ heroku run rake db:migrate
+```
+- Let’s also seed the database with some events, run the ▶︎ terminal command:
+```
+$ heroku run rake db:seed
+```
+- Now let’s refresh and there’s our Eventlite app running on Heroku!
 
+## Adding Yelp API 
+
+1- We need to add a gem to handle the http request from our server to the target server (in this example we are using Yelp API)
+
+```ruby
+# In your gemfile add: 
+gem 'httparty'
+```
+Documentation: https://github.com/jnunemaker/httparty
+
+2- We need to add your API key in your credentials.
+
+  - In your terminal run:
+```
+$ EDITOR="nano --wait" rails credentials:edit
+```
+It should open a new editor.
+ - Using the arrow keys move down to a new line. 
+ - Hit return to make a gap between lines. 
+ - Type the name of your API key and the key associated with it:. (in this case we are using yelp)
+* EXAMPLE: 
+ ```ruby
+ yelp:
+ Access_key_id: <yourkeyhere>
+```
+ - Hit control+o then return to save (you should seen x lines written)
+ - Control+x to exit
+* Terminal Commands:
+```
+$ rails c
+$ Rails.application.credentials.dig(:yelp,:access_key_id)
+```
+ - This should return your api key - _If_ it did not you might have had syntax errors in the nano editor so run those again (Step 2)
+ - In our __home_controller.rb__ file we make a new method that __has__ to have a _unique name_
+ - (not index - it will run on mount which will break)
+ ```
+def yelp
+       api_key = Rails.application.credentials.dig(:yelp,:access_key_id)
+ 
+       restaurant = HTTParty.get("https://api.yelp.com/v3/businesses/search?location=#{params[:location]}&term=#{params[:restaurant]}",headers: {Authorization: "Bearer #{api_key}"})
+      
+       if restaurant
+           render json: restaurant
+       else
+           render json: restaurant.errors , status:422
+       end
+   end
+```
+ - Next we need to make a new route:
+```
+get 'home/:location/:restaurant', to: 'home#yelp'
+```
+ - Finally we can connect our backend request with an api endpoint in our front end:
+```
+readYelpRestaurant = (location, restaurant) => {
+     fetch(`home/${location}/${restaurant}`,{
+       headers: {
+         "Content-Type": "application/json"
+       }
+     })
+     .then(response => response.json())
+     .then(payload=> this.setState({yelpRestaurant: payload}))
+     .catch(errors => console.log("Yelp Restaurant read:", errors))
+   }
+```
+An example of running the method with params looks like below:
+```
+<button onClick={(e)=>this.readYelpRestaurant(`${this.state.ip.postal}`, 'tacobell')}>Click</button>
+```
 
 # Capstone Requirements
 
@@ -273,7 +382,7 @@ Wrap-up (2 min)
 
 ### Green Light Meeting [X]
 - [X] Elevator pitch - 30 sec summary of the app [JB]
-- [X] Wireframes - visual representations of all the pages your user will see for your MVP [Designigator]
+- [X] Wireframes - visual representations of all the pages your user will see for your MVP [Stephen]
 - [X] DB schema drawn out with column names, data types, and table relationships
 - [X] CRUD actions [Frank]
 - [X] User stories for your MVP on Trello [Jorge]
@@ -381,7 +490,6 @@ Everyone on the team is a developer on the application. To help divide responsib
 
 Everyone on the team is a developer on the project. To help divide responsibilities each member of the team will take ownership over one of the following areas.
 
----
 [Back to Syllabus](../README.md#unit-ten-capstone-project-mvp)
 
 restaurant:
