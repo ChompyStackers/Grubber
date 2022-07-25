@@ -9,36 +9,33 @@ import {
   } from 'reactstrap'
 
 export default class RestaurantNew extends Component {
-  
-    constructor(props){
-        super(props)
-        this.state = {
-          restaurant: {
-            name:"", 
-            street:"", 
-            city:"", 
-            state:"", 
-            foodtype:"", 
-            comment:"", 
-            image:"",
-            user_id: this.props.current_user.id
-          },
-          submitted: false
-        }
+  constructor(props){
+    super(props)
+    this.state = {
+      restaurant: {
+        name:"", 
+        street:"", 
+        city:"", 
+        state:"", 
+        foodtype:"", 
+        comment:"", 
+        image:"",
+        user_id: this.props.current_user.id
+      },
+      submitted: false
+    }
         
-      }
-      handleChange = (e) => {
-        let { restaurant } = this.state
-        restaurant[e.target.name] = e.target.value
-        this.setState({restaurant: restaurant})
-      }
-      handleSubmit = () => {
-        console.log("restaurant object:", this.state.restaurant)
-        this.props.createRestaurant(this.state.restaurant)
-        this.setState({submitted: true})
-      }
-      
-      
+    }
+  handleChange = (e) => {
+    let { restaurant } = this.state
+    restaurant[e.target.name] = e.target.value
+    this.setState({restaurant: restaurant})
+  }
+  handleSubmit = () => {
+    console.log("restaurant object:", this.state.restaurant)
+    this.props.createRestaurant(this.state.restaurant)
+    this.setState({submitted: true})
+  }
   render() { 
     const {
       logged_in,
@@ -47,7 +44,6 @@ export default class RestaurantNew extends Component {
       sign_in_route,
       sign_out_route
     } = this.props
-   
     return (
           <div className='homeCardContainer'>
             <div className='container'>

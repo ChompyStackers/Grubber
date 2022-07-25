@@ -14,9 +14,9 @@ import AboutUs from './AboutUs'
 configure({adapter: new Adapter()})
 
 describe("When AboutUs renders", () => {
-    it("displays an image", () => {
+    it("displays a card group", () => {
       const aboutus = shallow(<AboutUs />)
       const aboutusHeading = aboutus.find("div")
-      expect(aboutusHeading.text()).toEqual("AboutUs<CardGroup />")
+      expect(aboutusHeading.length).toEqual(2)
     })
   })
