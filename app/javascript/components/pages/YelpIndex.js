@@ -6,6 +6,7 @@ import { Button, Form, FormGroup, Label, Input,Card,
   CardTitle, 
   CardSubtitle, 
   } from 'reactstrap'
+import { Redirect } from 'react-router-dom'
 
 export default class YelpIndex extends Component {
 
@@ -23,7 +24,7 @@ export default class YelpIndex extends Component {
         image:"",
         user_id: this.props.current_user.id
       },     
-      // submitted: false,
+      submitted: false,
     }
   }
 
@@ -51,6 +52,7 @@ export default class YelpIndex extends Component {
   }
   handleCreate(restaurant){
     this.handleState(restaurant)
+    setTimeout(this.setState({submitted:true}), 500)
   }
   componentDidUpdate(prevProps, prevState){
     if(prevState.newRestaurant !== this.state.newRestaurant){
@@ -89,13 +91,15 @@ export default class YelpIndex extends Component {
                   Location: {restaurant.location.address1},{restaurant.location.city},{restaurant.location.state}.<br/>
                   Rating/Comments: {restaurant.rating}<br/>
                   Price: {restaurant.price}<br/>
-                  <button onClick={()=>this.handleCreate(restaurant)}>Add to My Grub</button>
+                 <button onClick={()=>this.handleCreate(restaurant)}>Add to My Grub</button>
+                 
                 </span>
             
               </div>
               )})}
               </div>
           </div>
+          {this.state.submitted && <Redirect to="/myrestaurants" />}
         </div>
     )
   }

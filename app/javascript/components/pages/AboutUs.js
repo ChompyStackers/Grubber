@@ -27,7 +27,7 @@ export default class AboutUs extends Component {
                         </span>
                         <span className="customCardText">
                         Grub Project Manager<br/>
-                        Add your about me in this section.<br/>
+                        A retired Marine Corps veteran, Jorge is currently a remote student at Learn Academy in San Diego, California where he is working with team members on different applications built on JavaScript, HTML, CSS, ReactJS, and Ruby on Rails. As the Grubber Application Project Manager, Jorge kept the team on task and assisted with building pages and ensuring test driven development was implemented.<br/>
                         <a href="https://www.linkedin.com/in/jorgelinares/" target ="_blank">LinkedIn</a><br/>
                         <a href="https://github.com/LoneWanderer101" target="_blank">GitHub</a>
                         </span>
@@ -42,7 +42,7 @@ export default class AboutUs extends Component {
                         </span>
                         <span className="customCardText">
                         Grub Tech Lead<br/>
-                        Add your about me in this section.<br/>
+                        Located in San Diego, CA, Francisco was in the Marine Corps before starting his career as a web developer. As a student from LEARN Academy, he learned how to be a full stack developer and was assigned the role of Tech Lead for this Grubber App.<br/>
                         <a href="https://www.linkedin.com/in/rivera-francisco/" target ="_blank">LinkedIn</a><br/>
                         <a href="https://github.com/F-Rivers" target="_blank">GitHub</a>
                         </span>
@@ -57,7 +57,7 @@ export default class AboutUs extends Component {
                         </span>
                         <span className="customCardText">
                         Grub Product Manager<br/>
-                        Add your about me in this section.<br/>
+                        A navy veteran with logistics and accounting background. As project manager JB was responsible for making sure the group stayed on task. JB has shown great commitment to the group and making sure each task was done in a timely manner. Looking to transition to the Tech Industry.<br/>
                         <a href="https://www.linkedin.com/in/jb-agapay/" target ="_blank">LinkedIn</a><br/>
                         <a href="https://github.com/JB-1063" target="_blank">GitHub</a>
                         </span>
@@ -72,7 +72,7 @@ export default class AboutUs extends Component {
                         </span>
                         <span className="customCardText">
                         Grub Design Lead<br/>
-                        A veteran for the United States Marine Corps. As the design lead Stephen was responsible for the overall theme and design for Grubber. Stephen has shown excellent technical abilities and a wealth of knowledge shared with the team.<br/>
+                        A veteran for the United States Marine Corps. As the design lead Stephen was responsible for the overall theme and design for Grubber. Stephen has shown excellent technical abilities and a wealth of knowledge shared with the team. Moving forward he would like to continue to create unique experiences for users through UX/UI design.<br/>
                         <a href="https://www.linkedin.com/in/somarrah/" target ="_blank">LinkedIn</a><br/>
                         <a href="https://github.com/SOMarrah" target="_blank">GitHub</a>
                         </span>
