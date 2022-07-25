@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Card, 
   CardImg, 
+  CardGroup,
   CardText, 
   CardBody,
   CardTitle, 
@@ -14,24 +15,31 @@ export default class RestaurantIndexProtected extends Component {
     const {restaurants} = this.props
     const {current_user} = this.props
     return (
-       <div>
-        {restaurants && restaurants.filter(restaurant => restaurant.user_id === current_user.id).map((value,index)=>{
-            return(
-                <Card key={index}>
-                  <CardImg top id="cardimage"src={value.image} alt="Card image cap" />
-                  <CardBody>
-                    <CardTitle>{value.name}</CardTitle>
-                    <CardSubtitle>Location: {value.street}, {value.city}, {value.state}</CardSubtitle>
-                    <CardText>Type: {value.foodtype}</CardText>
-                    <CardText>{value.comment}</CardText>   
-                    <NavLink to={`/restaurantshow/${value.id}`}>
-                      <Button>Update Info</Button>
-                    </NavLink>
-                  </CardBody>
-                </Card>
-              )
-        })}
-       </div>
+      <div className="customCardContainer">
+      <div className="customCards">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+                  { restaurants && restaurants.filter(restaurant=> restaurant.user_id === current_user.id).map((restaurant, index) => { 
+                    return(
+                      <div className="customCard" key={index}>
+                        <span className="customCardHeader" >
+                          <img src={restaurant.image}/>
+                          <span className="customCardTitle">
+                            <h3>{restaurant.name}</h3>
+                          </span>
+                        </span>
+                        <span className="customCardText">
+                          Type of food: {restaurant.foodtype}<br/>
+                          Location: {restaurant.street}, {restaurant.city}, {restaurant.state}.<br/>
+                          Rating/Comments: {restaurant.comment}<br/>
+                          <a href={`/restaurantshow/${restaurant.id}`}><button>Update Grub</button></a>
+                        </span>
+                    
+                      </div>
+                    )})}
+          </div>
+          </div>
     )
   }
 }

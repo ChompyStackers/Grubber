@@ -35,54 +35,58 @@ export default class Header extends Component {
       sign_in_route,
       sign_out_route
     } = this.props
-  return (
-    <Navbar className="grubNavBar" expand="md">
-      <NavbarBrand href="/">
-        <div id="headerContainterTitle">
-          <img className='titleImage' src={TitleImage}/>
-          <div id='titleText'>Grubber</div>
-        </div>
-      </NavbarBrand>
-        <Nav className="ml-auto" navbar>
-          <UncontrolledDropdown nav inNavbar className='dropdownBurger'>
-            <DropdownToggle nav caret>
-              <img className="hamburgerIcon" src={Hamburgericon} />
-            </DropdownToggle>
-            <DropdownMenu >
-              <DropdownItem id="All restaurants" href='/restaurantindex'>
-                All Restaurants
-              </DropdownItem>
-              <DropdownItem id="About Us" href='/AboutUs'>
-                About Us
-              </DropdownItem>
-              <DropdownItem divider />
-              {logged_in &&  
-              <>
-              <DropdownItem href='/myrestaurants'>
-                My Restaurants
-              </DropdownItem>
-              <DropdownItem href='/restaurantnew'>
-                New Restaurant
-              </DropdownItem>
-              <DropdownItem href='/users/sign_out'>
-                Sign Out
-              </DropdownItem>
-              </>
-              }
-              {!logged_in && 
-              <>
-              <DropdownItem href='/users/sign_in'>
-              Sign In
-              </DropdownItem>
-              <DropdownItem href='/users/sign_up'>
-              Sign Up
-              </DropdownItem>
-              </>
-              }
-            </DropdownMenu>
-          </UncontrolledDropdown>
-        </Nav>
-    </Navbar>
-  )
+    // console.log("this is the current user", current_user)
+    return (
+        <Navbar className="grubNavBar" expand="md">
+          <NavbarBrand href="/">
+            <div id="headerContainterTitle">
+              <img className='titleImage' src={TitleImage}/>
+              <div id='titleText'>Grubber</div>
+            </div>
+          </NavbarBrand>
+            <Nav className="ml-auto" navbar>
+              <UncontrolledDropdown nav inNavbar className='dropdownBurger'>
+                <DropdownToggle nav caret>
+                  <img className="hamburgerIcon" src={Hamburgericon} />
+                </DropdownToggle>
+                <DropdownMenu >
+                  <DropdownItem id="All restaurants" href='/restaurantindex'>
+                    All Grub
+                  </DropdownItem>
+                  <DropdownItem id="About Us" href='/AboutUs'>
+                    About Us
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  {logged_in &&  
+                  <>
+                  <DropdownItem href='/myrestaurants'>
+                    My Grub
+                  </DropdownItem>
+                  <DropdownItem href='/yelpsearch'>
+                    Search Grub
+                  </DropdownItem>
+                  <DropdownItem href='/restaurantnew'>
+                    New Grub
+                  </DropdownItem>
+                  <DropdownItem href='/users/sign_out'>
+                    Sign Out
+                  </DropdownItem>
+                  </>
+                  }
+                  {!logged_in && 
+                  <>
+                  <DropdownItem href='/users/sign_in'>
+                    Sign In
+                  </DropdownItem>
+                  <DropdownItem href='/users/sign_up'>
+                    Sign Up
+                  </DropdownItem>
+                  </>
+                  }
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+        </Navbar>
+    )
   }
 }

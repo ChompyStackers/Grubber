@@ -383,3 +383,21 @@ Everyone on the team is a developer on the project. To help divide responsibilit
 
 ---
 [Back to Syllabus](../README.md#unit-ten-capstone-project-mvp)
+
+restaurant:
+alias: string
+categories: array
+coordinates: object
+display_phone: string
+distance: decimal
+id: string
+image_url: string
+is_closed: boolean
+location: object
+name: string
+phone: string
+price: string
+rating: decimal
+review_count: integer
+transactions: array
+url: string
