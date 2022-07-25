@@ -1,4 +1,4 @@
-[Grubber](https://grubberapp.herokuapp.com/))
+[Grubber](https://grubberapp.herokuapp.com/)
 
 # Capstone requirements/Project details at the bottom
 
