@@ -235,7 +235,7 @@ body{
   width: 90%;
   position: fixed;
   border-radius: 0.5rem;
-  left: 3.5em;
+  left: 4em;
   z-index: 3;
 }
 #headerContainterTitle{
@@ -367,8 +367,7 @@ body{
   .customCardHeader{
     height: 225px;
   }
-  .img{
-    width: auto;
+  img{
     height: 100%;
   }
   .customCard:hover{
